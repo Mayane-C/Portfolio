@@ -1,66 +1,69 @@
 @import "tailwindcss";
 
+/* ==================================================================
+   PALETTE — Édition PDF "Designer son événement" (Mai 2026)
+   ------------------------------------------------------------------
+   Reprise fidèle de la direction artistique du livre blanc PDF :
+   crème chaud + bordeaux profond + terracotta + or vieilli + rose poudré.
+
+   Plus contrastée que la v4 wedding studio (code actuel du livre blanc).
+   Le bordeaux profond signature est utilisé sur :
+   - pages chapitre (poster pages)
+   - bandeaux "À RETENIR" / pull-quotes
+   - couverture finale
+   ================================================================== */
+
 @theme {
-  /* Doctrine v4 "Wedding designer studio" — luxe événementiel moderne
-     + wedding design premium. Palette blush / pêche / champagne /
-     doré doux. Plus aucun fond noir, plus aucun cacao dominant.
-
-     Les anciens noms (cream, ink, gold, obsidian, coral) sont
-     conservés pour compatibilité mais REVALORISÉS vers la nouvelle
-     direction lumineuse. */
-
   /* BASE LUMINEUSE */
-  --color-cream: #f8f0e3;          /* ivoire chaud — fond principal */
-  --color-cream-deep: #ebd9bd;     /* champagne — zones contrastées */
-  --color-sand: #e8d8bf;           /* compat — sable champagne */
+  --color-cream: #f5efe6;          /* fond principal — crème chaud */
+  --color-cream-deep: #faf6ee;     /* crème encart — cards outils */
+  --color-sand: #e8cfc5;           /* séparateurs faibles, rose poudré pale */
 
   /* TEXTES */
-  --color-ink: #3e2a2a;            /* brun prune — texte principal */
-  --color-taupe: #6b5147;          /* taupe chaud — texte secondaire */
-  --color-platinum: #b5a89a;       /* platine chaud — labels mono */
+  --color-ink: #1a1a1a;            /* texte principal — noir profond */
+  --color-taupe: #6b6258;          /* texte secondaire — taupe chaud */
+  --color-platinum: #a8a39b;       /* labels mono, métadonnées discrètes */
 
-  /* ACCENTS WEDDING — blush / pêche / rose ancien */
-  --color-blush: #f3d7cc;          /* blush poudré — halos, fonds doux */
-  --color-peach: #f2bca2;          /* pêche tendre — accent principal */
-  --color-rose-ancien: #d89b92;    /* rose ancien — accent dense, italiques */
-  --color-rose-poudre: #e8c7b8;    /* rose poudré — alias rétrocompat */
+  /* SIGNATURE BORDEAUX */
+  --color-prune: #4a1f2f;          /* bordeaux profond — pages chapitre, pull-quotes */
+  --color-prune-deep: #3a1825;     /* bordeaux + profond — rare */
 
-  /* DORÉS DOUX */
-  --color-gold: #c8a878;           /* doré doux — accent principal */
-  --color-gold-ink: #9b7b45;       /* doré dense — italiques in-body */
+  /* SIGNATURE TERRACOTTA / ROSE */
+  --color-rose-ancien: #c97a6a;    /* terracotta — hairlines, bullets, labels */
+  --color-blush: #e8cfc5;          /* rose poudré pale — halos, fonds doux */
+  --color-peach: #d4a294;          /* terracotta + clair — transitions */
 
-  /* FROIDS PAR TOUCHES (1-2 pages max) */
-  --color-lilas: #d8cbe2;          /* lilas pâle — contre-point */
-  --color-ciel: #c8d8e0;           /* bleu ciel diffus */
-  --color-sauge: #a8b598;          /* vert sauge tendre */
+  /* ORS */
+  --color-gold: #b8985e;           /* or vieilli — accent principal */
+  --color-gold-ink: #9f7437;       /* or dense — italiques in-body */
+  --color-gold-soft: #c4a573;      /* or doux — chiffres XXL background */
 
-  /* COMPAT — anciens noms revalorisés vers la nouvelle palette */
-  --color-obsidian: #3e2a2a;       /* brun prune (était cacao foncé) */
-  --color-coral: #f2bca2;          /* pêche (était terracotta) */
-  --color-coral-soft: #f3d7cc;     /* blush (était terracotta-soft) */
-  --color-coral-ink: #d89b92;      /* rose ancien (était terracotta-ink) */
-  --color-cacao: #3e2a2a;          /* brun prune */
-  --color-cacao-deep: #2e1f1f;     /* brun prune profond — rare */
-  --color-cacao-soft: #6b5147;     /* taupe chaud */
-  --color-terracotta: #f2bca2;
-  --color-terracotta-soft: #f3d7cc;
-  --color-terracotta-ink: #d89b92;
-  --color-gold-warm: #c8a878;
-  --color-gold-warm-ink: #9b7b45;
+  /* COMPAT — rétrocompatibilité noms historiques */
+  --color-obsidian: #4a1f2f;
+  --color-coral: #c97a6a;
+  --color-coral-soft: #e8cfc5;
+  --color-coral-ink: #c97a6a;
+  --color-terracotta: #c97a6a;
+  --color-terracotta-soft: #e8cfc5;
+  --color-terracotta-ink: #c97a6a;
+  --color-gold-warm: #b8985e;
+  --color-gold-warm-ink: #9f7437;
 
-  /* Tokens v5 — alias avec les noms exacts du brief client */
-  --color-ivory: #f8f0e3;
-  --color-champagne: #ebd9bd;
-  --color-peach: #f2bca2;
-  --color-old-rose: #d89b92;
-  --color-gold-soft: #c8a878;
-  --color-gold-dense: #9b7b45;
-  --color-prune: #3e2a2a;
+  /* Alias propres */
+  --color-ivory: #f5efe6;
+  --color-champagne: #faf6ee;
+  --color-old-rose: #c97a6a;
+  --color-gold-dense: #9f7437;
 
+  /* POLICES */
   --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
 }
+
+/* ==================================================================
+   BASE
+   ================================================================== */
 
 @layer base {
   html {
@@ -90,7 +93,12 @@
   }
 }
 
+/* ==================================================================
+   UTILITAIRES — patterns récurrents
+   ================================================================== */
+
 @layer utilities {
+  /* Label mono UPPERCASE letter-spaced — pattern signature du livre blanc */
   .label-mono {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
@@ -99,267 +107,42 @@
     color: var(--color-platinum);
   }
 
+  /* Hairline terracotta — séparateurs de section */
   .hairline {
-    border-color: var(--color-sand);
+    border-color: var(--color-rose-ancien);
   }
 }
 
-/* ------------------------------------------------------------------ */
-/* DÉGRADÉS v4 — "Wedding designer studio"                            */
-/* ------------------------------------------------------------------ */
+/* ==================================================================
+   GRADIENTS — utilisés ponctuellement
+   ================================================================== */
 
-/* Aurore : ivoire → champagne → blush (lumière du matin) */
-.gradient-aurore {
-  background: linear-gradient(
-    135deg,
-    #f8f0e3 0%,
-    #ebd9bd 55%,
-    #f3d7cc 100%
-  );
-}
-
-/* Halo : radial ivoire centre → blush bords (lumière diffuse) */
-.gradient-halo {
-  background: radial-gradient(
-    ellipse at 50% 35%,
-    #f8f0e3 0%,
-    #ebd9bd 55%,
-    #f3d7cc 100%
-  );
-}
-
-/* Pêche radial : punch coloré (page-événement) */
-.gradient-peche {
-  background: radial-gradient(
-    circle at 50% 45%,
-    #f8f0e3 0%,
-    #f3d7cc 30%,
-    #f2bca2 65%,
-    #d89b92 100%
-  );
-}
-
-/* Champagne dense : pour pages méthode / halos chapitre */
-.gradient-champagne {
-  background: linear-gradient(180deg, #f8f0e3 0%, #ebd9bd 100%);
-}
-
-/* Halo lilas par touches — contre-point froid (1 page max) */
-.gradient-lilas {
-  background: radial-gradient(
-    ellipse at center,
-    #f8f0e3 0%,
-    #d8cbe2 100%
-  );
-}
-
-/* Gradient texte doré doux → rose ancien (effet métal lumineux) */
+/* Gradient texte or vieilli — pour mots-italiques signature dans les titres
+   (ex: "Designer Digital" — "Digital" en gradient gold) */
 .gradient-gold-text {
-  background: linear-gradient(135deg, #c8a878 0%, #d89b92 100%);
+  background: linear-gradient(135deg, #b8985e 0%, #9f7437 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
 
-/* Gradient texte rose ancien → pêche (pour titres événementiels) */
-.gradient-peche-text {
-  background: linear-gradient(135deg, #d89b92 0%, #f2bca2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-
-/* Alias rétrocompat — gradient-cacao-deep mapped vers gradient-aurore */
-.gradient-cacao-deep {
+/* Gradient placeholder capture — crème chaud → rose poudré (chaleureux, lisible) */
+.gradient-capture-placeholder {
   background: linear-gradient(
     135deg,
-    #f8f0e3 0%,
-    #ebd9bd 55%,
-    #f3d7cc 100%
+    #f5efe6 0%,
+    #faf6ee 40%,
+    #e8cfc5 100%
   );
 }
-.gradient-terracotta-radial {
-  background: radial-gradient(
-    circle at 50% 45%,
-    #f8f0e3 0%,
-    #f3d7cc 30%,
-    #f2bca2 65%,
-    #d89b92 100%
-  );
-}
-.gradient-cream-warm {
-  background: linear-gradient(180deg, #f8f0e3 0%, #ebd9bd 100%);
+
+/* Gradient bordeaux profond — pour pages chapitre / hero foncé (optionnel) */
+.gradient-prune {
+  background: linear-gradient(135deg, #4a1f2f 0%, #3a1825 100%);
 }
 
-/* ------------------------------------------------------------------ */
-/* A4 PAGE — print-ready editorial sheet                              */
-/* ------------------------------------------------------------------ */
-
-.a4-page {
-  width: 210mm;
-  height: 297mm;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Texture papier vergé très subtile sur les fonds cream */
-.a4-page.bg-cream {
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  background-blend-mode: multiply;
-}
-
-.page-wrapper {
-  page-break-after: always;
-  break-after: page;
-  page-break-inside: avoid;
-  break-inside: avoid;
-}
-
-.page-wrapper:last-of-type {
-  page-break-after: auto;
-  break-after: auto;
-}
-
-@media screen {
-  .a4-shell {
-    padding: 28mm 0;
-  }
-  .a4-page {
-    margin: 0 auto;
-    box-shadow: 0 0 40px rgba(62, 42, 42, 0.08);
-  }
-  .a4-shell + .a4-shell,
-  .a4-shell ~ .a4-shell {
-    padding-top: 0;
-  }
-}
-
-@media screen and (max-width: 860px) {
-  .a4-scaler {
-    transform-origin: top left;
-    overflow: hidden;
-  }
-}
-
-/* ------------------------------------------------------------------ */
-/* Utilities for the editorial layouts                                 */
-/* ------------------------------------------------------------------ */
-
-.huge-numeral {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  line-height: 0.82;
-  letter-spacing: -0.04em;
-  color: var(--color-gold);
-  user-select: none;
-  pointer-events: none;
-}
-
-.pull-quote {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-}
-
-.portrait-stamp {
-  filter: grayscale(0.6) sepia(0.08) contrast(1.02) brightness(1.02);
-}
-
-.gold-italic {
-  font-family: var(--font-serif);
-  font-style: italic;
-  color: var(--color-gold);
-}
-
-.gold-ink-italic,
-.text-gold-ink {
-  color: var(--color-gold-ink);
-}
-.gold-ink-italic {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 500;
-}
-
-.coral-ink-italic {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 500;
-  color: var(--color-coral-ink);
-}
-
-.hairline-double-gold {
-  display: block;
-  position: relative;
-  height: 2mm;
-  border-top: 0.5px solid var(--color-gold);
-  border-bottom: 0.5px solid var(--color-gold);
-}
-
-.hairline-v {
-  width: 1px;
-  background-color: var(--color-gold);
-  opacity: 0.55;
-}
-
-.hairline-h {
-  height: 1px;
-  background-color: var(--color-gold);
-  opacity: 0.55;
-}
-
-@media print {
-  html,
-  body {
-    margin: 0 !important;
-    padding: 0 !important;
-    background: white !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .no-print,
-  header[role="banner"],
-  header.no-print,
-  footer,
-  nav[aria-label="Navigation entre chapitres"],
-  .a4-nav,
-  .a4-toolbar {
-    display: none !important;
-  }
-
-  .a4-shell {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .a4-page {
-    width: 210mm !important;
-    height: 297mm !important;
-    min-height: 297mm !important;
-    max-height: 297mm !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    overflow: hidden !important;
-  }
-
-  .page-wrapper {
-    page-break-after: always !important;
-    break-after: page !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    height: 297mm !important;
-    overflow: hidden !important;
-  }
-
-  .page-wrapper:last-of-type {
-    page-break-after: auto !important;
-    break-after: auto !important;
-  }
+/* Alias rétrocompatibilité — pour usage existant gradient-aurore */
+.gradient-aurore {
+  background: linear-gradient(135deg, #f5efe6 0%, #faf6ee 40%, #e8cfc5 100%);
 }

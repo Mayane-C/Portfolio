@@ -1,0 +1,151 @@
+import type { Metadata } from "next";
+import { MonoBanner } from "@/components/MonoBanner";
+import { MonoFooter } from "@/components/MonoFooter";
+import { ProjectHero } from "@/components/ProjectHero";
+import { Section } from "@/components/Section";
+import { PullQuote } from "@/components/PullQuote";
+import { CaptureSlot } from "@/components/CaptureSlot";
+import { ProjectNav } from "@/components/ProjectNav";
+import { getProjectBySlug } from "@/data/projects";
+
+const project = getProjectBySlug("brothers-negoce")!;
+
+export const metadata: Metadata = {
+  title: `${project.title} · Système visuel génératif`,
+  description: project.subtitle,
+};
+
+export default function BrothersNegocePage() {
+  return (
+    <>
+      <MonoBanner
+        centerLabel={`PROJET Nº ${project.nr} / 06 · BROTHERS NÉGOCE`}
+        cartouche={`Nº ${project.nr} — MAI 2026`}
+      />
+
+      <ProjectHero project={project} contextLabel="Alternance · M2 ESD" />
+
+      <div className="px-8 md:px-12">
+        <CaptureSlot
+          src="/projects/brothers-negoce/01-cover.png"
+          alt="Cover du design system Brothers Négoce — Système visuel génératif B2B"
+          caption="Cover · système visuel génératif B2B"
+          ratio="16/10"
+        />
+      </div>
+
+      <Section label="Le contexte">
+        <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
+          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
+            <strong className="font-semibold">Brothers Négoce</strong>{" "}
+            distribue du matériel énergétique{" "}
+            <em className="italic text-gold-ink">
+              (pompes à chaleur, VMC, éclairage LED)
+            </em>{" "}
+            à des revendeurs et installateurs B2B en France. À mon arrivée
+            en alternance, la communication reposait sur un logo seul + du
+            bricolage au cas par cas.
+          </p>
+          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
+            Incohérence entre les supports, aucun langage partagé entre les
+            pôles. Chaque post Meta repartait de zéro, chaque flyer
+            réinventait sa palette. Coût caché : du temps, et de la
+            cohérence perdue.
+          </p>
+        </div>
+      </Section>
+
+      <Section label="L'approche" compact>
+        <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
+          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
+            Conception d&apos;un{" "}
+            <em className="italic text-gold-ink">système génératif</em> —
+            pas une charte figée, un kit modulaire qui produit des visuels
+            4:5 cohérents en quelques minutes. Format imposé : Meta /
+            Instagram.
+          </p>
+          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
+            Trois briques structurent le système : des{" "}
+            <em className="italic text-gold-ink">tokens couleur</em>{" "}
+            (3 principales + 4 secondaires + neutres), des composants typés
+            (badges, cartes, headers), et trois familles de templates
+            réutilisables.
+          </p>
+        </div>
+      </Section>
+
+      <div className="px-8 md:px-12">
+        <CaptureSlot
+          src="/projects/brothers-negoce/02-variables.png"
+          alt="Variables & composants — palette de couleurs, typographies et composants typés du design system"
+          caption="Variables & composants · tokens du système"
+          ratio="4/3"
+        />
+      </div>
+
+      <Section label="Trois familles de templates" compact>
+        <p className="font-sans text-base md:text-lg text-ink leading-relaxed max-w-3xl">
+          Chaque famille répond à un usage de communication B2B distinct.
+          L&apos;équipe choisit la famille, remplit le template,{" "}
+          <em className="italic text-gold-ink">publie</em> — la cohérence
+          est garantie sans dépendre du designer.
+        </p>
+        <ul className="mt-8 grid grid-cols-1 gap-6 font-serif text-lg md:grid-cols-3">
+          <li className="border-l-2 border-rose-ancien pl-4">
+            <p className="label-mono mb-2 text-rose-ancien">Template 01</p>
+            <p className="italic text-ink">Produit · gamme</p>
+            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
+              Pompes à chaleur, VMC, LED — mise en avant produit avec
+              hiérarchie technique claire.
+            </p>
+          </li>
+          <li className="border-l-2 border-rose-ancien pl-4">
+            <p className="label-mono mb-2 text-rose-ancien">Template 02</p>
+            <p className="italic text-ink">Usage · métier</p>
+            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
+              Approvisionnez vos chantiers, centralisez vos achats — angle
+              opérationnel revendeur.
+            </p>
+          </li>
+          <li className="border-l-2 border-rose-ancien pl-4">
+            <p className="label-mono mb-2 text-rose-ancien">Template 03</p>
+            <p className="italic text-ink">Preuve · valeur</p>
+            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
+              Stock disponible, expertise technique, réactivité — angle
+              confiance et engagement.
+            </p>
+          </li>
+        </ul>
+      </Section>
+
+      <div className="px-8 md:px-12">
+        <CaptureSlot
+          src="/projects/brothers-negoce/03-templates.png"
+          alt="Exemples de posts générés depuis les 3 familles de templates"
+          caption="Exemples · 9 posts générés depuis les 3 familles"
+          ratio="4/3"
+        />
+      </div>
+
+      <div className="px-8 md:px-12">
+        <PullQuote>{project.pullQuote}</PullQuote>
+      </div>
+
+      {/* Statut — section spécifique Brothers (phase pilote) */}
+      <Section label="Statut" compact>
+        <p className="font-sans text-base md:text-lg text-ink leading-relaxed max-w-3xl">
+          <em className="italic text-gold-ink">
+            Phase pilote · en cours de déploiement.
+          </em>{" "}
+          Premiers templates produits, en validation interne avant
+          déploiement à l&apos;échelle de toute la communication B2B
+          Brothers Négoce.
+        </p>
+      </Section>
+
+      <ProjectNav currentSlug={project.slug} />
+
+      <MonoFooter centerLabel="Brothers Négoce · Projet Nº 03" />
+    </>
+  );
+}
