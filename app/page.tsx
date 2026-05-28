@@ -110,10 +110,6 @@ export default function HomePage() {
                 d&apos;alternance à l&apos;interface métier embarquée.
                 Chaque projet a son terrain, son contrainte, sa preuve.
               </p>
-              <p className="mt-4 font-serif italic text-taupe text-lg">
-                Lisez-les comme un catalogue — du plus stratégique au plus
-                ancien. La méthode est la même.
-              </p>
             </div>
           </div>
         </section>

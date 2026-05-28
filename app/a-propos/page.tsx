@@ -280,36 +280,25 @@ export default function AProposPage() {
             ?
           </h2>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <div className="border-l-2 border-rose-ancien pl-5">
               <p className="label-mono text-rose-ancien mb-2">Email</p>
               <a
-                href="mailto:mayane.cohen@mail-esd.fr"
+                href="mailto:mayanecohen2626@gmail.com"
                 className="font-serif italic text-xl text-ink hover:text-gold-ink transition-colors break-all"
               >
-                mayane.cohen@mail-esd.fr
+                mayanecohen2626@gmail.com
               </a>
             </div>
             <div className="border-l-2 border-rose-ancien pl-5">
               <p className="label-mono text-rose-ancien mb-2">LinkedIn</p>
               <a
-                href="https://linkedin.com/in/mayane-cohen"
+                href="https://linkedin.com/in/mayane-cohen-64a529276"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-serif italic text-xl text-ink hover:text-gold-ink transition-colors"
+                className="font-serif italic text-xl text-ink hover:text-gold-ink transition-colors break-all"
               >
-                /in/mayane-cohen
-              </a>
-            </div>
-            <div className="border-l-2 border-rose-ancien pl-5">
-              <p className="label-mono text-rose-ancien mb-2">GitHub</p>
-              <a
-                href="https://github.com/Mayane-C"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-serif italic text-xl text-ink hover:text-gold-ink transition-colors"
-              >
-                @Mayane-C
+                /in/mayane-cohen-64a529276
               </a>
             </div>
           </div>
