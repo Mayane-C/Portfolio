@@ -91,27 +91,14 @@ export default function HomePage() {
           id="projets"
           className="scroll-mt-24 border-t border-rose-ancien/30 py-12 md:py-16 md:scroll-mt-32"
         >
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
-            <div className="md:col-span-4">
-              <p className="label-mono mb-3 text-rose-ancien">
-                — Les projets · 06 / 06
-              </p>
-              <h2 className="font-serif text-4xl leading-tight text-ink md:text-5xl">
-                Six projets,{" "}
-                <em className="italic gradient-gold-text">
-                  six terrains
-                </em>{" "}
-                — une méthode.
-              </h2>
-            </div>
-            <div className="md:col-span-7 md:col-start-6">
-              <p className="font-sans text-base text-ink leading-relaxed md:text-lg">
-                Du grossiste B2B à l&apos;IA générative, du design system
-                d&apos;alternance à l&apos;interface métier embarquée.
-                Chaque projet a son terrain, son contrainte, sa preuve.
-              </p>
-            </div>
-          </div>
+          <p className="label-mono mb-3 text-rose-ancien">
+            — Les projets · 06 / 06
+          </p>
+          <h2 className="font-serif text-4xl leading-tight text-ink md:text-5xl">
+            Six projets,{" "}
+            <em className="italic gradient-gold-text">six terrains</em> —
+            une méthode.
+          </h2>
         </section>
 
         {/* ─── GRILLE 6 PROJETS ──────────────────────────────── */}
