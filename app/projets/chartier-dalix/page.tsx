@@ -35,9 +35,18 @@ export default function ChartierDalixPage() {
             refaire entièrement.
           </p>
           <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            L&apos;existant traitait le contenu comme une plaquette
-            commerciale : photos comprimées, hiérarchie plate, et surtout
-            un système éditorial fort{" "}
+            L&apos;
+            <a
+              href="https://www.chartier-dalix.com/fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink underline decoration-rose-ancien decoration-1 underline-offset-4 transition-colors hover:text-gold-ink"
+            >
+              existant
+            </a>{" "}
+            traitait le contenu comme une plaquette commerciale : photos
+            comprimées, hiérarchie plate, et surtout un système éditorial
+            fort{" "}
             <em className="italic text-taupe">
               (la numérotation des projets)
             </em>{" "}
