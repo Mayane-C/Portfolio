@@ -25,13 +25,13 @@ interface MonoBannerProps {
 }
 
 const navItems = [
-  { href: "/", label: "Projets" },
-  { href: "/a-propos", label: "À propos" },
+  { href: "/#projets", label: "Projets", matchPath: "/" },
+  { href: "/a-propos", label: "À propos", matchPath: "/a-propos" },
 ];
 
 function isActive(currentPath: string, target: string): boolean {
   if (target === "/") {
-    // "/" est actif sur la home et sur toutes les pages /projets/*
+    // Ancre Projets : actif sur la home et sur toutes les pages /projets/*
     return currentPath === "/" || currentPath.startsWith("/projets/");
   }
   return currentPath === target || currentPath.startsWith(`${target}/`);
@@ -57,7 +57,7 @@ export function MonoBanner({ cartouche, centerLabel }: MonoBannerProps) {
         <nav aria-label="Navigation principale" className="order-3 w-full md:order-2 md:w-auto">
           <ul className="flex items-center gap-5 md:gap-8">
             {navItems.map((item) => {
-              const active = isActive(pathname, item.href);
+              const active = isActive(pathname, item.matchPath);
               return (
                 <li key={item.href}>
                   <Link
