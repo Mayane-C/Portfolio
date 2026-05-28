@@ -28,22 +28,22 @@ export function ProjectHero({ project, contextLabel }: ProjectHeroProps) {
   };
 
   return (
-    <section className="px-8 pt-10 pb-16 md:px-12 md:pt-16 md:pb-24">
+    <section className="px-6 pt-8 pb-12 md:px-12 md:pt-16 md:pb-24">
       {/* Label contexte + Nº */}
-      <div className="mb-8 flex items-center gap-3">
-        <span className="block h-px w-12 bg-rose-ancien" />
+      <div className="mb-6 flex items-start gap-3 md:mb-8 md:items-center">
+        <span className="mt-2 block h-px w-8 bg-rose-ancien md:mt-0 md:w-12" />
         <span className="label-mono text-rose-ancien">
           Projet Nº {project.nr} · {contextLabel}
         </span>
       </div>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-x-8">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8 md:gap-x-8">
         {/* Titre principal */}
         <div className="md:col-span-9">
-          <h1 className="font-serif text-[3.5rem] leading-[0.95] text-ink md:text-[7rem]">
+          <h1 className="font-serif text-5xl leading-[0.95] text-ink sm:text-6xl md:text-[7rem]">
             {renderTitle()}
           </h1>
-          <p className="mt-8 max-w-2xl font-serif text-2xl italic text-taupe leading-snug md:text-3xl">
+          <p className="mt-6 max-w-2xl font-serif text-xl italic text-taupe leading-snug md:mt-8 md:text-3xl">
             {project.subtitle}
           </p>
         </div>

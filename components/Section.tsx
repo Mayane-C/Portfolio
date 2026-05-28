@@ -22,7 +22,7 @@ export function Section({
 }: SectionProps) {
   return (
     <section
-      className={`px-8 md:px-12 ${
+      className={`px-6 md:px-12 ${
         compact ? "py-8 md:py-10" : "py-12 md:py-16"
       }`}
     >

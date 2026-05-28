@@ -28,7 +28,7 @@ export default function OraclePage() {
         contextLabel="M2 ESD · Cours CREATECH · ChangeNOW"
       />
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/oracle-des-dechets/01-interface.png"
           alt="Interface live de l'Oracle des déchets — terminal noir glitch, transmission depuis l'an 2500"
@@ -113,7 +113,7 @@ export default function OraclePage() {
         </ul>
       </Section>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/oracle-des-dechets/02-workflow.png"
           alt="Workflow n8n V2 — webhook, Groq LLM, JSON response"
@@ -128,7 +128,7 @@ export default function OraclePage() {
         />
       </div>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>
       </div>
 
@@ -145,7 +145,7 @@ export default function OraclePage() {
       </Section>
 
       {project.externalLink && (
-        <section className="px-8 md:px-12 py-12">
+        <section className="px-6 md:px-12 py-12">
           <div className="border-t border-rose-ancien/30 pt-10 text-center">
             <p className="label-mono text-platinum mb-3">
               — Le projet est en ligne

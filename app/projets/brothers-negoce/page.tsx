@@ -25,7 +25,7 @@ export default function BrothersNegocePage() {
 
       <ProjectHero project={project} contextLabel="Alternance · M2 ESD" />
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/brothers-negoce/01-cover.png"
           alt="Cover du design system Brothers Négoce — Système visuel génératif B2B"
@@ -74,7 +74,7 @@ export default function BrothersNegocePage() {
         </div>
       </Section>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/brothers-negoce/02-variables.png"
           alt="Variables & composants — palette de couleurs, typographies et composants typés du design system"
@@ -118,7 +118,7 @@ export default function BrothersNegocePage() {
         </ul>
       </Section>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/brothers-negoce/03-templates.png"
           alt="Exemples de posts générés depuis les 3 familles de templates"
@@ -127,7 +127,7 @@ export default function BrothersNegocePage() {
         />
       </div>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>
       </div>
 

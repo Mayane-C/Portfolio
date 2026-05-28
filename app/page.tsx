@@ -11,13 +11,13 @@ export default function HomePage() {
         cartouche="Nº 01 — MAI 2026"
       />
 
-      <article className="px-8 md:px-12">
+      <article className="px-6 md:px-12">
         {/* ─── HERO ──────────────────────────────────────────── */}
-        <section className="grid grid-cols-1 gap-12 py-16 md:grid-cols-12 md:gap-x-8 md:py-24">
+        <section className="grid grid-cols-1 gap-8 py-12 md:grid-cols-12 md:gap-12 md:gap-x-8 md:py-24">
           {/* Label section */}
           <div className="md:col-span-12">
             <div className="flex items-center gap-3">
-              <span className="block h-px w-12 bg-rose-ancien" />
+              <span className="block h-px w-8 bg-rose-ancien md:w-12" />
               <span className="label-mono text-rose-ancien">
                 Mayane Cohen · Portfolio · 2026
               </span>
@@ -26,14 +26,14 @@ export default function HomePage() {
 
           {/* Titre principal */}
           <div className="md:col-span-9">
-            <h1 className="font-serif text-[3.5rem] leading-[0.95] text-ink md:text-[7rem]">
+            <h1 className="font-serif text-5xl leading-[0.95] text-ink sm:text-6xl md:text-[7rem]">
               Designer{" "}
               <em className="font-serif italic gradient-gold-text">
                 Digital
               </em>
               .
             </h1>
-            <p className="mt-8 max-w-2xl font-serif text-2xl italic text-taupe leading-snug md:text-3xl">
+            <p className="mt-6 max-w-2xl font-serif text-xl italic text-taupe leading-snug md:mt-8 md:text-3xl">
               Six projets, du design system B2B à l&apos;expérience IA
               générative. Un fil rouge : la méthode au service du sensible.
             </p>

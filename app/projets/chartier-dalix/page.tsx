@@ -26,7 +26,7 @@ export default function ChartierDalixPage() {
 
       <ProjectHero project={project} contextLabel="M1 ESD · UI Design" />
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/chartier-dalix/01-hero.webp"
           alt="Hero homepage Chartier Dalix — photo nocturne d'un bâtiment moderne en bord de port avec logo en bas"
@@ -109,7 +109,7 @@ export default function ChartierDalixPage() {
         </ul>
       </Section>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/chartier-dalix/02-projets.webp"
           alt="Page Projets Chartier Dalix — hero mosaïque et grille de projets numérotés 101, 100, 99..."
@@ -124,7 +124,7 @@ export default function ChartierDalixPage() {
         />
       </div>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <VideoSlot
           src="/projects/chartier-dalix/demo.mp4"
           caption="Démo Protopie · navigation interactive du prototype"
@@ -132,7 +132,7 @@ export default function ChartierDalixPage() {
         />
       </div>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>
       </div>
 

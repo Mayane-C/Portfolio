@@ -14,7 +14,7 @@ interface PullQuoteProps {
 
 export function PullQuote({ children, label = "À retenir" }: PullQuoteProps) {
   return (
-    <div className="my-12 bg-prune px-8 py-10 md:my-16 md:px-12 md:py-14">
+    <div className="my-12 bg-prune px-6 py-10 md:my-16 md:px-12 md:py-14">
       <p className="label-mono mb-5 text-gold-soft">
         — {label}
       </p>

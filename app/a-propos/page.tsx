@@ -100,23 +100,23 @@ export default function AProposPage() {
       />
 
       {/* ─── HERO ──────────────────────────────────────────── */}
-      <section className="px-8 pt-10 pb-16 md:px-12 md:pt-16 md:pb-24">
-        <div className="mb-8 flex items-center gap-3">
-          <span className="block h-px w-12 bg-rose-ancien" />
+      <section className="px-6 pt-8 pb-12 md:px-12 md:pt-16 md:pb-24">
+        <div className="mb-6 flex items-start gap-3 md:mb-8 md:items-center">
+          <span className="mt-2 block h-px w-8 bg-rose-ancien md:mt-0 md:w-12" />
           <span className="label-mono text-rose-ancien">
             Liminaire · Qui je suis
           </span>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-x-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12 md:gap-x-8">
           {/* Titre + pitch */}
           <div className="md:col-span-8">
-            <h1 className="font-serif text-[3.5rem] leading-[0.95] text-ink md:text-[6.5rem]">
+            <h1 className="font-serif text-5xl leading-[0.95] text-ink sm:text-6xl md:text-[6.5rem]">
               Mayane
               <br />
               <em className="font-serif italic gradient-gold-text">Cohen</em>.
             </h1>
-            <p className="mt-8 max-w-2xl font-serif text-2xl italic text-taupe leading-snug md:text-3xl">
+            <p className="mt-6 max-w-2xl font-serif text-xl italic text-taupe leading-snug md:mt-8 md:text-3xl">
               Maths · Info · MIAGE · Design digital. Un parcours non-linéaire
               qui mène à une seule conviction :{" "}
               <em className="text-gold-ink not-italic font-serif">
@@ -128,12 +128,12 @@ export default function AProposPage() {
 
           {/* Portrait timbre-poste */}
           <aside className="md:col-span-3 md:col-start-10 md:pt-4">
-            <div className="relative aspect-[3/4] w-full max-w-[200px] overflow-hidden border border-rose-ancien/30">
+            <div className="relative aspect-[3/4] w-40 overflow-hidden border border-rose-ancien/30 sm:w-48 md:w-full md:max-w-[200px]">
               <Image
                 src="/portrait.jpg"
                 alt="Portrait de Mayane Cohen"
                 fill
-                sizes="(min-width: 768px) 200px, 60vw"
+                sizes="(min-width: 768px) 200px, (min-width: 640px) 192px, 160px"
                 className="object-cover grayscale-[0.15] sepia-[0.08]"
                 priority
               />
@@ -146,7 +146,7 @@ export default function AProposPage() {
       </section>
 
       {/* ─── PARCOURS ──────────────────────────────────────── */}
-      <section className="px-8 md:px-12 py-12 md:py-16">
+      <section className="px-6 md:px-12 py-12 md:py-16">
         <div className="border-t border-rose-ancien/30 pt-10">
           <div className="mb-4 flex items-center gap-3">
             <span className="block h-px w-8 bg-rose-ancien" />
@@ -195,7 +195,7 @@ export default function AProposPage() {
       </section>
 
       {/* ─── L'INTUITION AVANT LA MÉTHODE ──────────────────── */}
-      <section className="px-8 md:px-12 py-12 md:py-16">
+      <section className="px-6 md:px-12 py-12 md:py-16">
         <div className="border-t border-rose-ancien/30 pt-10">
           <div className="mb-4 flex items-center gap-3">
             <span className="block h-px w-8 bg-rose-ancien" />
@@ -227,14 +227,14 @@ export default function AProposPage() {
         </div>
       </section>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <PullQuote label="La conviction">
           L&apos;esthétique est une méthode, pas un don.
         </PullQuote>
       </div>
 
       {/* ─── LA MÉTHODE AUJOURD'HUI ────────────────────────── */}
-      <section className="px-8 md:px-12 py-12 md:py-16">
+      <section className="px-6 md:px-12 py-12 md:py-16">
         <div className="border-t border-rose-ancien/30 pt-10">
           <div className="mb-4 flex items-center gap-3">
             <span className="block h-px w-8 bg-rose-ancien" />
@@ -267,7 +267,7 @@ export default function AProposPage() {
       </section>
 
       {/* ─── CONTACT ───────────────────────────────────────── */}
-      <section className="px-8 md:px-12 py-12 md:py-20">
+      <section className="px-6 md:px-12 py-12 md:py-20">
         <div className="border-t border-rose-ancien/30 pt-10">
           <div className="mb-4 flex items-center gap-3">
             <span className="block h-px w-8 bg-rose-ancien" />

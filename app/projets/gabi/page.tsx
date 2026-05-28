@@ -26,7 +26,7 @@ export default function GabiPage() {
 
       <ProjectHero project={project} contextLabel="M1 ESD · UI Design" />
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/gabi/01-initial.png"
           alt="Vue carte initiale GABI — Quel bus, Quelle direction, 3 cards lignes de bus 23/34/60"
@@ -59,7 +59,7 @@ export default function GabiPage() {
         </div>
       </Section>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <VideoSlot
           src="/projects/gabi/demo.mp4"
           caption="Démo générale du projet · les quatre parcours conducteur"
@@ -125,7 +125,7 @@ export default function GabiPage() {
         </ul>
       </Section>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/gabi/02-selection.png"
           alt="Sélection rapide GABI — dropdown bus 250/43 + destination Gare de Lyon"
@@ -146,7 +146,7 @@ export default function GabiPage() {
         />
       </div>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>
       </div>
 

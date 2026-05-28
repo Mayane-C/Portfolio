@@ -18,7 +18,7 @@ export function ProjectNav({ currentSlug }: ProjectNavProps) {
       : null;
 
   return (
-    <section className="px-8 md:px-12 pt-12 pb-8 md:pt-16">
+    <section className="px-6 md:px-12 pt-12 pb-8 md:pt-16">
       <div className="border-t border-rose-ancien/30 pt-8">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
           {/* Précédent */}

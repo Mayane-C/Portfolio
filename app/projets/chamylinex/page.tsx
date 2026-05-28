@@ -29,7 +29,7 @@ export default function ChamylinexPage() {
       />
 
       {/* Capture hero plein cadre */}
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/chamylinex/01-hero.webp"
           alt="Page d'accueil Chamylinex — hero photo entrepôt + titre Votre Partenaire Grossiste International"
@@ -82,7 +82,7 @@ export default function ChamylinexPage() {
       </Section>
 
       {/* Capture 2 — Bienvenue + 4 services */}
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/chamylinex/02-bienvenue.webp"
           alt="Section Bienvenue chez Chamylinex avec 4 services (Sourcing International, Logistique Flexible, Qualité Garantie, Accompagnement Pro)"
@@ -92,7 +92,7 @@ export default function ChamylinexPage() {
       </div>
 
       {/* Capture 3 — Boutique */}
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/chamylinex/03-boutique.webp"
           alt="Page Boutique — hero avec recherche, filtres latéraux et grille produits"
@@ -102,12 +102,12 @@ export default function ChamylinexPage() {
       </div>
 
       {/* Pull-quote signature */}
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>
       </div>
 
       {/* Capture 4 — Grille produits */}
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/chamylinex/04-produits.webp"
           alt="Grille produits avec cards (Air Wick, Lenor, Ariel) — badges Nouveau, prix au carton + unitaire"
@@ -118,7 +118,7 @@ export default function ChamylinexPage() {
 
       {/* ─── CTA fin ─────────────────────────────────────────── */}
       {project.externalLink && (
-        <section className="px-8 md:px-12 py-12">
+        <section className="px-6 md:px-12 py-12">
           <div className="border-t border-rose-ancien/30 pt-10 text-center">
             <p className="label-mono text-platinum mb-3">
               — Voir le travail en interaction

@@ -25,7 +25,7 @@ export default function MyTrackPage() {
 
       <ProjectHero project={project} contextLabel="M2 ESD · Cours UX" />
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/mytrack/01-dashboard.webp"
           alt="Tableau de bord MyTrack — Bienvenue dans votre parcours hybride avec socle commun et CTA spécialisation"
@@ -78,7 +78,7 @@ export default function MyTrackPage() {
         </p>
       </Section>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/mytrack/02-choix.webp"
           alt="Choix d'expertise MyTrack — 3 cards Option UX Design, Data Strategy, Digital Marketing"
@@ -128,7 +128,7 @@ export default function MyTrackPage() {
         </ul>
       </Section>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <CaptureSlot
           src="/projects/mytrack/03-confirmation.webp"
           alt="Écran de confirmation MyTrack — Félicitations, inscription UX Design validée"
@@ -143,12 +143,12 @@ export default function MyTrackPage() {
         />
       </div>
 
-      <div className="px-8 md:px-12">
+      <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>
       </div>
 
       {project.externalLink && (
-        <section className="px-8 md:px-12 py-12">
+        <section className="px-6 md:px-12 py-12">
           <div className="border-t border-rose-ancien/30 pt-10 text-center">
             <p className="label-mono text-platinum mb-3">
               — Voir le travail en interaction
