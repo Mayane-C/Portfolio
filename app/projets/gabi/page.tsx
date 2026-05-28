@@ -4,7 +4,6 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { CaptureSlot } from "@/components/CaptureSlot";
 import { VideoSlot } from "@/components/VideoSlot";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
@@ -25,15 +24,6 @@ export default function GabiPage() {
       />
 
       <ProjectHero project={project} contextLabel="M1 ESD · UI Design" />
-
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/gabi/01-initial.png"
-          alt="Vue carte initiale GABI — Quel bus, Quelle direction, 3 cards lignes de bus 23/34/60"
-          caption="Vue initiale · choix du bus et de la direction"
-          ratio="16/10"
-        />
-      </div>
 
       <Section label="Le projet collectif">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
@@ -124,27 +114,6 @@ export default function GabiPage() {
           </li>
         </ul>
       </Section>
-
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/gabi/02-selection.png"
-          alt="Sélection rapide GABI — dropdown bus 250/43 + destination Gare de Lyon"
-          caption="Sélection · dropdown rapide bus + direction"
-          ratio="16/10"
-        />
-        <CaptureSlot
-          src="/projects/gabi/03-itineraire.png"
-          alt="Itinéraire chargé GABI — trajet bleu sur carte + liste arrêts + bouton Démarrer"
-          caption="Itinéraire · trajet visualisé avant le départ"
-          ratio="16/10"
-        />
-        <CaptureSlot
-          src="/projects/gabi/04-conduite.webp"
-          alt="En conduite GABI — arrêt République surligné en bleu, autres arrêts en gris"
-          caption="En conduite · arrêt courant surligné"
-          ratio="16/10"
-        />
-      </div>
 
       <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>

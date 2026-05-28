@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MonoBanner } from "@/components/MonoBanner";
 import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -39,8 +40,29 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Méta éditoriale à droite — comme un colophon */}
+          {/* Portrait + Méta éditoriale à droite — comme un colophon */}
           <aside className="md:col-span-3 md:pt-4">
+            {/* Portrait timbre-poste — chaleur humaine en haut de la home */}
+            <div className="mb-6 flex items-center gap-4 md:block md:mb-8">
+              <div className="relative aspect-[3/4] w-24 overflow-hidden border border-rose-ancien/30 sm:w-28 md:w-full md:max-w-[180px]">
+                <Image
+                  src="/portrait.jpg"
+                  alt="Portrait de Mayane Cohen"
+                  fill
+                  sizes="(min-width: 768px) 180px, 112px"
+                  className="object-cover grayscale-[0.15] sepia-[0.08]"
+                  priority
+                />
+              </div>
+              <div className="md:mt-3">
+                <p className="label-mono text-platinum">Par</p>
+                <p className="font-serif italic text-lg text-ink leading-tight md:text-xl md:mt-1">
+                  Mayane Cohen
+                </p>
+                <p className="label-mono mt-1 text-platinum">Paris · 2026</p>
+              </div>
+            </div>
+
             <div className="space-y-4 border-l border-rose-ancien/30 pl-4">
               <div>
                 <p className="label-mono text-platinum">Formation</p>

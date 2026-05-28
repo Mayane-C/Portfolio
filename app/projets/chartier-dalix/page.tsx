@@ -4,7 +4,6 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { CaptureSlot } from "@/components/CaptureSlot";
 import { VideoSlot } from "@/components/VideoSlot";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
@@ -25,15 +24,6 @@ export default function ChartierDalixPage() {
       />
 
       <ProjectHero project={project} contextLabel="M1 ESD · UI Design" />
-
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/chartier-dalix/01-hero.webp"
-          alt="Hero homepage Chartier Dalix — photo nocturne d'un bâtiment moderne en bord de port avec logo en bas"
-          caption="Hero homepage · photographie pleine page"
-          ratio="16/10"
-        />
-      </div>
 
       <Section label="Le constat">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
@@ -108,21 +98,6 @@ export default function ChartierDalixPage() {
           </li>
         </ul>
       </Section>
-
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/chartier-dalix/02-projets.webp"
-          alt="Page Projets Chartier Dalix — hero mosaïque et grille de projets numérotés 101, 100, 99..."
-          caption="Page Projets · grille numérotée en décompte"
-          ratio="9/16"
-        />
-        <CaptureSlot
-          src="/projects/chartier-dalix/03-fiche.png"
-          alt="Fiche projet 101 — Métamorphose Dijon-Maret, image hero, métadonnées et texte éditorial"
-          caption="Fiche projet 101 · pivot éditorial du système"
-          ratio="9/16"
-        />
-      </div>
 
       <div className="px-6 md:px-12">
         <VideoSlot
