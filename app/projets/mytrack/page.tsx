@@ -4,7 +4,7 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { CaptureSlot } from "@/components/CaptureSlot";
+import { Carousel } from "@/components/Carousel";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -15,6 +15,29 @@ export const metadata: Metadata = {
   description: project.subtitle,
 };
 
+const captures = [
+  {
+    src: "/projects/mytrack/01-dashboard.webp",
+    alt: "Tableau de bord MyTrack — Bienvenue dans votre parcours hybride avec socle commun et CTA spécialisation",
+    caption: "Tableau de bord · entrée du parcours",
+  },
+  {
+    src: "/projects/mytrack/02-choix.webp",
+    alt: "Choix d'expertise MyTrack — 3 cards Option UX Design, Data Strategy, Digital Marketing",
+    caption: "Choix d'expertise · 3 voies présentées en cards",
+  },
+  {
+    src: "/projects/mytrack/03-confirmation.webp",
+    alt: "Écran de confirmation MyTrack — Félicitations, inscription UX Design validée",
+    caption: "Confirmation · feedback positif après inscription",
+  },
+  {
+    src: "/projects/mytrack/04-profil.webp",
+    alt: "Profil mis à jour MyTrack — progression Tronc Commun 100%, Programme UX 35%, planning et ressources",
+    caption: "Profil mis à jour · progression + planning + ressources",
+  },
+];
+
 export default function MyTrackPage() {
   return (
     <>
@@ -24,15 +47,6 @@ export default function MyTrackPage() {
       />
 
       <ProjectHero project={project} contextLabel="M2 ESD · Cours UX" />
-
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/mytrack/01-dashboard.webp"
-          alt="Tableau de bord MyTrack — Bienvenue dans votre parcours hybride avec socle commun et CTA spécialisation"
-          caption="Tableau de bord · entrée du parcours"
-          ratio="16/10"
-        />
-      </div>
 
       <Section label="La problématique UX">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
@@ -78,15 +92,6 @@ export default function MyTrackPage() {
         </p>
       </Section>
 
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/mytrack/02-choix.webp"
-          alt="Choix d'expertise MyTrack — 3 cards Option UX Design, Data Strategy, Digital Marketing"
-          caption="Choix d'expertise · 3 voies présentées en cards"
-          ratio="16/10"
-        />
-      </div>
-
       <Section label="La démarche" compact>
         <ul className="grid grid-cols-1 gap-6 md:grid-cols-4">
           <li className="border-l-2 border-rose-ancien pl-4">
@@ -128,19 +133,9 @@ export default function MyTrackPage() {
         </ul>
       </Section>
 
+      {/* ─── Carousel des 4 écrans ──────────────────────────── */}
       <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/mytrack/03-confirmation.webp"
-          alt="Écran de confirmation MyTrack — Félicitations, inscription UX Design validée"
-          caption="Confirmation · feedback positif après inscription"
-          ratio="16/10"
-        />
-        <CaptureSlot
-          src="/projects/mytrack/04-profil.webp"
-          alt="Profil mis à jour MyTrack — progression Tronc Commun 100%, Programme UX 35%, planning et ressources"
-          caption="Profil mis à jour · progression + planning + ressources"
-          ratio="16/10"
-        />
+        <Carousel items={captures} ratio="16/10" />
       </div>
 
       <div className="px-6 md:px-12">

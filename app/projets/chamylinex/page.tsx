@@ -4,7 +4,7 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { CaptureSlot } from "@/components/CaptureSlot";
+import { Carousel } from "@/components/Carousel";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -14,6 +14,29 @@ export const metadata: Metadata = {
   title: `${project.title} · Mission e-commerce B2B`,
   description: project.subtitle,
 };
+
+const captures = [
+  {
+    src: "/projects/chamylinex/01-hero.webp",
+    alt: "Page d'accueil Chamylinex — hero photo entrepôt + titre Votre Partenaire Grossiste International",
+    caption: "Page d'accueil · hero photo entrepôt",
+  },
+  {
+    src: "/projects/chamylinex/02-bienvenue.webp",
+    alt: "Section Bienvenue chez Chamylinex avec 4 services (Sourcing International, Logistique Flexible, Qualité Garantie, Accompagnement Pro)",
+    caption: "Section bienvenue · 4 services structurés",
+  },
+  {
+    src: "/projects/chamylinex/03-boutique.webp",
+    alt: "Page Boutique — hero avec recherche, filtres latéraux et grille produits",
+    caption: "Catalogue grossiste · recherche + filtres",
+  },
+  {
+    src: "/projects/chamylinex/04-produits.webp",
+    alt: "Grille produits avec cards (Air Wick, Lenor, Ariel) — badges Nouveau, prix au carton + unitaire",
+    caption: "Fiches produits · cartons B2B + badges éditoriaux",
+  },
+];
 
 export default function ChamylinexPage() {
   return (
@@ -27,16 +50,6 @@ export default function ChamylinexPage() {
         project={project}
         contextLabel="Mission client indépendante"
       />
-
-      {/* Capture hero plein cadre */}
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/chamylinex/01-hero.webp"
-          alt="Page d'accueil Chamylinex — hero photo entrepôt + titre Votre Partenaire Grossiste International"
-          caption="Page d'accueil · hero photo entrepôt"
-          ratio="16/10"
-        />
-      </div>
 
       {/* ─── Le contexte ─────────────────────────────────────── */}
       <Section label="Le contexte">
@@ -81,39 +94,14 @@ export default function ChamylinexPage() {
         </div>
       </Section>
 
-      {/* Capture 2 — Bienvenue + 4 services */}
+      {/* ─── Carousel des 4 captures ────────────────────────── */}
       <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/chamylinex/02-bienvenue.webp"
-          alt="Section Bienvenue chez Chamylinex avec 4 services (Sourcing International, Logistique Flexible, Qualité Garantie, Accompagnement Pro)"
-          caption="Section bienvenue · 4 services structurés"
-          ratio="16/10"
-        />
-      </div>
-
-      {/* Capture 3 — Boutique */}
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/chamylinex/03-boutique.webp"
-          alt="Page Boutique — hero avec recherche, filtres latéraux et grille produits"
-          caption="Catalogue grossiste · recherche + filtres"
-          ratio="16/10"
-        />
+        <Carousel items={captures} ratio="16/10" />
       </div>
 
       {/* Pull-quote signature */}
       <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>
-      </div>
-
-      {/* Capture 4 — Grille produits */}
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/chamylinex/04-produits.webp"
-          alt="Grille produits avec cards (Air Wick, Lenor, Ariel) — badges Nouveau, prix au carton + unitaire"
-          caption="Fiches produits · cartons B2B + badges éditoriaux"
-          ratio="16/10"
-        />
       </div>
 
       {/* ─── CTA fin ─────────────────────────────────────────── */}

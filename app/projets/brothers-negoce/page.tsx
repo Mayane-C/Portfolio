@@ -4,7 +4,7 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { CaptureSlot } from "@/components/CaptureSlot";
+import { Carousel } from "@/components/Carousel";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -15,6 +15,24 @@ export const metadata: Metadata = {
   description: project.subtitle,
 };
 
+const captures = [
+  {
+    src: "/projects/brothers-negoce/01-cover.png",
+    alt: "Cover du design system Brothers Négoce — Système visuel génératif B2B",
+    caption: "Cover · système visuel génératif B2B",
+  },
+  {
+    src: "/projects/brothers-negoce/02-variables.png",
+    alt: "Variables & composants — palette de couleurs, typographies et composants typés du design system",
+    caption: "Variables & composants · tokens du système",
+  },
+  {
+    src: "/projects/brothers-negoce/03-templates.png",
+    alt: "Exemples de posts générés depuis les 3 familles de templates",
+    caption: "Exemples · 9 posts générés depuis les 3 familles",
+  },
+];
+
 export default function BrothersNegocePage() {
   return (
     <>
@@ -24,15 +42,6 @@ export default function BrothersNegocePage() {
       />
 
       <ProjectHero project={project} contextLabel="Alternance · M2 ESD" />
-
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/brothers-negoce/01-cover.png"
-          alt="Cover du design system Brothers Négoce — Système visuel génératif B2B"
-          caption="Cover · système visuel génératif B2B"
-          ratio="16/10"
-        />
-      </div>
 
       <Section label="Le contexte">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
@@ -74,15 +83,6 @@ export default function BrothersNegocePage() {
         </div>
       </Section>
 
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/brothers-negoce/02-variables.png"
-          alt="Variables & composants — palette de couleurs, typographies et composants typés du design system"
-          caption="Variables & composants · tokens du système"
-          ratio="4/3"
-        />
-      </div>
-
       <Section label="Trois familles de templates" compact>
         <p className="font-sans text-base md:text-lg text-ink leading-relaxed max-w-3xl">
           Chaque famille répond à un usage de communication B2B distinct.
@@ -118,13 +118,9 @@ export default function BrothersNegocePage() {
         </ul>
       </Section>
 
+      {/* ─── Carousel des 3 planches ────────────────────────── */}
       <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/brothers-negoce/03-templates.png"
-          alt="Exemples de posts générés depuis les 3 familles de templates"
-          caption="Exemples · 9 posts générés depuis les 3 familles"
-          ratio="4/3"
-        />
+        <Carousel items={captures} ratio="4/3" />
       </div>
 
       <div className="px-6 md:px-12">
