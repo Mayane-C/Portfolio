@@ -69,9 +69,9 @@ export default function GabiPage() {
             répété à chaque service.
           </p>
           <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            Quatre écrans pour que ces deux minutes ne dépendent jamais de
-            la mémoire du conducteur — ni de la ligne du jour, ni de
-            l&apos;ordre des arrêts.
+            Un parcours en quatre étapes pour que ces deux minutes ne
+            dépendent jamais de la mémoire du conducteur — ni de la ligne
+            du jour, ni de l&apos;ordre des arrêts.
           </p>
         </div>
 
