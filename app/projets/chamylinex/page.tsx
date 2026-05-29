@@ -15,26 +15,33 @@ export const metadata: Metadata = {
   description: project.subtitle,
 };
 
-const captures = [
+import type { CarouselItem } from "@/components/Carousel";
+
+const captures: CarouselItem[] = [
   {
-    src: "/projects/chamylinex/01-hero.webp",
-    alt: "Page d'accueil Chamylinex — hero photo entrepôt + titre Votre Partenaire Grossiste International",
-    caption: "Page d'accueil · hero photo entrepôt",
+    type: "video",
+    src: "/projects/chamylinex/01-home.mp4",
+    caption: "Page d'accueil · navigation et hero",
   },
   {
-    src: "/projects/chamylinex/02-bienvenue.webp",
-    alt: "Section Bienvenue chez Chamylinex avec 4 services (Sourcing International, Logistique Flexible, Qualité Garantie, Accompagnement Pro)",
-    caption: "Section bienvenue · 4 services structurés",
+    type: "video",
+    src: "/projects/chamylinex/02-catalogue.mp4",
+    caption: "Catalogue grossiste · recherche, filtres, fiches produits",
   },
   {
-    src: "/projects/chamylinex/03-boutique.webp",
-    alt: "Page Boutique — hero avec recherche, filtres latéraux et grille produits",
-    caption: "Catalogue grossiste · recherche + filtres",
+    type: "video",
+    src: "/projects/chamylinex/03-panier.mp4",
+    caption: "Panier · sélection et récapitulatif commande",
   },
   {
-    src: "/projects/chamylinex/04-produits.webp",
-    alt: "Grille produits avec cards (Air Wick, Lenor, Ariel) — badges Nouveau, prix au carton + unitaire",
-    caption: "Fiches produits · cartons B2B + badges éditoriaux",
+    type: "video",
+    src: "/projects/chamylinex/04-mon-compte.mp4",
+    caption: "Mon compte · espace acheteur professionnel",
+  },
+  {
+    type: "video",
+    src: "/projects/chamylinex/05-contact.mp4",
+    caption: "Contact · demande de devis",
   },
 ];
 

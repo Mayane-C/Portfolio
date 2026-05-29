@@ -3,15 +3,25 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-interface CarouselItem {
-  src: string;
-  alt: string;
-  caption?: string;
-}
+/** Item du carousel — soit une image, soit une vidéo. */
+export type CarouselItem =
+  | {
+      type: "image";
+      src: string;
+      alt: string;
+      caption?: string;
+    }
+  | {
+      type: "video";
+      src: string;
+      /** Image de couverture optionnelle (poster) avant lecture */
+      poster?: string;
+      caption?: string;
+    };
 
 interface CarouselProps {
   items: CarouselItem[];
-  /** Ratio appliqué à toutes les images du carousel (uniforme = cohérent) */
+  /** Ratio appliqué à toutes les slides (uniforme = cohérent) */
   ratio?: "16/10" | "16/9" | "4/3" | "1/1" | "9/16";
 }
 
@@ -23,13 +33,21 @@ const aspectClasses: Record<NonNullable<CarouselProps["ratio"]>, string> = {
   "9/16": "aspect-[9/16]",
 };
 
+function inferMime(src: string): string {
+  if (src.endsWith(".mp4")) return "video/mp4";
+  if (src.endsWith(".mov")) return "video/quicktime";
+  if (src.endsWith(".webm")) return "video/webm";
+  return "video/mp4";
+}
+
 /**
  * Carousel éditorial — scroll-snap CSS natif + dots cliquables.
- * Aucune dépendance, accessible clavier, swipe mobile naturel,
- * scroll molette sur desktop. Cohérent avec la DA livre blanc.
+ * Supporte images (Next/Image) ET vidéos (lecteur HTML5 natif).
+ * Aucune dépendance, accessible clavier, swipe mobile naturel.
  */
 export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Observer la position de scroll pour mettre à jour l'index actif
@@ -55,6 +73,15 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
     };
   }, []);
 
+  // Pause toutes les vidéos quand on quitte une slide
+  useEffect(() => {
+    videoRefs.current.forEach((video, idx) => {
+      if (video && idx !== activeIndex) {
+        video.pause();
+      }
+    });
+  }, [activeIndex]);
+
   const goTo = (idx: number) => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
@@ -64,7 +91,7 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
     });
   };
 
-  // Gestion clavier sur les dots (gauche/droite pour naviguer)
+  // Navigation clavier (gauche/droite)
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowLeft" && activeIndex > 0) {
       e.preventDefault();
@@ -83,7 +110,7 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
       className="my-10 mx-auto max-w-3xl md:my-14"
       role="group"
       aria-roledescription="carousel"
-      aria-label={`Carousel · ${items.length} images`}
+      aria-label={`Carousel · ${items.length} éléments`}
       onKeyDown={handleKeyDown}
       tabIndex={0}
     >
@@ -94,27 +121,44 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
       >
         {items.map((item, idx) => (
           <div
-            key={item.src}
+            key={`${item.type}-${item.src}`}
             className="w-full flex-shrink-0 snap-start"
             aria-roledescription="slide"
-            aria-label={`Image ${idx + 1} sur ${items.length}`}
+            aria-label={`Élément ${idx + 1} sur ${items.length}`}
           >
             <div
               className={`relative ${aspectClass} w-full overflow-hidden rounded-sm border border-rose-ancien/20 bg-cream-deep`}
             >
-              <Image
-                src={item.src}
-                alt={item.alt}
-                fill
-                sizes="(min-width: 768px) 720px, 100vw"
-                className="object-cover"
-              />
+              {item.type === "image" ? (
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(min-width: 768px) 720px, 100vw"
+                  className="object-cover"
+                />
+              ) : (
+                <video
+                  ref={(el) => {
+                    videoRefs.current[idx] = el;
+                  }}
+                  src={item.src}
+                  poster={item.poster}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="h-full w-full object-cover"
+                >
+                  <source src={item.src} type={inferMime(item.src)} />
+                  Votre navigateur ne supporte pas la lecture vidéo.
+                </video>
+              )}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Caption de l'image active (transition douce) */}
+      {/* Caption de l'élément actif */}
       {currentCaption && (
         <figcaption
           key={activeIndex}
@@ -134,7 +178,7 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
                 key={idx}
                 type="button"
                 onClick={() => goTo(idx)}
-                aria-label={`Aller à l'image ${idx + 1}`}
+                aria-label={`Aller à l'élément ${idx + 1}`}
                 aria-current={idx === activeIndex ? "true" : undefined}
                 role="tab"
                 className={`block h-1.5 rounded-full transition-all duration-300 ${

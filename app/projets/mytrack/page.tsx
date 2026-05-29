@@ -4,7 +4,7 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { Carousel } from "@/components/Carousel";
+import { Carousel, type CarouselItem } from "@/components/Carousel";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -15,23 +15,27 @@ export const metadata: Metadata = {
   description: project.subtitle,
 };
 
-const captures = [
+const captures: CarouselItem[] = [
   {
+    type: "image",
     src: "/projects/mytrack/01-dashboard.webp",
     alt: "Tableau de bord MyTrack — Bienvenue dans votre parcours hybride avec socle commun et CTA spécialisation",
     caption: "Tableau de bord · entrée du parcours",
   },
   {
+    type: "image",
     src: "/projects/mytrack/02-choix.webp",
     alt: "Choix d'expertise MyTrack — 3 cards Option UX Design, Data Strategy, Digital Marketing",
     caption: "Choix d'expertise · 3 voies présentées en cards",
   },
   {
+    type: "image",
     src: "/projects/mytrack/03-confirmation.webp",
     alt: "Écran de confirmation MyTrack — Félicitations, inscription UX Design validée",
     caption: "Confirmation · feedback positif après inscription",
   },
   {
+    type: "image",
     src: "/projects/mytrack/04-profil.webp",
     alt: "Profil mis à jour MyTrack — progression Tronc Commun 100%, Programme UX 35%, planning et ressources",
     caption: "Profil mis à jour · progression + planning + ressources",

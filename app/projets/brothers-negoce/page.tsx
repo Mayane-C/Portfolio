@@ -4,7 +4,7 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { Carousel } from "@/components/Carousel";
+import { Carousel, type CarouselItem } from "@/components/Carousel";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -15,18 +15,21 @@ export const metadata: Metadata = {
   description: project.subtitle,
 };
 
-const captures = [
+const captures: CarouselItem[] = [
   {
+    type: "image",
     src: "/projects/brothers-negoce/01-cover.png",
     alt: "Cover du design system Brothers Négoce — Système visuel génératif B2B",
     caption: "Cover · système visuel génératif B2B",
   },
   {
+    type: "image",
     src: "/projects/brothers-negoce/02-variables.png",
     alt: "Variables & composants — palette de couleurs, typographies et composants typés du design system",
     caption: "Variables & composants · tokens du système",
   },
   {
+    type: "image",
     src: "/projects/brothers-negoce/03-templates.png",
     alt: "Exemples de posts générés depuis les 3 familles de templates",
     caption: "Exemples · 9 posts générés depuis les 3 familles",
