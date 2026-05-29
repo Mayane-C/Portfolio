@@ -110,10 +110,10 @@ export default function MyTrackPage() {
           <li className="border-l-2 border-rose-ancien pl-4">
             <p className="label-mono mb-2 text-rose-ancien">Étape 02</p>
             <p className="font-serif italic text-lg text-ink">
-              Premier rendu génératif
+              Maquettage Figma
             </p>
             <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Maquettage IA depuis un prompt structuré.
+              Premier rendu des écrans clés.
             </p>
           </li>
           <li className="border-l-2 border-rose-ancien pl-4">
