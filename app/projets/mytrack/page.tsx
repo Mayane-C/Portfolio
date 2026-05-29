@@ -82,17 +82,18 @@ export default function MyTrackPage() {
       <Section label="La proposition design" compact>
         <p className="font-sans text-base md:text-lg text-ink leading-relaxed max-w-3xl">
           <em className="italic text-gold-ink">
-            Inverser le modèle de décision.
+            Offrir une double porte d&apos;entrée.
           </em>{" "}
-          L&apos;étudiant ne choisit plus une option d&apos;études en
-          espérant qu&apos;elle mène à un métier — il choisit un métier
-          concret <em className="italic text-taupe">
+          L&apos;étudiant choisit directement son option s&apos;il sait
+          déjà où il va. Sinon, il explore les fiches métiers concrets{" "}
+          <em className="italic text-taupe">
             (Product Designer, UX Researcher, Data Analyst…)
           </em>{" "}
-          et l&apos;interface en déduit l&apos;option qui y conduit.
+          — chacune indique l&apos;option qui y mène.
         </p>
         <p className="font-sans text-lg italic text-taupe mt-5 max-w-3xl">
-          Le métier devient le critère. L&apos;option, sa conséquence.
+          Les fiches métiers ne forcent pas le choix — elles le rendent
+          plus serein pour qui hésite.
         </p>
       </Section>
 

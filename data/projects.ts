@@ -92,10 +92,10 @@ export const projects: Project[] = [
     nr: "04",
     title: "MyTrack",
     subtitle:
-      "Interface d'aide à la décision pour personnaliser le parcours étudiant — on choisit un métier, l'option en découle.",
+      "Interface d'aide à la décision pour personnaliser le parcours étudiant — choisir directement son option, ou s'éclairer d'abord par les fiches métiers.",
     meta: "DEVOIR ÉCOLE · SOLO · DÉMARCHE UX",
     pullQuote:
-      "On ne choisit pas une option pour trouver un métier. On choisit un métier — l'option en découle.",
+      "Les fiches métiers ne remplacent pas le choix de l'option — elles l'éclairent, pour celles et ceux qui en ont besoin.",
     externalLink: {
       label: "Voir le prototype interactif",
       url: "https://union-cut-12250237.figma.site",
