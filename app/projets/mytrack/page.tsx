@@ -110,10 +110,10 @@ export default function MyTrackPage() {
           <li className="border-l-2 border-rose-ancien pl-4">
             <p className="label-mono mb-2 text-rose-ancien">Étape 02</p>
             <p className="font-serif italic text-lg text-ink">
-              Figma Make
+              Premier rendu génératif
             </p>
             <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Premier rendu génératif depuis un prompt structuré.
+              Maquettage IA depuis un prompt structuré.
             </p>
           </li>
           <li className="border-l-2 border-rose-ancien pl-4">
@@ -122,7 +122,7 @@ export default function MyTrackPage() {
               Retouches manuelles
             </p>
             <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Palette, hiérarchie, logo généré avec Gemini.
+              Palette, hiérarchie, logo retravaillés.
             </p>
           </li>
           <li className="border-l-2 border-rose-ancien pl-4">
