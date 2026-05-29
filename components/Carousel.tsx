@@ -168,32 +168,69 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
         </figcaption>
       )}
 
-      {/* Contrôles : dots + compteur */}
+      {/* Contrôles : flèches + dots + compteur */}
       {items.length > 1 && (
         <div className="mt-4 flex flex-col items-center gap-3">
-          {/* Dots */}
-          <div className="flex items-center gap-2" role="tablist">
-            {items.map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => goTo(idx)}
-                aria-label={`Aller à l'élément ${idx + 1}`}
-                aria-current={idx === activeIndex ? "true" : undefined}
-                role="tab"
-                className={`block h-1.5 rounded-full transition-all duration-300 ${
-                  idx === activeIndex
-                    ? "w-8 bg-rose-ancien"
-                    : "w-1.5 bg-rose-ancien/30 hover:bg-rose-ancien/60"
-                }`}
-              />
-            ))}
+          {/* Flèches + Dots sur une même ligne */}
+          <div className="flex items-center gap-4">
+            {/* Flèche précédent */}
+            <button
+              type="button"
+              onClick={() => goTo(Math.max(0, activeIndex - 1))}
+              disabled={activeIndex === 0}
+              aria-label="Élément précédent"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-rose-ancien/40 text-rose-ancien transition-all duration-200 enabled:hover:border-rose-ancien enabled:hover:bg-rose-ancien enabled:hover:text-cream disabled:cursor-not-allowed disabled:opacity-30"
+            >
+              <span aria-hidden className="text-lg leading-none">
+                ←
+              </span>
+            </button>
+
+            {/* Dots */}
+            <div className="flex items-center gap-2" role="tablist">
+              {items.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => goTo(idx)}
+                  aria-label={`Aller à l'élément ${idx + 1}`}
+                  aria-current={idx === activeIndex ? "true" : undefined}
+                  role="tab"
+                  className={`block h-1.5 rounded-full transition-all duration-300 ${
+                    idx === activeIndex
+                      ? "w-8 bg-rose-ancien"
+                      : "w-1.5 bg-rose-ancien/30 hover:bg-rose-ancien/60"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Flèche suivant */}
+            <button
+              type="button"
+              onClick={() =>
+                goTo(Math.min(items.length - 1, activeIndex + 1))
+              }
+              disabled={activeIndex === items.length - 1}
+              aria-label="Élément suivant"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-rose-ancien/40 text-rose-ancien transition-all duration-200 enabled:hover:border-rose-ancien enabled:hover:bg-rose-ancien enabled:hover:text-cream disabled:cursor-not-allowed disabled:opacity-30"
+            >
+              <span aria-hidden className="text-lg leading-none">
+                →
+              </span>
+            </button>
           </div>
 
-          {/* Compteur mono */}
+          {/* Compteur mono + hint swipe sur mobile */}
           <p className="label-mono text-platinum">
             {String(activeIndex + 1).padStart(2, "0")} ·{" "}
             {String(items.length).padStart(2, "0")}
+            <span className="ml-3 hidden text-platinum/60 sm:inline">
+              ← glisser →
+            </span>
+            <span className="ml-3 inline text-platinum/60 sm:hidden">
+              ← swipe →
+            </span>
           </p>
         </div>
       )}
