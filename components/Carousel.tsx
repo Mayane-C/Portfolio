@@ -135,7 +135,7 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
                   alt={item.alt}
                   fill
                   sizes="(min-width: 768px) 720px, 100vw"
-                  className="object-cover"
+                  className="object-contain"
                 />
               ) : (
                 <video
@@ -147,7 +147,7 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
                   controls
                   playsInline
                   preload="metadata"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                 >
                   <source src={item.src} type={inferMime(item.src)} />
                   Votre navigateur ne supporte pas la lecture vidéo.

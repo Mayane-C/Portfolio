@@ -49,7 +49,7 @@ export function CaptureSlot({
             alt={alt}
             fill
             sizes="(min-width: 768px) 80vw, 100vw"
-            className="object-cover"
+            className="object-contain"
           />
         ) : (
           // Placeholder lumineux tant que l'image n'est pas posée

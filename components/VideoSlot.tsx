@@ -51,7 +51,7 @@ export function VideoSlot({
           controls
           playsInline
           preload="metadata"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain"
         >
           <source src={src} type={mime} />
           Votre navigateur ne supporte pas la lecture vidéo.
