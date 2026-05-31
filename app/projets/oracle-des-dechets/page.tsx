@@ -4,7 +4,7 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { CaptureSlot } from "@/components/CaptureSlot";
+import { VideoSlot } from "@/components/VideoSlot";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -27,15 +27,6 @@ export default function OraclePage() {
         project={project}
         contextLabel="M2 ESD · Cours CREATECH · ChangeNOW"
       />
-
-      <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/oracle-des-dechets/01-interface.png"
-          alt="Interface live de l'Oracle des déchets — terminal noir glitch, transmission depuis l'an 2500"
-          caption="Interface live · transmission depuis l'an 2500"
-          ratio="16/10"
-        />
-      </div>
 
       <Section label="Le concept">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
@@ -114,16 +105,9 @@ export default function OraclePage() {
       </Section>
 
       <div className="px-6 md:px-12">
-        <CaptureSlot
-          src="/projects/oracle-des-dechets/02-workflow.png"
-          alt="Workflow n8n V2 — webhook, Groq LLM, JSON response"
-          caption="Workflow n8n V2 · webhook → Groq → réponse JSON"
-          ratio="16/10"
-        />
-        <CaptureSlot
-          src="/projects/oracle-des-dechets/03-prophetie.png"
-          alt="Exemple de prophétie générée — texte dystopique + image post-apocalyptique"
-          caption="Une prophétie générée · texte + image dystopique"
+        <VideoSlot
+          src="/projects/oracle-des-dechets/demo.mp4"
+          caption="Démo · saisie d'un objet et génération de la prophétie"
           ratio="16/10"
         />
       </div>
