@@ -68,17 +68,6 @@ const timeline: TimelineEntry[] = [
     description:
       "Identité visuelle, supports digitaux, communication d'une marque B2B. Mémoire de fin d'études.",
   },
-  {
-    period: "à venir",
-    title: (
-      <>
-        Objectif · <em className="italic text-gold-ink">Lancement freelance</em>
-      </>
-    ),
-    description:
-      "Design d'événements · mariages, baby showers, anniversaires marquants, événements corporate.",
-    highlight: true,
-  },
 ];
 
 export default function AProposPage() {
@@ -233,7 +222,7 @@ export default function AProposPage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
+          <div className="max-w-3xl">
             <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
               Aujourd&apos;hui, en M2 Design Digital à l&apos;ESD, en
               alternance chez{" "}
@@ -242,15 +231,6 @@ export default function AProposPage() {
               l&apos;identité visuelle, les supports digitaux et la
               communication d&apos;une marque dans un univers qu&apos;on
               ne pense jamais esthétique. Mon rôle : le rendre désirable.
-            </p>
-            <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-              À l&apos;horizon, une fois ce mémoire soutenu :{" "}
-              <em className="italic text-gold-ink">
-                lancer mon activité freelance
-              </em>{" "}
-              en design d&apos;événements — mariages, baby showers,
-              anniversaires marquants, événements corporate. Appliquer
-              au sensible la méthode que le digital m&apos;a donnée.
             </p>
           </div>
         </div>

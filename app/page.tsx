@@ -77,9 +77,9 @@ export default function HomePage() {
                 </p>
               </div>
               <div>
-                <p className="label-mono text-platinum">À venir</p>
+                <p className="label-mono text-platinum">Localisation</p>
                 <p className="font-serif italic text-ink mt-1">
-                  Freelance événementiel
+                  Paris · 2026
                 </p>
               </div>
             </div>
