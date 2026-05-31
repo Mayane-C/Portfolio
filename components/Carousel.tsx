@@ -127,7 +127,9 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
             aria-label={`Élément ${idx + 1} sur ${items.length}`}
           >
             <div
-              className={`relative ${aspectClass} w-full overflow-hidden rounded-sm border border-rose-ancien/20 bg-cream-deep`}
+              className={`relative ${aspectClass} w-full overflow-hidden rounded-sm border border-rose-ancien/20 ${
+                item.type === "video" ? "bg-ink" : "bg-cream-deep"
+              }`}
             >
               {item.type === "image" ? (
                 <Image
