@@ -4,7 +4,6 @@ import Link from "next/link";
 import { MonoBanner } from "@/components/MonoBanner";
 import { MonoFooter } from "@/components/MonoFooter";
 import { PullQuote } from "@/components/PullQuote";
-import { SideLabel } from "@/components/SideLabel";
 
 export const metadata: Metadata = {
   title: "À propos · Mayane Cohen",
@@ -95,7 +94,6 @@ const timeline: TimelineEntry[] = [
 export default function AProposPage() {
   return (
     <>
-      <SideLabel>Liminaire · Qui je suis · Parcours non-linéaire</SideLabel>
       <MonoBanner
         centerLabel="À PROPOS · QUI JE SUIS"
         cartouche="Nº 00 — MAI 2026"

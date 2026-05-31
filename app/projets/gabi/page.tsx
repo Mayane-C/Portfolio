@@ -5,7 +5,6 @@ import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
 import { VideoSlot } from "@/components/VideoSlot";
-import { SideLabel } from "@/components/SideLabel";
 import { NumberedStep } from "@/components/NumberedStep";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
@@ -20,7 +19,6 @@ export const metadata: Metadata = {
 export default function GabiPage() {
   return (
     <>
-      <SideLabel>GABI · Prise de poste · Projet Nº 05</SideLabel>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · GABI`}
         cartouche={`Nº ${project.nr} — MAI 2026`}

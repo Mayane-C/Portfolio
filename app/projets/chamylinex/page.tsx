@@ -5,7 +5,6 @@ import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
 import { Carousel } from "@/components/Carousel";
-import { SideLabel } from "@/components/SideLabel";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -49,7 +48,6 @@ const captures: CarouselItem[] = [
 export default function ChamylinexPage() {
   return (
     <>
-      <SideLabel>Chamylinex · E-commerce B2B · Projet Nº 01</SideLabel>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · CHAMYLINEX`}
         cartouche={`Nº ${project.nr} — MAI 2026`}

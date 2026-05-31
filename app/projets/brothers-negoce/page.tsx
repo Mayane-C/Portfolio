@@ -5,7 +5,6 @@ import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
 import { Carousel, type CarouselItem } from "@/components/Carousel";
-import { SideLabel } from "@/components/SideLabel";
 import { NumberedStep } from "@/components/NumberedStep";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
@@ -41,7 +40,6 @@ const captures: CarouselItem[] = [
 export default function BrothersNegocePage() {
   return (
     <>
-      <SideLabel>Brothers Négoce · Design System · Projet Nº 03</SideLabel>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · BROTHERS NÉGOCE`}
         cartouche={`Nº ${project.nr} — MAI 2026`}
