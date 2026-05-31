@@ -38,17 +38,6 @@ const timeline: TimelineEntry[] = [
     description: "Université Paris Cité · Spécialisation technique.",
   },
   {
-    period: "mars 2023",
-    title: (
-      <>
-        Mariage · Premier <em className="italic text-gold-ink">déclic</em>
-      </>
-    ),
-    description:
-      "Je code moi-même le faire-part digital et le site invités, sans formation design. Bascule.",
-    highlight: true,
-  },
-  {
     period: "2023—24",
     title: (
       <>
@@ -56,7 +45,8 @@ const timeline: TimelineEntry[] = [
       </>
     ),
     description:
-      "Sorbonne (Paris 1) · Méthodes Informatiques Appliquées à la Gestion. En parallèle, je conçois et code CRAFT — une plateforme d'exercices Java pour mes camarades — sans avoir jamais ouvert un logiciel de design.",
+      "Sorbonne (Paris 1) · Méthodes Informatiques Appliquées à la Gestion. En parallèle, je conçois et code CRAFT — une plateforme d'exercices Java pour mes camarades — sans avoir jamais ouvert un logiciel de design. Premier déclic.",
+    highlight: true,
   },
   {
     period: "2024—25",
@@ -206,22 +196,22 @@ export default function AProposPage() {
 
           <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
             <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-              En mars 2023, j&apos;ai organisé mon mariage. J&apos;ai codé
-              moi-même le faire-part digital et le site invités, ligne par
-              ligne, sans avoir jamais ouvert un logiciel de design. Je
-              copiais des références Pinterest et j&apos;espérais que ça
-              tienne ensemble.{" "}
+              En L3 MIAGE, j&apos;ai conçu et codé{" "}
+              <em className="italic text-gold-ink">CRAFT</em> — une
+              plateforme d&apos;exercices Java pour mes camarades de promo —
+              sans avoir jamais ouvert un logiciel de design. Je copiais des
+              références, je m&apos;appuyais sur ma sensibilité, et
+              j&apos;espérais que ça tienne ensemble.{" "}
               <em className="italic text-gold-ink">
                 Ça a tenu — par chance, pas par méthode.
               </em>
             </p>
             <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-              Un an plus tard, en L3 MIAGE, j&apos;ai conçu et codé{" "}
-              <em className="italic text-gold-ink">CRAFT</em> — une
-              plateforme d&apos;exercices Java pour mes camarades de promo —
-              toujours sans avoir ouvert un Figma. Ces deux projets ont
+              Ce projet et plusieurs autres supports digitaux personnels ont
               révélé quelque chose : je designais déjà, sans le mot pour le
-              dire.
+              dire. La reconversion vers le design digital n&apos;a fait
+              que mettre des mots sur ce que mes mains cherchaient depuis
+              des années.
             </p>
           </div>
         </div>
