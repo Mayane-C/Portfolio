@@ -146,6 +146,11 @@ export default function OraclePage() {
             <p className="label-mono mt-3 text-platinum text-[10px]">
               {project.externalLink.url}
             </p>
+            <p className="mx-auto mt-6 max-w-md font-serif italic text-sm text-taupe leading-snug">
+              Projet pédagogique en phase de démonstration · la génération
+              IA peut être ponctuellement indisponible selon l&apos;état
+              du workflow back-end.
+            </p>
           </div>
         </section>
       )}
