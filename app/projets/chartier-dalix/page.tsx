@@ -29,8 +29,8 @@ export default function ChartierDalixPage() {
       <Section label="Le constat">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
           <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            <strong className="font-semibold">Chartier Dalix</strong> est
-            un cabinet d&apos;architecture parisien. L&apos;exercice imposé
+            <strong className="font-semibold">Chartier Dalix</strong>{" "}
+            est un cabinet d&apos;architecture parisien. L&apos;exercice imposé
             par le cours UI Design : choisir un site d&apos;agence{" "}
             <em className="italic text-gold-ink">mal conçu</em> et le
             refaire entièrement.
