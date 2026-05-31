@@ -120,8 +120,8 @@ export default function OraclePage() {
         <div className="max-w-3xl">
           <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
             Noir, terminal, glitch.{" "}
-            <em className="italic text-gold-ink">Monospace</em> pour la
-            transmission, display condensé pour les ruptures.
+            <em className="italic text-gold-ink">Monospace</em>{" "}
+            pour la transmission, display condensé pour les ruptures.
             L&apos;interface ressemble à une machine qui émet un signal
             d&apos;alarme — jamais une typo rassurante.
           </p>
