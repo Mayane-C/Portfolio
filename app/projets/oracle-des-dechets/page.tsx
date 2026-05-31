@@ -5,6 +5,8 @@ import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
 import { VideoSlot } from "@/components/VideoSlot";
+import { SideLabel } from "@/components/SideLabel";
+import { NumberedStep } from "@/components/NumberedStep";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
 export default function OraclePage() {
   return (
     <>
+      <SideLabel>Oracle des déchets · IA + n8n · Projet Nº 02</SideLabel>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · ORACLE DES DÉCHETS`}
         cartouche={`Nº ${project.nr} — MAI 2026`}
@@ -81,26 +84,18 @@ export default function OraclePage() {
         </div>
 
         <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">V1</p>
-            <p className="font-serif italic text-lg text-ink">
-              Demo day · 14 avril 2026
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Workflow n8n privé · saisie manuelle dans le prompt ·
-              génération image via nœud HTTP.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">V2</p>
-            <p className="font-serif italic text-lg text-ink">
-              Production · 19 avril 2026
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Webhook public · formulaire utilisateur · Pollinations côté
-              client · retour multi-canal.
-            </p>
-          </li>
+          <NumberedStep
+            nr="V1"
+            label="Version"
+            title="Demo day · 14 avril 2026"
+            description="Workflow n8n privé · saisie manuelle dans le prompt · génération image via nœud HTTP."
+          />
+          <NumberedStep
+            nr="V2"
+            label="Version"
+            title="Production · 19 avril 2026"
+            description="Webhook public · formulaire utilisateur · Pollinations côté client · retour multi-canal."
+          />
         </ul>
       </Section>
 

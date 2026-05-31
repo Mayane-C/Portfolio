@@ -5,6 +5,8 @@ import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
 import { VideoSlot } from "@/components/VideoSlot";
+import { SideLabel } from "@/components/SideLabel";
+import { NumberedStep } from "@/components/NumberedStep";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
 export default function ChartierDalixPage() {
   return (
     <>
+      <SideLabel>Chartier Dalix · Site éditorial · Projet Nº 06</SideLabel>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · CHARTIER DALIX`}
         cartouche={`Nº ${project.nr} — MAI 2026`}
@@ -69,42 +72,30 @@ export default function ChartierDalixPage() {
         </div>
 
         <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Pivot 01</p>
-            <p className="font-serif italic text-lg text-ink">
-              Système numéroté remis au centre
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Décompte rétrograde 101 → 01, comme une publication.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Pivot 02</p>
-            <p className="font-serif italic text-lg text-ink">
-              Photographie pleine page
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              L&apos;architecture occupe l&apos;écran avant le texte.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Pivot 03</p>
-            <p className="font-serif italic text-lg text-ink">
-              Logo bicolor préservé
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Brutaliste-élégant, lisible — gagne en présence.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Pivot 04</p>
-            <p className="font-serif italic text-lg text-ink">
-              Footer-bandeau dark récurrent
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Signature visuelle de chaque page.
-            </p>
-          </li>
+          <NumberedStep
+            nr="01"
+            label="Pivot"
+            title="Système numéroté remis au centre"
+            description="Décompte rétrograde 101 → 01, comme une publication."
+          />
+          <NumberedStep
+            nr="02"
+            label="Pivot"
+            title="Photographie pleine page"
+            description="L'architecture occupe l'écran avant le texte."
+          />
+          <NumberedStep
+            nr="03"
+            label="Pivot"
+            title="Logo bicolor préservé"
+            description="Brutaliste-élégant, lisible — gagne en présence."
+          />
+          <NumberedStep
+            nr="04"
+            label="Pivot"
+            title="Footer-bandeau dark récurrent"
+            description="Signature visuelle de chaque page."
+          />
         </ul>
       </Section>
 

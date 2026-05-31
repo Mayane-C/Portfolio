@@ -5,6 +5,8 @@ import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
 import { VideoSlot } from "@/components/VideoSlot";
+import { SideLabel } from "@/components/SideLabel";
+import { NumberedStep } from "@/components/NumberedStep";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
 export default function MyTrackPage() {
   return (
     <>
+      <SideLabel>MyTrack · Démarche UX · Projet Nº 04</SideLabel>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · MYTRACK`}
         cartouche={`Nº ${project.nr} — MAI 2026`}
@@ -72,42 +75,30 @@ export default function MyTrackPage() {
 
       <Section label="La démarche" compact>
         <ul className="grid grid-cols-1 gap-6 md:grid-cols-4">
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Étape 01</p>
-            <p className="font-serif italic text-lg text-ink">
-              Wireframes papier
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Premières intentions, croquis main.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Étape 02</p>
-            <p className="font-serif italic text-lg text-ink">
-              Maquettage Figma
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Premier rendu des écrans clés.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Étape 03</p>
-            <p className="font-serif italic text-lg text-ink">
-              Retouches manuelles
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Palette, hiérarchie, logo retravaillés.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Étape 04</p>
-            <p className="font-serif italic text-lg text-ink">
-              Plan de test
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Tests modérés en présentiel · 5 utilisateurs (Nielsen).
-            </p>
-          </li>
+          <NumberedStep
+            nr="01"
+            label="Étape"
+            title="Wireframes papier"
+            description="Premières intentions, croquis main."
+          />
+          <NumberedStep
+            nr="02"
+            label="Étape"
+            title="Maquettage Figma"
+            description="Premier rendu des écrans clés."
+          />
+          <NumberedStep
+            nr="03"
+            label="Étape"
+            title="Retouches manuelles"
+            description="Palette, hiérarchie, logo retravaillés."
+          />
+          <NumberedStep
+            nr="04"
+            label="Étape"
+            title="Plan de test"
+            description="Tests modérés en présentiel · 5 utilisateurs (Nielsen)."
+          />
         </ul>
       </Section>
 

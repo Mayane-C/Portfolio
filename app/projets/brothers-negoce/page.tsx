@@ -5,6 +5,8 @@ import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
 import { Carousel, type CarouselItem } from "@/components/Carousel";
+import { SideLabel } from "@/components/SideLabel";
+import { NumberedStep } from "@/components/NumberedStep";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -39,6 +41,7 @@ const captures: CarouselItem[] = [
 export default function BrothersNegocePage() {
   return (
     <>
+      <SideLabel>Brothers Négoce · Design System · Projet Nº 03</SideLabel>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · BROTHERS NÉGOCE`}
         cartouche={`Nº ${project.nr} — MAI 2026`}
@@ -93,31 +96,25 @@ export default function BrothersNegocePage() {
           <em className="italic text-gold-ink">publie</em> — la cohérence
           est garantie sans dépendre du designer.
         </p>
-        <ul className="mt-8 grid grid-cols-1 gap-6 font-serif text-lg md:grid-cols-3">
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Template 01</p>
-            <p className="italic text-ink">Produit · gamme</p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Pompes à chaleur, VMC, LED — mise en avant produit avec
-              hiérarchie technique claire.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Template 02</p>
-            <p className="italic text-ink">Usage · métier</p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Approvisionnez vos chantiers, centralisez vos achats — angle
-              opérationnel revendeur.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Template 03</p>
-            <p className="italic text-ink">Preuve · valeur</p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Stock disponible, expertise technique, réactivité — angle
-              confiance et engagement.
-            </p>
-          </li>
+        <ul className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <NumberedStep
+            nr="01"
+            label="Template"
+            title="Produit · gamme"
+            description="Pompes à chaleur, VMC, LED — mise en avant produit avec hiérarchie technique claire."
+          />
+          <NumberedStep
+            nr="02"
+            label="Template"
+            title="Usage · métier"
+            description="Approvisionnez vos chantiers, centralisez vos achats — angle opérationnel revendeur."
+          />
+          <NumberedStep
+            nr="03"
+            label="Template"
+            title="Preuve · valeur"
+            description="Stock disponible, expertise technique, réactivité — angle confiance et engagement."
+          />
         </ul>
       </Section>
 

@@ -5,6 +5,8 @@ import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
 import { VideoSlot } from "@/components/VideoSlot";
+import { SideLabel } from "@/components/SideLabel";
+import { NumberedStep } from "@/components/NumberedStep";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
 export default function GabiPage() {
   return (
     <>
+      <SideLabel>GABI · Prise de poste · Projet Nº 05</SideLabel>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · GABI`}
         cartouche={`Nº ${project.nr} — MAI 2026`}
@@ -76,42 +79,30 @@ export default function GabiPage() {
         </div>
 
         <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-4">
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Étape 01</p>
-            <p className="font-serif italic text-lg text-ink">
-              Vue carte initiale
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Les bus possibles à l&apos;intersection courante.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Étape 02</p>
-            <p className="font-serif italic text-lg text-ink">
-              Sélection rapide
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Dropdown bus + dropdown direction.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Étape 03</p>
-            <p className="font-serif italic text-lg text-ink">
-              Itinéraire chargé
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Trajet visualisé + liste des arrêts + Démarrer.
-            </p>
-          </li>
-          <li className="border-l-2 border-rose-ancien pl-4">
-            <p className="label-mono mb-2 text-rose-ancien">Étape 04</p>
-            <p className="font-serif italic text-lg text-ink">
-              En route
-            </p>
-            <p className="font-sans text-sm text-taupe mt-2 leading-snug">
-              Arrêt courant surligné en temps réel.
-            </p>
-          </li>
+          <NumberedStep
+            nr="01"
+            label="Étape"
+            title="Vue carte initiale"
+            description="Les bus possibles à l'intersection courante."
+          />
+          <NumberedStep
+            nr="02"
+            label="Étape"
+            title="Sélection rapide"
+            description="Dropdown bus + dropdown direction."
+          />
+          <NumberedStep
+            nr="03"
+            label="Étape"
+            title="Itinéraire chargé"
+            description="Trajet visualisé + liste des arrêts + Démarrer."
+          />
+          <NumberedStep
+            nr="04"
+            label="Étape"
+            title="En route"
+            description="Arrêt courant surligné en temps réel."
+          />
         </ul>
       </Section>
 
