@@ -17,6 +17,11 @@ export const metadata: Metadata = {
 
 const captures: CarouselItem[] = [
   {
+    type: "video",
+    src: "/projects/mytrack/00-demo.mp4",
+    caption: "Démo · parcours utilisateur complet",
+  },
+  {
     type: "image",
     src: "/projects/mytrack/01-dashboard.webp",
     alt: "Tableau de bord MyTrack — Bienvenue dans votre parcours hybride avec socle commun et CTA spécialisation",
