@@ -20,13 +20,13 @@ const captures: CarouselItem[] = [
   {
     type: "image",
     src: "/projects/brothers-negoce/01-cover.png",
-    alt: "Cover du design system Brothers Négoce — Système visuel génératif B2B",
+    alt: "Cover du design system Brothers Négoce, Système visuel génératif B2B",
     caption: "Cover · système visuel génératif B2B",
   },
   {
     type: "image",
     src: "/projects/brothers-negoce/02-variables.png",
-    alt: "Variables & composants — palette de couleurs, typographies et composants typés du design system",
+    alt: "Variables & composants, palette de couleurs, typographies et composants typés du design system",
     caption: "Variables & composants · tokens du système",
   },
   {
@@ -42,10 +42,10 @@ export default function BrothersNegocePage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · BROTHERS NÉGOCE`}
-        cartouche={`Nº ${project.nr} — MAI 2026`}
+        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
-      <ProjectHero project={project} contextLabel="Alternance · M2 ESD" />
+      <ProjectHero project={project} contextLabel="Expérience en alternance" />
 
       <Section label="Le contexte">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
@@ -72,7 +72,7 @@ export default function BrothersNegocePage() {
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
           <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
             Conception d&apos;un{" "}
-            <em className="italic text-gold-ink">système génératif</em> —
+            <em className="italic text-gold-ink">système génératif</em>,
             pas une charte figée, un kit modulaire qui produit des visuels
             4:5 cohérents en quelques minutes. Format imposé : Meta /
             Instagram.
@@ -91,7 +91,7 @@ export default function BrothersNegocePage() {
         <p className="font-sans text-base md:text-lg text-ink leading-relaxed max-w-3xl">
           Chaque famille répond à un usage de communication B2B distinct.
           L&apos;équipe choisit la famille, remplit le template,{" "}
-          <em className="italic text-gold-ink">publie</em> — la cohérence
+          <em className="italic text-gold-ink">publie</em>, la cohérence
           est garantie sans dépendre du designer.
         </p>
         <ul className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -99,19 +99,19 @@ export default function BrothersNegocePage() {
             nr="01"
             label="Template"
             title="Produit · gamme"
-            description="Pompes à chaleur, VMC, LED — mise en avant produit avec hiérarchie technique claire."
+            description="Pompes à chaleur, VMC, LED, mise en avant produit avec hiérarchie technique claire."
           />
           <NumberedStep
             nr="02"
             label="Template"
             title="Usage · métier"
-            description="Approvisionnez vos chantiers, centralisez vos achats — angle opérationnel revendeur."
+            description="Approvisionnez vos chantiers, centralisez vos achats, angle opérationnel revendeur."
           />
           <NumberedStep
             nr="03"
             label="Template"
             title="Preuve · valeur"
-            description="Stock disponible, expertise technique, réactivité — angle confiance et engagement."
+            description="Stock disponible, expertise technique, réactivité, angle confiance et engagement."
           />
         </ul>
       </Section>
@@ -125,7 +125,7 @@ export default function BrothersNegocePage() {
         <PullQuote>{project.pullQuote}</PullQuote>
       </div>
 
-      {/* Statut — section spécifique Brothers (phase pilote) */}
+      {/* Statut, section spécifique Brothers (phase pilote) */}
       <Section label="Statut" compact>
         <p className="font-sans text-base md:text-lg text-ink leading-relaxed max-w-3xl">
           <em className="italic text-gold-ink">

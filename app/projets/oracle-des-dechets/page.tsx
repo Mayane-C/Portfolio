@@ -21,12 +21,12 @@ export default function OraclePage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · ORACLE DES DÉCHETS`}
-        cartouche={`Nº ${project.nr} — MAI 2026`}
+        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
       <ProjectHero
         project={project}
-        contextLabel="M2 ESD · Cours CREATECH · ChangeNOW"
+        contextLabel="Cas d'étude · IA + Automation · ChangeNOW"
       />
 
       <Section label="Le concept">
@@ -39,11 +39,11 @@ export default function OraclePage() {
             <em className="italic text-gold-ink">bouteille</em> »…
           </p>
           <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            L&apos;IA renvoie une prophétie en trois temps —{" "}
+            L&apos;IA renvoie une prophétie en trois temps,{" "}
             <em className="italic text-gold-ink">
               tension, prophétie, vision
             </em>{" "}
-            — avec image générée et voix synthétique. Tout en collaboration
+           , avec image générée et voix synthétique. Tout en collaboration
             avec mon binôme.
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function OraclePage() {
             </p>
             <p className="font-sans text-sm text-taupe mt-3 leading-relaxed">
               Brief CREATECH : concevoir une expérience mobilisant une ou
-              plusieurs API en réponse à un enjeu d&apos;impact — dans le
+              plusieurs API en réponse à un enjeu d&apos;impact, dans le
               cadre du sommet ChangeNOW (solutions climatiques).
             </p>
           </div>
@@ -116,7 +116,7 @@ export default function OraclePage() {
             <em className="italic text-gold-ink">Monospace</em>{" "}
             pour la transmission, display condensé pour les ruptures.
             L&apos;interface ressemble à une machine qui émet un signal
-            d&apos;alarme — jamais une typo rassurante.
+            d&apos;alarme, jamais une typo rassurante.
           </p>
         </div>
       </Section>
@@ -125,7 +125,7 @@ export default function OraclePage() {
         <section className="px-6 md:px-12 py-12">
           <div className="border-t border-rose-ancien/30 pt-10 text-center">
             <p className="label-mono text-platinum mb-3">
-              — Le projet est en ligne
+             Le projet est en ligne
             </p>
             <a
               href={project.externalLink.url}

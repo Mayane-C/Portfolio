@@ -21,10 +21,10 @@ export default function MyTrackPage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · MYTRACK`}
-        cartouche={`Nº ${project.nr} — MAI 2026`}
+        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
-      <ProjectHero project={project} contextLabel="M2 ESD · Cours UX" />
+      <ProjectHero project={project} contextLabel="Cas d'étude UX · Aide à la décision" />
 
       <Section label="La problématique UX">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
@@ -36,7 +36,7 @@ export default function MyTrackPage() {
             anxiété sur l&apos;employabilité future.
           </p>
           <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            Le choix d&apos;option est vécu comme complexe et incertain —
+            Le choix d&apos;option est vécu comme complexe et incertain,
             non parce qu&apos;il manque d&apos;information, mais parce que
             le modèle de décision lui-même est inversé : on demande à
             l&apos;étudiant de choisir un concept (UX, Data, Marketing)
@@ -63,10 +63,10 @@ export default function MyTrackPage() {
           <em className="italic text-taupe">
             (Product Designer, UX Researcher, Data Analyst…)
           </em>{" "}
-          — chacune indique l&apos;option qui y mène.
+         , chacune indique l&apos;option qui y mène.
         </p>
         <p className="font-sans text-lg italic text-taupe mt-5 max-w-3xl">
-          Les fiches métiers ne forcent pas le choix — elles le rendent
+          Les fiches métiers ne forcent pas le choix, elles le rendent
           plus serein pour qui hésite.
         </p>
       </Section>
@@ -117,7 +117,7 @@ export default function MyTrackPage() {
         <section className="px-6 md:px-12 py-12">
           <div className="border-t border-rose-ancien/30 pt-10 text-center">
             <p className="label-mono text-platinum mb-3">
-              — Voir le travail en interaction
+             Voir le travail en interaction
             </p>
             <a
               href={project.externalLink.url}

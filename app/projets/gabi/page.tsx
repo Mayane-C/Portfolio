@@ -21,19 +21,19 @@ export default function GabiPage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · GABI`}
-        cartouche={`Nº ${project.nr} — MAI 2026`}
+        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
-      <ProjectHero project={project} contextLabel="M1 ESD · UI Design" />
+      <ProjectHero project={project} contextLabel="Cas d'étude UI · Interface métier" />
 
       <Section label="Le projet collectif">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
           <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            <strong className="font-semibold">GABI</strong> —{" "}
+            <strong className="font-semibold">GABI</strong>,{" "}
             <em className="italic text-gold-ink">
               Gestion des Arrêts de Bus en Île-de-France
             </em>{" "}
-            — est une refonte de l&apos;interface tablette embarquée des
+           , est une refonte de l&apos;interface tablette embarquée des
             chauffeurs de bus, menée en groupe de quatre. Les interfaces
             existantes sont dispersées, ignorantes du métier réel : le
             conducteur passe son temps à se battre avec un outil qui
@@ -66,12 +66,12 @@ export default function GabiPage() {
             <em className="italic text-gold-ink">
               en moins d&apos;une minute
             </em>
-            . Pas un onboarding première-fois — un parcours quotidien,
+            . Pas un onboarding première-fois, un parcours quotidien,
             répété à chaque service.
           </p>
           <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
             Un parcours en quatre étapes pour que ces deux minutes ne
-            dépendent jamais de la mémoire du conducteur — ni de la ligne
+            dépendent jamais de la mémoire du conducteur, ni de la ligne
             du jour, ni de l&apos;ordre des arrêts.
           </p>
         </div>

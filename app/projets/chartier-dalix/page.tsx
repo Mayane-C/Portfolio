@@ -21,10 +21,10 @@ export default function ChartierDalixPage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · CHARTIER DALIX`}
-        cartouche={`Nº ${project.nr} — MAI 2026`}
+        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
-      <ProjectHero project={project} contextLabel="M1 ESD · UI Design" />
+      <ProjectHero project={project} contextLabel="Cas d'étude UI · Site éditorial" />
 
       <Section label="Le constat">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
@@ -59,7 +59,7 @@ export default function ChartierDalixPage() {
       <Section label="La proposition" compact>
         <div className="max-w-3xl">
           <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            Refaire le site sans rien réinventer —{" "}
+            Refaire le site sans rien réinventer,{" "}
             <em className="italic text-gold-ink">
               préserver et amplifier
             </em>{" "}
@@ -86,7 +86,7 @@ export default function ChartierDalixPage() {
             nr="03"
             label="Pivot"
             title="Logo bicolor préservé"
-            description="Brutaliste-élégant, lisible — gagne en présence."
+            description="Brutaliste-élégant, lisible, gagne en présence."
           />
           <NumberedStep
             nr="04"

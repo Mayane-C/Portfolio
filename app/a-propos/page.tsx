@@ -20,16 +20,16 @@ interface TimelineEntry {
 
 const timeline: TimelineEntry[] = [
   {
-    period: "2021—22",
+    period: "2021 / 22",
     title: (
       <>
-        L1 <em className="italic text-gold-ink">Maths—Info</em>
+        L1 <em className="italic text-gold-ink">Maths · Info</em>
       </>
     ),
     description: "Université Paris Cité · Première étape académique.",
   },
   {
-    period: "2022—23",
+    period: "2022 / 23",
     title: (
       <>
         L2 <em className="italic text-gold-ink">Informatique</em>
@@ -38,35 +38,36 @@ const timeline: TimelineEntry[] = [
     description: "Université Paris Cité · Spécialisation technique.",
   },
   {
-    period: "2023—24",
+    period: "2023 / 24",
     title: (
       <>
         L3 <em className="italic text-gold-ink">MIAGE</em>
       </>
     ),
     description:
-      "Sorbonne (Paris 1) · Méthodes Informatiques Appliquées à la Gestion. En parallèle, je conçois et code CRAFT — une plateforme d'exercices Java pour mes camarades — sans avoir jamais ouvert un logiciel de design. Premier déclic.",
+      "Sorbonne (Paris 1) · Méthodes Informatiques Appliquées à la Gestion. En parallèle, je conçois et code CRAFT, une plateforme d'exercices Java pour mes camarades, sans avoir jamais ouvert un logiciel de design. Premier déclic.",
     highlight: true,
   },
   {
-    period: "2024—25",
+    period: "2024 / 25",
     title: (
       <>
-        M1 <em className="italic text-gold-ink">Design Digital</em> — ESD
+        M1 <em className="italic text-gold-ink">Design Digital</em>, ESD
       </>
     ),
     description: "Reconversion · mise en mots de l'intuition.",
   },
   {
-    period: "2025—26",
+    period: "depuis 2025",
     title: (
       <>
-        M2 ESD · Alternance{" "}
+        Alternance chez{" "}
         <em className="italic text-gold-ink">Brothers Négoce</em>
       </>
     ),
     description:
-      "Identité visuelle, supports digitaux, communication d'une marque B2B. Mémoire de fin d'études.",
+      "Identité visuelle, supports digitaux, communication d'une marque B2B dans un univers qu'on ne pense jamais esthétique.",
+    highlight: true,
   },
 ];
 
@@ -75,7 +76,7 @@ export default function AProposPage() {
     <>
       <MonoBanner
         centerLabel="À PROPOS · QUI JE SUIS"
-        cartouche="Nº 00 — MAI 2026"
+        cartouche="Nº 00, MAI 2026"
       />
 
       {/* ─── HERO ──────────────────────────────────────────── */}
@@ -186,13 +187,13 @@ export default function AProposPage() {
           <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
             <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
               En L3 MIAGE, j&apos;ai conçu et codé{" "}
-              <em className="italic text-gold-ink">CRAFT</em> — une
-              plateforme d&apos;exercices Java pour mes camarades de promo —
+              <em className="italic text-gold-ink">CRAFT</em>, une
+              plateforme d&apos;exercices Java pour mes camarades de promo,
               sans avoir jamais ouvert un logiciel de design. Je copiais des
               références, je m&apos;appuyais sur ma sensibilité, et
               j&apos;espérais que ça tienne ensemble.{" "}
               <em className="italic text-gold-ink">
-                Ça a tenu — par chance, pas par méthode.
+                Ça a tenu, par chance, pas par méthode.
               </em>
             </p>
             <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
@@ -224,14 +225,66 @@ export default function AProposPage() {
 
           <div className="max-w-3xl">
             <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-              Aujourd&apos;hui, en M2 Design Digital à l&apos;ESD, en
-              alternance chez{" "}
-              <em className="italic text-gold-ink">Brothers Négoce</em> —
-              distributeur B2B de matériel énergétique — je conçois
+              En alternance chez{" "}
+              <em className="italic text-gold-ink">Brothers Négoce</em>,
+              distributeur B2B de matériel énergétique, je conçois
               l&apos;identité visuelle, les supports digitaux et la
               communication d&apos;une marque dans un univers qu&apos;on
-              ne pense jamais esthétique. Mon rôle : le rendre désirable.
+              ne pense jamais esthétique. Mon rôle&nbsp;: le rendre
+              désirable.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── TÉMOIGNAGE Muriel Journo ──────────────────────── */}
+      <section className="px-6 md:px-12 py-12 md:py-16">
+        <div className="border-t border-rose-ancien/30 pt-10">
+          <div className="mb-4 flex items-center gap-3">
+            <span className="block h-px w-8 bg-rose-ancien" />
+            <span className="label-mono text-rose-ancien">
+              La méthode, vue de l&apos;entreprise
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12">
+            <div className="md:col-span-7">
+              <p className="mb-4 text-5xl font-serif italic leading-none text-rose-ancien md:text-6xl">
+                «
+              </p>
+              <blockquote className="font-serif italic text-lg text-ink leading-relaxed md:text-xl">
+                J&apos;encadre Mayane en alternance chez{" "}
+                <em className="text-gold-ink">Brothers Négoce</em>, où elle
+                conçoit l&apos;identité et les supports d&apos;une marque
+                dans un secteur, le matériel énergétique B2B, qu&apos;on
+                n&apos;imagine jamais{" "}
+                <em className="text-gold-ink">désirable</em>. La méthode
+                qu&apos;elle expose dans son livre blanc, je la vois{" "}
+                <em className="text-gold-ink">appliquée chaque semaine</em>
+                &nbsp;: un brief écrit avant toute création, un référentiel
+                visuel partagé, des supports tenus du premier au dernier.
+                Rien n&apos;est laissé à la seule intuition, et le résultat
+                est lisible, cohérent,{" "}
+                <em className="text-gold-ink">
+                  toujours pensé pour celui qui le reçoit
+                </em>
+                . C&apos;est une vraie posture de designer&nbsp;: méthodique,
+                exigeante, transmissible.
+              </blockquote>
+            </div>
+            <aside className="md:col-span-4 md:col-start-9 md:pt-6">
+              <div className="border-l-2 border-rose-ancien pl-5">
+                <p className="font-serif italic text-2xl text-ink leading-tight">
+                  Muriel Journo
+                </p>
+                <p className="label-mono mt-3 text-rose-ancien">
+                  Tutrice d&apos;alternance
+                </p>
+                <p className="label-mono mt-1 text-platinum">
+                  Brothers Négoce
+                </p>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -287,7 +340,7 @@ export default function AProposPage() {
         </div>
       </section>
 
-      <MonoFooter centerLabel="Une seule conviction — l'esthétique est une méthode" />
+      <MonoFooter centerLabel="Une seule conviction, l'esthétique est une méthode" />
     </>
   );
 }

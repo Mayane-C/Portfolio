@@ -9,7 +9,7 @@ export default function HomePage() {
     <>
       <MonoBanner
         centerLabel="PORTFOLIO · SIX PROJETS"
-        cartouche="Nº 01 — MAI 2026"
+        cartouche="Nº 01 · MAI 2026"
       />
 
       <article className="px-6 md:px-12">
@@ -30,27 +30,31 @@ export default function HomePage() {
             <h1 className="font-serif text-5xl leading-[0.95] text-ink sm:text-6xl md:text-[7rem]">
               Designer{" "}
               <em className="font-serif italic gradient-gold-text">
-                Digital
+                du sensible
               </em>
               .
             </h1>
+            <p className="label-mono mt-4 text-rose-ancien md:mt-6">
+              Digital · Événementiel · Sur-mesure
+            </p>
             <p className="mt-6 max-w-2xl font-serif text-xl italic text-taupe leading-snug md:mt-8 md:text-3xl">
-              Six projets, du design system B2B à l&apos;expérience IA
-              générative. Un fil rouge : la méthode au service du sensible.
+              Six projets. Le digital comme outil, le sensible comme
+              boussole.
             </p>
           </div>
 
-          {/* Portrait + Méta éditoriale à droite — comme un colophon */}
+          {/* Portrait + Méta éditoriale à droite */}
           <aside className="md:col-span-3 md:pt-4">
-            {/* Portrait timbre-poste — chaleur humaine en haut de la home */}
+            {/* Portrait : photo détourée, blend mode pour fondre avec le crème */}
             <div className="mb-6 flex items-center gap-4 md:block md:mb-8">
-              <div className="relative aspect-[3/4] w-24 overflow-hidden border border-rose-ancien/30 sm:w-28 md:w-full md:max-w-[180px]">
+              <div className="relative w-28 sm:w-32 md:w-full md:max-w-[200px]">
                 <Image
-                  src="/portrait.jpg"
+                  src="/portrait-cutout.png"
                   alt="Portrait de Mayane Cohen"
-                  fill
-                  sizes="(min-width: 768px) 180px, 112px"
-                  className="object-cover grayscale-[0.15] sepia-[0.08]"
+                  width={400}
+                  height={500}
+                  sizes="(min-width: 768px) 200px, 128px"
+                  className="h-auto w-full mix-blend-multiply"
                   priority
                 />
               </div>
@@ -59,27 +63,27 @@ export default function HomePage() {
                 <p className="font-serif italic text-lg text-ink leading-tight md:text-xl md:mt-1">
                   Mayane Cohen
                 </p>
-                <p className="label-mono mt-1 text-platinum">Paris · 2026</p>
+                <p className="label-mono mt-1 text-platinum">Paris</p>
               </div>
             </div>
 
             <div className="space-y-4 border-l border-rose-ancien/30 pl-4">
               <div>
-                <p className="label-mono text-platinum">Formation</p>
+                <p className="label-mono text-platinum">Spécialités</p>
                 <p className="font-serif italic text-ink mt-1">
-                  M2 Design Digital · ESD
+                  UI · UX · Design System
                 </p>
               </div>
               <div>
-                <p className="label-mono text-platinum">Alternance</p>
+                <p className="label-mono text-platinum">Expérience</p>
                 <p className="font-serif italic text-ink mt-1">
                   Brothers Négoce
                 </p>
               </div>
               <div>
-                <p className="label-mono text-platinum">Localisation</p>
+                <p className="label-mono text-platinum">Basée à</p>
                 <p className="font-serif italic text-ink mt-1">
-                  Paris · 2026
+                  Paris
                 </p>
               </div>
             </div>
@@ -92,11 +96,11 @@ export default function HomePage() {
           className="scroll-mt-24 border-t border-rose-ancien/30 py-12 md:py-16 md:scroll-mt-32"
         >
           <p className="label-mono mb-3 text-rose-ancien">
-            — Les projets · 06 / 06
+           Les projets · 06 / 06
           </p>
           <h2 className="font-serif text-4xl leading-tight text-ink md:text-5xl">
             Six projets,{" "}
-            <em className="italic gradient-gold-text">six terrains</em> —
+            <em className="italic gradient-gold-text">six terrains</em>,
             une méthode.
           </h2>
         </section>
@@ -110,12 +114,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ─── À PROPOS — TEASER ─────────────────────────────── */}
+        {/* ─── À PROPOS, TEASER ─────────────────────────────── */}
         <section className="border-t border-rose-ancien/30 py-16 md:py-24">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
             <div className="md:col-span-6">
               <p className="label-mono mb-3 text-rose-ancien">
-                — Qui je suis
+               Qui je suis
               </p>
               <h2 className="font-serif text-4xl italic text-ink leading-tight md:text-5xl">
                 Maths · Info · MIAGE · Design digital.
@@ -127,11 +131,13 @@ export default function HomePage() {
             </div>
             <div className="md:col-span-5 md:col-start-8 md:pt-3">
               <p className="font-sans text-base leading-relaxed text-ink">
-                Étudiante en M2 Design Digital à l&apos;ESD, en alternance
-                chez Brothers Négoce — distributeur B2B de matériel
-                énergétique — où je conçois l&apos;identité visuelle, les
-                supports digitaux et la communication d&apos;une marque dans
-                un univers qu&apos;on ne pense jamais esthétique.
+                En alternance chez{" "}
+                <em className="italic text-gold-ink">Brothers Négoce</em>,
+                distributeur B2B de matériel énergétique, où je conçois
+                l&apos;identité visuelle, les supports digitaux et la
+                communication d&apos;une marque dans un univers qu&apos;on
+                ne pense jamais esthétique. Mon rôle&nbsp;: le rendre
+                désirable.
               </p>
               <a
                 href="/a-propos"

@@ -27,23 +27,23 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://mayane-cohen.vercel.app"),
   title: {
-    default: "Mayane Cohen — Designer Digital",
+    default: "Mayane Cohen, Designer du sensible",
     template: "%s · Mayane Cohen",
   },
   description:
-    "Portfolio de Mayane Cohen, designer digital en M2 à l'ESD. Six projets — du design system B2B à l'expérience IA générative.",
+    "Portfolio de Mayane Cohen, designer du sensible. Six projets entre digital, événementiel et sur-mesure. Le digital comme outil, le sensible comme boussole.",
   openGraph: {
-    title: "Mayane Cohen — Designer Digital",
+    title: "Mayane Cohen, Designer du sensible",
     description:
-      "Portfolio de Mayane Cohen, designer digital. Six projets — du design system B2B à l'expérience IA générative.",
+      "Six projets. Le digital comme outil, le sensible comme boussole.",
     type: "website",
     locale: "fr_FR",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mayane Cohen — Designer Digital",
+    title: "Mayane Cohen, Designer du sensible",
     description:
-      "Portfolio de Mayane Cohen, designer digital.",
+      "Six projets. Le digital comme outil, le sensible comme boussole.",
   },
   formatDetection: {
     telephone: false,

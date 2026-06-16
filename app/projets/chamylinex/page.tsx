@@ -50,7 +50,7 @@ export default function ChamylinexPage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · CHAMYLINEX`}
-        cartouche={`Nº ${project.nr} — MAI 2026`}
+        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
       <ProjectHero
@@ -116,7 +116,7 @@ export default function ChamylinexPage() {
         <section className="px-6 md:px-12 py-12">
           <div className="border-t border-rose-ancien/30 pt-10 text-center">
             <p className="label-mono text-platinum mb-3">
-              — Voir le travail en interaction
+             Voir le travail en interaction
             </p>
             <a
               href={project.externalLink.url}

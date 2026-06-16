@@ -2,13 +2,13 @@
  * Source de vérité des 6 projets du portfolio.
  * Importé par la homepage (grille) et par chaque page projet (/projets/[slug]).
  *
- * Ordre voulu — du plus stratégique recruteur au plus ancien :
+ * Ordre voulu, du plus stratégique recruteur au plus ancien :
  *  01 · Chamylinex          mission client B2B (hors-école, hors-alternance)
- *  02 · Oracle des déchets  école M2 CREATECH — IA générative + n8n live
- *  03 · Brothers Négoce     alternance — design system génératif B2B
- *  04 · MyTrack             école M2 UX — démarche complète
- *  05 · GABI                école M1 — interface métier (prise de poste)
- *  06 · Chartier Dalix      école M1 — site éditorial archi
+ *  02 · Oracle des déchets  école M2 CREATECH, IA générative + n8n live
+ *  03 · Brothers Négoce     alternance, design system génératif B2B
+ *  04 · MyTrack             école M2 UX, démarche complète
+ *  05 · GABI                école M1, interface métier (prise de poste)
+ *  06 · Chartier Dalix      école M1, site éditorial archi
  */
 
 export type ProjectAccent =
@@ -22,23 +22,25 @@ export type ProjectAccent =
 export interface Project {
   slug: string;
   nr: string; // "01" → "06"
-  /** Titre principal — ce qui s'affiche en gros */
+  /** Titre principal, ce qui s'affiche en gros */
   title: string;
-  /** Mot mis en italique gold dans le titre — sous-chaîne du title.
+  /** Mot mis en italique gold dans le titre, sous-chaîne du title.
    *  Vide si pas d'italique (ex : Chamylinex, GABI). */
   italicWord?: string;
-  /** Sous-titre éditorial — 1 phrase qui pitche */
+  /** Sous-titre éditorial, 1 phrase qui pitche */
   subtitle: string;
-  /** Métadonnée mono uppercase — type de projet en 3-5 mots */
+  /** Métadonnée mono uppercase, type de projet en 3-5 mots */
   meta: string;
-  /** Pull-quote signature — utilisé en bas de fiche projet */
+  /** Tags compétences mises en œuvre (UI, UX, Design System, etc.) */
+  skills: string[];
+  /** Pull-quote signature, utilisé en bas de fiche projet */
   pullQuote: string;
   /** Lien externe à montrer en CTA de fin de fiche */
   externalLink?: {
     label: string;
     url: string;
   };
-  /** Accent visuel — chaque projet a sa couleur d'ancrage visible
+  /** Accent visuel, chaque projet a sa couleur d'ancrage visible
    *  uniquement dans son hero / accent line, jamais en fond global */
   accent: ProjectAccent;
 }
@@ -51,8 +53,9 @@ export const projects: Project[] = [
     subtitle:
       "Refonte e-commerce d'un grossiste B2B en produits de grande consommation.",
     meta: "MISSION CLIENT · RECOMMANDATION",
+    skills: ["UI Design", "UX", "Direction Artistique", "E-commerce B2B"],
     pullQuote:
-      "Sans design system, le logo est le seul ancrage. Tout ce qui suit doit s'en déduire — pas s'y opposer.",
+      "Sans design system, le logo est le seul ancrage. Tout ce qui suit doit s'en déduire, pas s'y opposer.",
     externalLink: {
       label: "Voir la maquette interactive",
       url: "https://edge-people-07374602.figma.site",
@@ -65,10 +68,17 @@ export const projects: Project[] = [
     title: "L'Oracle des déchets",
     italicWord: "Oracle",
     subtitle:
-      "Une prophétie dystopique de l'an 2500 — système IA générative, workflow n8n, interface live.",
-    meta: "PROJET ÉCOLE · BINÔME · IA + AUTOMATION",
+      "Une prophétie dystopique de l'an 2500, système IA générative, workflow n8n, interface live.",
+    meta: "CAS D'ÉTUDE · BINÔME · IA + AUTOMATION",
+    skills: [
+      "Design IA",
+      "System Prompt",
+      "n8n",
+      "Direction narrative",
+      "Vercel",
+    ],
     pullQuote:
-      "Le system prompt est devenu un objet de design. Définir le rôle, la voix, les contraintes — c'est designer une entité, pas paramétrer un outil.",
+      "Le system prompt est devenu un objet de design. Définir le rôle, la voix, les contraintes, c'est designer une entité, pas paramétrer un outil.",
     externalLink: {
       label: "Consulter l'Oracle en live",
       url: "https://oracle-des-dechets.vercel.app",
@@ -81,10 +91,17 @@ export const projects: Project[] = [
     title: "Brothers Négoce",
     italicWord: "Négoce",
     subtitle:
-      "Système visuel génératif B2B — kit de templates Meta/Instagram cohérents en quelques minutes.",
+      "Système visuel génératif B2B, kit de templates Meta/Instagram cohérents en quelques minutes.",
     meta: "ALTERNANCE · ÉNERGIE B2B · PHASE PILOTE",
+    skills: [
+      "Design System",
+      "Templating",
+      "UI",
+      "Direction Artistique",
+      "Communication B2B",
+    ],
     pullQuote:
-      "Un système génératif n'efface pas le designer — il libère son temps pour les arbitrages qui comptent.",
+      "Un système génératif n'efface pas le designer, il libère son temps pour les arbitrages qui comptent.",
     accent: "teal",
   },
   {
@@ -92,10 +109,17 @@ export const projects: Project[] = [
     nr: "04",
     title: "MyTrack",
     subtitle:
-      "Interface d'aide à la décision pour personnaliser le parcours étudiant — choisir directement son option, ou s'éclairer d'abord par les fiches métiers.",
-    meta: "DEVOIR ÉCOLE · SOLO · DÉMARCHE UX",
+      "Interface d'aide à la décision pour personnaliser le parcours étudiant, choisir directement son option, ou s'éclairer d'abord par les fiches métiers.",
+    meta: "CAS D'ÉTUDE · SOLO · DÉMARCHE UX",
+    skills: [
+      "UX Research",
+      "Wireframes",
+      "UI Design",
+      "Tests utilisateurs",
+      "Prototypage",
+    ],
     pullQuote:
-      "Les fiches métiers ne remplacent pas le choix de l'option — elles l'éclairent, pour celles et ceux qui en ont besoin.",
+      "Les fiches métiers ne remplacent pas le choix de l'option, elles l'éclairent, pour celles et ceux qui en ont besoin.",
     externalLink: {
       label: "Voir le prototype interactif",
       url: "https://union-cut-12250237.figma.site",
@@ -107,8 +131,15 @@ export const projects: Project[] = [
     nr: "05",
     title: "GABI",
     subtitle:
-      "Refonte de l'interface tablette embarquée des chauffeurs de bus — la prise de poste quotidienne.",
-    meta: "DEVOIR ÉCOLE · GROUPE DE 4 · MON RÔLE : PRISE DE POSTE",
+      "Refonte de l'interface tablette embarquée des chauffeurs de bus, la prise de poste quotidienne.",
+    meta: "CAS D'ÉTUDE · GROUPE DE 4 · MON RÔLE : PRISE DE POSTE",
+    skills: [
+      "UI Design",
+      "UX",
+      "Interface métier",
+      "Dark Mode",
+      "Mobile / Tablette",
+    ],
     pullQuote:
       "Avant la route, le bus. Avant le départ, le trajet. Designer les deux minutes qui décident du service entier.",
     accent: "blue-dark",
@@ -119,10 +150,17 @@ export const projects: Project[] = [
     title: "Chartier Dalix",
     italicWord: "Dalix",
     subtitle:
-      "Refonte du site web du cabinet d'architecture parisien — système éditorial numéroté.",
-    meta: "DEVOIR ÉCOLE · SOLO · PROTOTYPE PROTOPIE",
+      "Refonte du site web du cabinet d'architecture parisien, système éditorial numéroté.",
+    meta: "CAS D'ÉTUDE · SOLO · PROTOTYPE PROTOPIE",
+    skills: [
+      "UI Design",
+      "Direction Artistique",
+      "Prototypage Protopie",
+      "Micro-interactions",
+      "Design éditorial",
+    ],
     pullQuote:
-      "L'architecture se regarde avant de se lire. Tout le reste — typo, grille, navigation — doit la servir.",
+      "L'architecture se regarde avant de se lire. Tout le reste, typo, grille, navigation, doit la servir.",
     accent: "stone",
   },
 ];
