@@ -3,6 +3,8 @@ import { MonoBanner } from "@/components/MonoBanner";
 import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { SplitText } from "@/components/gsap/SplitText";
+import { ParallaxImage } from "@/components/gsap/ParallaxImage";
 import { projects } from "@/data/projects";
 
 export default function HomePage() {
@@ -16,31 +18,33 @@ export default function HomePage() {
       <article className="px-6 md:px-12">
         {/* ─── HERO ASYMÉTRIQUE ──────────────────────────────── */}
         <section className="relative grid grid-cols-1 gap-8 py-8 md:grid-cols-12 md:gap-x-8 md:py-12">
-          {/* Photo XXL : à droite sur desktop, en background mobile */}
+          {/* Photo XXL avec parallaxe au scroll */}
           <div className="order-1 md:order-2 md:col-span-5 md:col-start-8">
-            <div className="relative mx-auto w-full max-w-md md:max-w-none">
-              {/* Halo gradient derrière la photo */}
-              <div
-                aria-hidden
-                className="absolute -inset-6 -z-10 rounded-full bg-blush/40 blur-3xl"
-              />
-              <Image
-                src="/portrait-cutout.png"
-                alt="Portrait de Mayane Cohen"
-                width={800}
-                height={1000}
-                sizes="(min-width: 768px) 40vw, 90vw"
-                className="h-auto w-full mix-blend-multiply"
-                priority
-              />
-            </div>
+            <ParallaxImage intensity={60}>
+              <div className="relative mx-auto w-full max-w-md md:max-w-none">
+                {/* Halo gradient pulsant derrière la photo */}
+                <div
+                  aria-hidden
+                  className="absolute -inset-6 -z-10 animate-[pulse_6s_ease-in-out_infinite] rounded-full bg-blush/40 blur-3xl"
+                />
+                <Image
+                  src="/portrait-cutout.png"
+                  alt="Portrait de Mayane Cohen"
+                  width={800}
+                  height={1000}
+                  sizes="(min-width: 768px) 40vw, 90vw"
+                  className="h-auto w-full mix-blend-multiply"
+                  priority
+                />
+              </div>
+            </ParallaxImage>
             {/* Légende sous la photo */}
             <div className="mt-4 flex items-baseline justify-center gap-3 md:mt-6 md:justify-end">
               <span className="label-mono text-rose-ancien">Par</span>
               <span className="font-serif italic text-xl text-ink md:text-2xl">
                 Mayane Cohen
               </span>
-              <span className="label-mono text-platinum">Paris</span>
+              <span className="label-mono text-taupe">Paris</span>
             </div>
           </div>
 
@@ -53,13 +57,19 @@ export default function HomePage() {
               </span>
             </div>
 
+            {/* TITRE animé caractère par caractère au load */}
             <h1 className="font-serif text-5xl leading-[0.92] text-ink sm:text-6xl md:text-[6.5rem] lg:text-[8rem]">
-              Designer
-              <br />
-              <em className="font-serif italic gradient-gold-text">
-                du sensible
-              </em>
-              .
+              <SplitText delay={0.3} stagger={0.04} as="span" className="block">
+                Designer
+              </SplitText>
+              <SplitText
+                delay={0.7}
+                stagger={0.05}
+                as="span"
+                className="block font-serif italic gradient-gold-text"
+              >
+                du sensible.
+              </SplitText>
             </h1>
 
             <p className="label-mono mt-5 text-rose-ancien md:mt-8">

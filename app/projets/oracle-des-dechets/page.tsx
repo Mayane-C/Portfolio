@@ -30,11 +30,12 @@ export default function OraclePage() {
         contextLabel="Cas d'étude · IA + Automation · ChangeNOW"
       />
 
-      {/* ─── CTA externe en haut ─────────────────────────────── */}
+      {/* ─── CTA externe en haut + disclaimer disponibilité IA ─ */}
       {project.externalLink && (
         <ExternalProjectCTA
           label="Tester l'IA en direct"
           externalLink={project.externalLink}
+          disclaimer="Projet en phase de démonstration · la génération IA peut être ponctuellement indisponible selon l'état du workflow back-end."
         />
       )}
 
@@ -130,18 +131,6 @@ export default function OraclePage() {
         </div>
       </Section>
 
-      {/* ─── Disclaimer disponibilité IA ─────────────────────── */}
-      {project.externalLink && (
-        <section className="px-6 md:px-12 py-8">
-          <div className="border-t border-rose-ancien/30 pt-8">
-            <p className="mx-auto max-w-md text-center font-serif italic text-sm text-taupe leading-snug">
-              Projet en phase de démonstration · la génération IA peut
-              être ponctuellement indisponible selon l&apos;état du
-              workflow back-end.
-            </p>
-          </div>
-        </section>
-      )}
 
       <ProjectNav currentSlug={project.slug} />
 

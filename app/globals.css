@@ -22,7 +22,8 @@
   /* TEXTES */
   --color-ink: #1a1a1a;            /* texte principal — noir profond */
   --color-taupe: #6b6258;          /* texte secondaire — taupe chaud */
-  --color-platinum: #a8a39b;       /* labels mono, métadonnées discrètes */
+  --color-platinum: #7a7268;       /* labels mono, métadonnées (foncé pour
+                                      contraste WCAG AA sur fond crème) */
 
   /* SIGNATURE BORDEAUX */
   --color-prune: #4a1f2f;          /* bordeaux profond — pages chapitre, pull-quotes */
