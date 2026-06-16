@@ -6,6 +6,7 @@ import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
 import { MacBookFrame } from "@/components/MacBookFrame";
 import { NumberedStep } from "@/components/NumberedStep";
+import { ExternalProjectCTA } from "@/components/ExternalProjectCTA";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -26,7 +27,15 @@ export default function MyTrackPage() {
 
       <ProjectHero project={project} contextLabel="Cas d'étude UX · Aide à la décision" />
 
-      {/* ─── Vidéo en haut, gros format ──────────────────────── */}
+      {/* ─── CTA externe en haut ─────────────────────────────── */}
+      {project.externalLink && (
+        <ExternalProjectCTA
+          label="Tester le prototype"
+          externalLink={project.externalLink}
+        />
+      )}
+
+      {/* ─── Vidéo, gros format ──────────────────────────────── */}
       <div className="px-4 md:px-12">
         <MacBookFrame
           src="/projects/mytrack/00-demo.mp4"
@@ -111,28 +120,6 @@ export default function MyTrackPage() {
       <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>
       </div>
-
-      {project.externalLink && (
-        <section className="px-6 md:px-12 py-12">
-          <div className="border-t border-rose-ancien/30 pt-10 text-center">
-            <p className="label-mono text-platinum mb-3">
-             Voir le travail en interaction
-            </p>
-            <a
-              href={project.externalLink.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-serif italic text-3xl md:text-4xl text-ink hover:text-gold-ink transition-colors inline-block"
-            >
-              {project.externalLink.label}{" "}
-              <span className="gradient-gold-text">→</span>
-            </a>
-            <p className="label-mono mt-3 text-platinum text-[10px]">
-              {project.externalLink.url}
-            </p>
-          </div>
-        </section>
-      )}
 
       <ProjectNav currentSlug={project.slug} />
 

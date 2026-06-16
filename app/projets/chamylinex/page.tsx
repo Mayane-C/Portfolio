@@ -4,6 +4,7 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { PullQuote } from "@/components/PullQuote";
 import { Carousel, type CarouselItem } from "@/components/Carousel";
+import { ExternalProjectCTA } from "@/components/ExternalProjectCTA";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -55,7 +56,15 @@ export default function ChamylinexPage() {
         contextLabel="Mission client indépendante"
       />
 
-      {/* ─── Carousel des écrans en haut, GROS format ──────── */}
+      {/* ─── CTA externe en haut, accès immédiat à l'interactif ─ */}
+      {project.externalLink && (
+        <ExternalProjectCTA
+          label="Voir le projet en interaction"
+          externalLink={project.externalLink}
+        />
+      )}
+
+      {/* ─── Carousel des écrans, GROS format ──────────────── */}
       <div className="px-4 md:px-12">
         <Carousel items={captures} ratio="16/10" />
       </div>
@@ -112,29 +121,6 @@ export default function ChamylinexPage() {
       <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>
       </div>
-
-      {/* ─── CTA fin ─────────────────────────────────────────── */}
-      {project.externalLink && (
-        <section className="px-6 md:px-12 py-12">
-          <div className="border-t border-rose-ancien/30 pt-10 text-center">
-            <p className="label-mono text-platinum mb-3">
-              Voir le travail en interaction
-            </p>
-            <a
-              href={project.externalLink.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-serif italic text-3xl md:text-4xl text-ink hover:text-gold-ink transition-colors inline-block"
-            >
-              {project.externalLink.label}{" "}
-              <span className="gradient-gold-text">→</span>
-            </a>
-            <p className="label-mono mt-3 text-platinum text-[10px]">
-              {project.externalLink.url}
-            </p>
-          </div>
-        </section>
-      )}
 
       <ProjectNav currentSlug={project.slug} />
 

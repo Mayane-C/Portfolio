@@ -6,6 +6,7 @@ import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
 import { MacBookFrame } from "@/components/MacBookFrame";
 import { NumberedStep } from "@/components/NumberedStep";
+import { ExternalProjectCTA } from "@/components/ExternalProjectCTA";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -29,7 +30,15 @@ export default function OraclePage() {
         contextLabel="Cas d'étude · IA + Automation · ChangeNOW"
       />
 
-      {/* ─── Vidéo en haut, gros format ──────────────────────── */}
+      {/* ─── CTA externe en haut ─────────────────────────────── */}
+      {project.externalLink && (
+        <ExternalProjectCTA
+          label="Tester l'IA en direct"
+          externalLink={project.externalLink}
+        />
+      )}
+
+      {/* ─── Vidéo, gros format ──────────────────────────────── */}
       <div className="px-4 md:px-12">
         <MacBookFrame
           src="/projects/oracle-des-dechets/demo.mp4"
@@ -121,28 +130,14 @@ export default function OraclePage() {
         </div>
       </Section>
 
+      {/* ─── Disclaimer disponibilité IA ─────────────────────── */}
       {project.externalLink && (
-        <section className="px-6 md:px-12 py-12">
-          <div className="border-t border-rose-ancien/30 pt-10 text-center">
-            <p className="label-mono text-platinum mb-3">
-             Le projet est en ligne
-            </p>
-            <a
-              href={project.externalLink.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-serif italic text-3xl md:text-4xl text-ink hover:text-gold-ink transition-colors inline-block"
-            >
-              {project.externalLink.label}{" "}
-              <span className="gradient-gold-text">→</span>
-            </a>
-            <p className="label-mono mt-3 text-platinum text-[10px]">
-              {project.externalLink.url}
-            </p>
-            <p className="mx-auto mt-6 max-w-md font-serif italic text-sm text-taupe leading-snug">
-              Projet pédagogique en phase de démonstration · la génération
-              IA peut être ponctuellement indisponible selon l&apos;état
-              du workflow back-end.
+        <section className="px-6 md:px-12 py-8">
+          <div className="border-t border-rose-ancien/30 pt-8">
+            <p className="mx-auto max-w-md text-center font-serif italic text-sm text-taupe leading-snug">
+              Projet en phase de démonstration · la génération IA peut
+              être ponctuellement indisponible selon l&apos;état du
+              workflow back-end.
             </p>
           </div>
         </section>

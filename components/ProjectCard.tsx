@@ -1,7 +1,5 @@
-"use client";
-
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 import type { Project } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -12,35 +10,11 @@ interface ProjectCardProps {
  * Card projet, utilisée dans la grille 2x3 de la homepage.
  * Pattern card-bouton, toute la card est cliquable.
  *
- * Si project.previewVideo est défini, affiche la vidéo en autoplay loop
- * muted en haut de la card (effet GIF), dans une mini frame MacBook
- * stylisée pour évoquer un produit digital live.
+ * Si project.previewImage est défini, affiche une thumbnail statique
+ * en haut de la card (extrait d'une frame de la vidéo demo, ou cover
+ * du design system pour Brothers Négoce).
  */
 export function ProjectCard({ project }: ProjectCardProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Pause la vidéo si hors viewport, économie batterie + perf
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {
-            // Politique browser autoplay ; ignore silencieusement
-          });
-        } else {
-          video.pause();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
-
   const renderTitle = () => {
     const { title, italicWord } = project;
     if (!italicWord) return <>{title}.</>;
@@ -74,25 +48,24 @@ export function ProjectCard({ project }: ProjectCardProps) {
         Projet Nº {project.nr} / 06
       </p>
 
-      {/* Preview vidéo (si disponible), effet GIF dans mini frame */}
-      {project.previewVideo && (
-        <div className="relative mb-6 overflow-hidden rounded-t-md bg-prune-deep p-1.5 md:rounded-t-lg md:p-2">
-          <div className="mb-1 flex items-center justify-center">
-            <span className="block h-0.5 w-0.5 rounded-full bg-rose-ancien/60" />
-          </div>
-          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-ink">
-            <video
-              ref={videoRef}
-              src={project.previewVideo}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="h-full w-full object-cover"
+      {/* Preview image statique (si disponible), avec un léger overlay au hover */}
+      {project.previewImage && (
+        <div className="relative mb-6 overflow-hidden rounded-md border border-rose-ancien/20 md:rounded-lg">
+          <div className="relative aspect-[16/10] w-full bg-cream-deep">
+            <Image
+              src={project.previewImage}
+              alt={`Aperçu du projet ${project.title}`}
+              fill
+              sizes="(min-width: 768px) 45vw, 100vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             />
+            {/* Overlay au hover : indique qu'on peut cliquer pour voir l'interaction */}
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-prune/0 opacity-0 transition-all duration-300 group-hover:bg-prune/40 group-hover:opacity-100">
+              <span className="label-mono border border-cream/40 bg-cream/10 px-4 py-2 text-cream backdrop-blur-sm">
+                Voir l&apos;interaction →
+              </span>
+            </div>
           </div>
-          <div className="mx-auto mt-0.5 h-1.5 w-1/4 rounded-b-full bg-prune-deep/60" />
         </div>
       )}
 

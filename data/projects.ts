@@ -33,8 +33,8 @@ export interface Project {
   meta: string;
   /** Tags compétences mises en œuvre (UI, UX, Design System, etc.) */
   skills: string[];
-  /** Vidéo de preview affichée sur la card projet de la home (autoplay loop muted) */
-  previewVideo?: string;
+  /** Image preview (thumbnail statique) affichée sur la card projet de la home */
+  previewImage?: string;
   /** Pull-quote signature, utilisé en bas de fiche projet */
   pullQuote: string;
   /** Lien externe à montrer en CTA de fin de fiche */
@@ -56,7 +56,7 @@ export const projects: Project[] = [
       "Refonte e-commerce d'un grossiste B2B en produits de grande consommation.",
     meta: "MISSION CLIENT · RECOMMANDATION",
     skills: ["UI Design", "UX", "Direction Artistique", "E-commerce B2B"],
-    previewVideo: "/projects/chamylinex/01-home.mp4",
+    previewImage: "/projects/chamylinex/preview.jpg",
     pullQuote:
       "Sans design system, le logo est le seul ancrage. Tout ce qui suit doit s'en déduire, pas s'y opposer.",
     externalLink: {
@@ -80,7 +80,7 @@ export const projects: Project[] = [
       "Direction narrative",
       "Vercel",
     ],
-    previewVideo: "/projects/oracle-des-dechets/demo.mp4",
+    previewImage: "/projects/oracle-des-dechets/preview.jpg",
     pullQuote:
       "Le system prompt est devenu un objet de design. Définir le rôle, la voix, les contraintes, c'est designer une entité, pas paramétrer un outil.",
     externalLink: {
@@ -104,6 +104,7 @@ export const projects: Project[] = [
       "Direction Artistique",
       "Communication B2B",
     ],
+    previewImage: "/projects/brothers-negoce/01-cover.png",
     pullQuote:
       "Un système génératif n'efface pas le designer, il libère son temps pour les arbitrages qui comptent.",
     accent: "teal",
@@ -122,7 +123,7 @@ export const projects: Project[] = [
       "Tests utilisateurs",
       "Prototypage",
     ],
-    previewVideo: "/projects/mytrack/00-demo.mp4",
+    previewImage: "/projects/mytrack/preview.jpg",
     pullQuote:
       "Les fiches métiers ne remplacent pas le choix de l'option, elles l'éclairent, pour celles et ceux qui en ont besoin.",
     externalLink: {
@@ -145,7 +146,7 @@ export const projects: Project[] = [
       "Dark Mode",
       "Mobile / Tablette",
     ],
-    previewVideo: "/projects/gabi/demo.mp4",
+    previewImage: "/projects/gabi/preview.jpg",
     pullQuote:
       "Avant la route, le bus. Avant le départ, le trajet. Designer les deux minutes qui décident du service entier.",
     accent: "blue-dark",
@@ -165,7 +166,7 @@ export const projects: Project[] = [
       "Micro-interactions",
       "Design éditorial",
     ],
-    previewVideo: "/projects/chartier-dalix/demo.mp4",
+    previewImage: "/projects/chartier-dalix/preview.jpg",
     pullQuote:
       "L'architecture se regarde avant de se lire. Tout le reste, typo, grille, navigation, doit la servir.",
     accent: "stone",
