@@ -126,12 +126,42 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
             aria-roledescription="slide"
             aria-label={`Élément ${idx + 1} sur ${items.length}`}
           >
-            <div
-              className={`relative ${aspectClass} w-full overflow-hidden rounded-sm border border-rose-ancien/20 ${
-                item.type === "video" ? "bg-ink" : "bg-cream-deep"
-              }`}
-            >
-              {item.type === "image" ? (
+            {item.type === "video" ? (
+              // Vidéo : frame MacBook + autoplay loop muted (effet GIF)
+              <div className="px-2 pt-2 md:px-3 md:pt-3">
+                <div className="relative overflow-hidden rounded-t-xl bg-prune-deep p-2 md:rounded-t-2xl md:p-3">
+                  <div className="mb-1 flex items-center justify-center md:mb-2">
+                    <span className="block h-1 w-1 rounded-full bg-rose-ancien/60" />
+                  </div>
+                  <div
+                    className={`relative ${aspectClass} w-full overflow-hidden rounded-sm bg-ink`}
+                  >
+                    <video
+                      ref={(el) => {
+                        videoRefs.current[idx] = el;
+                      }}
+                      src={item.src}
+                      poster={item.poster}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="h-full w-full object-cover"
+                    >
+                      <source src={item.src} type={inferMime(item.src)} />
+                      Votre navigateur ne supporte pas la lecture vidéo.
+                    </video>
+                  </div>
+                </div>
+                {/* Pied MacBook */}
+                <div className="mx-auto h-2.5 max-w-3xl rounded-b-2xl bg-prune-deep/95 md:h-3" />
+                <div className="mx-auto h-1 w-1/4 rounded-b-full bg-prune-deep/40" />
+              </div>
+            ) : (
+              <div
+                className={`relative ${aspectClass} w-full overflow-hidden rounded-sm border border-rose-ancien/20 bg-cream-deep`}
+              >
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -139,23 +169,8 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
                   sizes="(min-width: 768px) 720px, 100vw"
                   className="object-contain"
                 />
-              ) : (
-                <video
-                  ref={(el) => {
-                    videoRefs.current[idx] = el;
-                  }}
-                  src={item.src}
-                  poster={item.poster}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="h-full w-full object-contain"
-                >
-                  <source src={item.src} type={inferMime(item.src)} />
-                  Votre navigateur ne supporte pas la lecture vidéo.
-                </video>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         ))}
       </div>

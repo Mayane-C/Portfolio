@@ -26,6 +26,7 @@ interface MonoBannerProps {
 
 const navItems = [
   { href: "/#projets", label: "Projets", matchPath: "/" },
+  { href: "/methode", label: "Méthode", matchPath: "/methode" },
   { href: "/a-propos", label: "À propos", matchPath: "/a-propos" },
 ];
 

@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { MonoBanner } from "@/components/MonoBanner";
 import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
-import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { Carousel } from "@/components/Carousel";
+import { Carousel, type CarouselItem } from "@/components/Carousel";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -14,8 +13,6 @@ export const metadata: Metadata = {
   title: `${project.title} · Mission e-commerce B2B`,
   description: project.subtitle,
 };
-
-import type { CarouselItem } from "@/components/Carousel";
 
 const captures: CarouselItem[] = [
   {
@@ -58,53 +55,58 @@ export default function ChamylinexPage() {
         contextLabel="Mission client indépendante"
       />
 
-      {/* ─── Le contexte ─────────────────────────────────────── */}
-      <Section label="Le contexte">
-        <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
-          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            <strong className="font-semibold">Chamylinex</strong> distribue
-            des produits FMCG <em className="italic text-gold-ink">
-              (Fast-Moving Consumer Goods)
-            </em>{" "}
-            en B2B vers la France. À mon arrivée, l&apos;existant ne
-            reflétait ni la promesse internationale, ni le sérieux d&apos;une
-            plateforme grossiste.
-          </p>
-          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            UI dépassée, parcours fragmenté, aucune cohérence entre les
-            pages. Mission ponctuelle, hors-école et hors-alternance,
-            confiée par recommandation depuis Brothers Négoce.
-          </p>
-        </div>
-      </Section>
-
-      {/* ─── L'approche ──────────────────────────────────────── */}
-      <Section label="L'approche" compact>
-        <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
-          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            Sans design system préexistant, le logo devient la seule
-            contrainte. À partir de là, tout se déduit : palette{" "}
-            <em className="italic text-gold-ink">
-              (navy profond + lavande)
-            </em>
-            , hiérarchie typographique, ton{" "}
-            <em className="italic text-gold-ink">
-              &quot;professionnel mais accessible&quot;
-            </em>
-            .
-          </p>
-          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            Reconstruction complète du parcours acheteur professionnel :
-            accueil → catalogue → recherche → demande de devis. Maquettage
-            de quatre écrans clés, validés par le client.
-          </p>
-        </div>
-      </Section>
-
-      {/* ─── Carousel des 4 captures ────────────────────────── */}
-      <div className="px-6 md:px-12">
+      {/* ─── Carousel des écrans en haut, GROS format ──────── */}
+      <div className="px-4 md:px-12">
         <Carousel items={captures} ratio="16/10" />
       </div>
+
+      {/* ─── Contexte + Approche en 2 colonnes compactes ───── */}
+      <section className="px-6 md:px-12 py-10 md:py-14">
+        <div className="border-t border-rose-ancien/30 pt-8 md:pt-10">
+          <div className="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2 md:gap-x-12">
+            {/* COL 1, contexte */}
+            <div>
+              <div className="mb-3 flex items-center gap-3">
+                <span className="block h-px w-6 bg-rose-ancien" />
+                <span className="label-mono text-rose-ancien">
+                  Le contexte
+                </span>
+              </div>
+              <p className="font-sans text-sm md:text-base text-ink leading-snug">
+                <strong className="font-semibold">Chamylinex</strong>{" "}
+                distribue des produits FMCG{" "}
+                <em className="italic text-gold-ink">
+                  (Fast-Moving Consumer Goods)
+                </em>{" "}
+                en B2B vers la France. L&apos;existant ne reflétait ni la
+                promesse internationale, ni le sérieux d&apos;une plateforme
+                grossiste. UI dépassée, parcours fragmenté, aucune cohérence.
+                Mission ponctuelle, confiée par recommandation.
+              </p>
+            </div>
+
+            {/* COL 2, approche */}
+            <div>
+              <div className="mb-3 flex items-center gap-3">
+                <span className="block h-px w-6 bg-rose-ancien" />
+                <span className="label-mono text-rose-ancien">
+                  L&apos;approche
+                </span>
+              </div>
+              <p className="font-sans text-sm md:text-base text-ink leading-snug">
+                Sans design system préexistant, le logo devient la seule
+                contrainte. À partir de là, tout se déduit&nbsp;: palette{" "}
+                <em className="italic text-gold-ink">
+                  (navy profond, lavande)
+                </em>
+                , hiérarchie typographique, ton professionnel mais
+                accessible. Reconstruction du parcours acheteur&nbsp;:
+                accueil → catalogue → recherche → devis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Pull-quote signature */}
       <div className="px-6 md:px-12">
@@ -116,7 +118,7 @@ export default function ChamylinexPage() {
         <section className="px-6 md:px-12 py-12">
           <div className="border-t border-rose-ancien/30 pt-10 text-center">
             <p className="label-mono text-platinum mb-3">
-             Voir le travail en interaction
+              Voir le travail en interaction
             </p>
             <a
               href={project.externalLink.url}

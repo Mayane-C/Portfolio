@@ -4,7 +4,7 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { VideoSlot } from "@/components/VideoSlot";
+import { MacBookFrame } from "@/components/MacBookFrame";
 import { NumberedStep } from "@/components/NumberedStep";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
@@ -25,6 +25,14 @@ export default function ChartierDalixPage() {
       />
 
       <ProjectHero project={project} contextLabel="Cas d'étude UI · Site éditorial" />
+
+      {/* ─── Vidéo en haut, gros format ──────────────────────── */}
+      <div className="px-4 md:px-12">
+        <MacBookFrame
+          src="/projects/chartier-dalix/demo.mp4"
+          caption="Démo Protopie · navigation interactive du prototype"
+        />
+      </div>
 
       <Section label="Le constat">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
@@ -96,14 +104,6 @@ export default function ChartierDalixPage() {
           />
         </ul>
       </Section>
-
-      <div className="px-6 md:px-12">
-        <VideoSlot
-          src="/projects/chartier-dalix/demo.mp4"
-          caption="Démo Protopie · navigation interactive du prototype"
-          ratio="16/10"
-        />
-      </div>
 
       <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>

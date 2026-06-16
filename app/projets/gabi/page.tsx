@@ -4,7 +4,7 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { VideoSlot } from "@/components/VideoSlot";
+import { MacBookFrame } from "@/components/MacBookFrame";
 import { NumberedStep } from "@/components/NumberedStep";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
@@ -25,6 +25,14 @@ export default function GabiPage() {
       />
 
       <ProjectHero project={project} contextLabel="Cas d'étude UI · Interface métier" />
+
+      {/* ─── Vidéo en haut, gros format ──────────────────────── */}
+      <div className="px-4 md:px-12">
+        <MacBookFrame
+          src="/projects/gabi/demo.mp4"
+          caption="Démo générale du projet · les quatre parcours conducteur"
+        />
+      </div>
 
       <Section label="Le projet collectif">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
@@ -49,14 +57,6 @@ export default function GabiPage() {
           </p>
         </div>
       </Section>
-
-      <div className="px-6 md:px-12">
-        <VideoSlot
-          src="/projects/gabi/demo.mp4"
-          caption="Démo générale du projet · les quatre parcours conducteur"
-          ratio="16/10"
-        />
-      </div>
 
       <Section label="Mon périmètre · la prise de poste">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">

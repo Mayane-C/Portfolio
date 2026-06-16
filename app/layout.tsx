@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, IBM_Plex_Mono } from "next/font/google";
+import { LoaderSplash } from "@/components/LoaderSplash";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -63,6 +64,7 @@ export default function RootLayout({
       className={`${cormorant.variable} ${inter.variable} ${plexMono.variable} antialiased`}
     >
       <body className="bg-cream text-ink">
+        <LoaderSplash />
         <main>{children}</main>
       </body>
     </html>
