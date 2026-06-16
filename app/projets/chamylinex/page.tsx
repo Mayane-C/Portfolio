@@ -3,7 +3,7 @@ import { MonoBanner } from "@/components/MonoBanner";
 import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { PullQuote } from "@/components/PullQuote";
-import { Carousel, type CarouselItem } from "@/components/Carousel";
+import { VideoShowcase } from "@/components/VideoShowcase";
 import { ExternalProjectCTA } from "@/components/ExternalProjectCTA";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
@@ -15,31 +15,26 @@ export const metadata: Metadata = {
   description: project.subtitle,
 };
 
-const captures: CarouselItem[] = [
+const videos = [
   {
-    type: "video",
     src: "/projects/chamylinex/01-home.mp4",
-    caption: "Page d'accueil · navigation et hero",
+    caption: "Page d'accueil",
   },
   {
-    type: "video",
     src: "/projects/chamylinex/02-catalogue.mp4",
-    caption: "Catalogue grossiste · recherche, filtres, fiches produits",
+    caption: "Catalogue grossiste",
   },
   {
-    type: "video",
     src: "/projects/chamylinex/03-panier.mp4",
-    caption: "Panier · sélection et récapitulatif commande",
+    caption: "Panier",
   },
   {
-    type: "video",
     src: "/projects/chamylinex/04-mon-compte.mp4",
-    caption: "Mon compte · espace acheteur professionnel",
+    caption: "Espace acheteur pro",
   },
   {
-    type: "video",
     src: "/projects/chamylinex/05-contact.mp4",
-    caption: "Contact · demande de devis",
+    caption: "Demande de devis",
   },
 ];
 
@@ -64,9 +59,9 @@ export default function ChamylinexPage() {
         />
       )}
 
-      {/* ─── Carousel des écrans, GROS format ──────────────── */}
-      <div className="px-4 md:px-12">
-        <Carousel items={captures} ratio="16/10" />
+      {/* ─── Grille des 5 écrans, autoplay loop simultané ───── */}
+      <div className="px-6 md:px-12">
+        <VideoShowcase items={videos} cols={3} />
       </div>
 
       {/* ─── Contexte + Approche en 2 colonnes compactes ───── */}
