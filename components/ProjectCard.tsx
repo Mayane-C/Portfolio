@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import type { Project } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -6,37 +9,48 @@ interface ProjectCardProps {
 }
 
 /**
- * Card projet — utilisée dans la grille 2×3 de la homepage.
- * Pattern card-bouton : toute la card est cliquable, avec un CTA
- * visible en bas qui affirme la nature "bouton" de la zone.
+ * Card projet, utilisée dans la grille 2x3 de la homepage.
+ * Pattern card-bouton, toute la card est cliquable.
  *
- * Inspirée des cards "Quatre leçons" et "Sept conseils" du livre blanc :
- * - numéro outline en arrière-plan
- * - hairline supérieure
- * - titre Cormorant XXL avec mot-accent italique gold
- * - sous-titre serif italique
- * - métadonnée mono
- * - CTA bouton encadré, toujours visible
- * - hover : fond crème-deep, chiffre se densifie, bouton se remplit
+ * Si project.previewVideo est défini, affiche la vidéo en autoplay loop
+ * muted en haut de la card (effet GIF), dans une mini frame MacBook
+ * stylisée pour évoquer un produit digital live.
  */
 export function ProjectCard({ project }: ProjectCardProps) {
-  // Compose le titre avec ou sans italique sur un mot
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Pause la vidéo si hors viewport, économie batterie + perf
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {
+            // Politique browser autoplay ; ignore silencieusement
+          });
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
   const renderTitle = () => {
     const { title, italicWord } = project;
-    if (!italicWord) {
-      return <>{title}.</>;
-    }
+    if (!italicWord) return <>{title}.</>;
     const idx = title.indexOf(italicWord);
     if (idx === -1) return <>{title}.</>;
-
-    const before = title.slice(0, idx);
-    const after = title.slice(idx + italicWord.length);
-
     return (
       <>
-        {before}
+        {title.slice(0, idx)}
         <em className="font-serif italic gradient-gold-text">{italicWord}</em>
-        {after}.
+        {title.slice(idx + italicWord.length)}.
       </>
     );
   };
@@ -57,8 +71,30 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Label nº */}
       <p className="label-mono mb-5 md:mb-6">
-        — Projet Nº {project.nr} / 06
+        Projet Nº {project.nr} / 06
       </p>
+
+      {/* Preview vidéo (si disponible), effet GIF dans mini frame */}
+      {project.previewVideo && (
+        <div className="relative mb-6 overflow-hidden rounded-t-md bg-prune-deep p-1.5 md:rounded-t-lg md:p-2">
+          <div className="mb-1 flex items-center justify-center">
+            <span className="block h-0.5 w-0.5 rounded-full bg-rose-ancien/60" />
+          </div>
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-ink">
+            <video
+              ref={videoRef}
+              src={project.previewVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="mx-auto mt-0.5 h-1.5 w-1/4 rounded-b-full bg-prune-deep/60" />
+        </div>
+      )}
 
       {/* Titre Cormorant XXL */}
       <h2 className="font-serif text-3xl leading-[1.05] text-ink sm:text-4xl md:text-5xl">
@@ -75,7 +111,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {project.meta}
       </p>
 
-      {/* ─── CTA BOUTON — toujours visible, signale la zone cliquable ─── */}
+      {/* CTA BOUTON */}
       <div className="mt-8 inline-flex items-center gap-3 border border-rose-ancien/70 bg-cream/60 px-5 py-2.5 transition-all duration-300 group-hover:border-rose-ancien group-hover:bg-prune group-hover:text-cream md:mt-10">
         <span className="label-mono text-rose-ancien transition-colors group-hover:text-gold-soft">
           Voir le projet

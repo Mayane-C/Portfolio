@@ -2,6 +2,7 @@ import Image from "next/image";
 import { MonoBanner } from "@/components/MonoBanner";
 import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectCard } from "@/components/ProjectCard";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { projects } from "@/data/projects";
 
 export default function HomePage() {
@@ -13,81 +14,77 @@ export default function HomePage() {
       />
 
       <article className="px-6 md:px-12">
-        {/* ─── HERO ──────────────────────────────────────────── */}
-        <section className="grid grid-cols-1 gap-8 py-12 md:grid-cols-12 md:gap-12 md:gap-x-8 md:py-24">
-          {/* Label section */}
-          <div className="md:col-span-12">
-            <div className="flex items-center gap-3">
-              <span className="block h-px w-8 bg-rose-ancien md:w-12" />
+        {/* ─── HERO ASYMÉTRIQUE ──────────────────────────────── */}
+        <section className="relative grid grid-cols-1 gap-8 py-8 md:grid-cols-12 md:gap-x-8 md:py-12">
+          {/* Photo XXL : à droite sur desktop, en background mobile */}
+          <div className="order-1 md:order-2 md:col-span-5 md:col-start-8">
+            <div className="relative mx-auto w-full max-w-md md:max-w-none">
+              {/* Halo gradient derrière la photo */}
+              <div
+                aria-hidden
+                className="absolute -inset-6 -z-10 rounded-full bg-blush/40 blur-3xl"
+              />
+              <Image
+                src="/portrait-cutout.png"
+                alt="Portrait de Mayane Cohen"
+                width={800}
+                height={1000}
+                sizes="(min-width: 768px) 40vw, 90vw"
+                className="h-auto w-full mix-blend-multiply"
+                priority
+              />
+            </div>
+            {/* Légende sous la photo */}
+            <div className="mt-4 flex items-baseline justify-center gap-3 md:mt-6 md:justify-end">
+              <span className="label-mono text-rose-ancien">Par</span>
+              <span className="font-serif italic text-xl text-ink md:text-2xl">
+                Mayane Cohen
+              </span>
+              <span className="label-mono text-platinum">Paris</span>
+            </div>
+          </div>
+
+          {/* Titre + label, à gauche, plus aéré */}
+          <div className="order-2 md:order-1 md:col-span-7 md:pt-10">
+            <div className="mb-6 flex items-center gap-3 md:mb-10">
+              <span className="block h-px w-12 bg-rose-ancien md:w-16" />
               <span className="label-mono text-rose-ancien">
                 Mayane Cohen · Portfolio · 2026
               </span>
             </div>
-          </div>
 
-          {/* Titre principal */}
-          <div className="md:col-span-9">
-            <h1 className="font-serif text-5xl leading-[0.95] text-ink sm:text-6xl md:text-[7rem]">
-              Designer{" "}
+            <h1 className="font-serif text-5xl leading-[0.92] text-ink sm:text-6xl md:text-[6.5rem] lg:text-[8rem]">
+              Designer
+              <br />
               <em className="font-serif italic gradient-gold-text">
                 du sensible
               </em>
               .
             </h1>
-            <p className="label-mono mt-4 text-rose-ancien md:mt-6">
+
+            <p className="label-mono mt-5 text-rose-ancien md:mt-8">
               Digital · Événementiel · Sur-mesure
             </p>
-            <p className="mt-6 max-w-2xl font-serif text-xl italic text-taupe leading-snug md:mt-8 md:text-3xl">
+
+            <p className="mt-6 max-w-xl font-serif italic text-xl text-taupe leading-snug md:mt-10 md:text-2xl">
               Six projets. Le digital comme outil, le sensible comme
               boussole.
             </p>
+
+            {/* Skills tags */}
+            <div className="mt-8 flex flex-wrap gap-2 md:mt-10">
+              {["UI Design", "UX Research", "Design System", "Direction Artistique"].map(
+                (skill) => (
+                  <span
+                    key={skill}
+                    className="border border-rose-ancien/40 bg-cream-deep/40 px-3 py-1 font-sans text-xs text-ink md:text-sm"
+                  >
+                    {skill}
+                  </span>
+                )
+              )}
+            </div>
           </div>
-
-          {/* Portrait + Méta éditoriale à droite */}
-          <aside className="md:col-span-3 md:pt-4">
-            {/* Portrait : photo détourée, blend mode pour fondre avec le crème */}
-            <div className="mb-6 flex items-center gap-4 md:block md:mb-8">
-              <div className="relative w-28 sm:w-32 md:w-full md:max-w-[200px]">
-                <Image
-                  src="/portrait-cutout.png"
-                  alt="Portrait de Mayane Cohen"
-                  width={400}
-                  height={500}
-                  sizes="(min-width: 768px) 200px, 128px"
-                  className="h-auto w-full mix-blend-multiply"
-                  priority
-                />
-              </div>
-              <div className="md:mt-3">
-                <p className="label-mono text-platinum">Par</p>
-                <p className="font-serif italic text-lg text-ink leading-tight md:text-xl md:mt-1">
-                  Mayane Cohen
-                </p>
-                <p className="label-mono mt-1 text-platinum">Paris</p>
-              </div>
-            </div>
-
-            <div className="space-y-4 border-l border-rose-ancien/30 pl-4">
-              <div>
-                <p className="label-mono text-platinum">Spécialités</p>
-                <p className="font-serif italic text-ink mt-1">
-                  UI · UX · Design System
-                </p>
-              </div>
-              <div>
-                <p className="label-mono text-platinum">Expérience</p>
-                <p className="font-serif italic text-ink mt-1">
-                  Brothers Négoce
-                </p>
-              </div>
-              <div>
-                <p className="label-mono text-platinum">Basée à</p>
-                <p className="font-serif italic text-ink mt-1">
-                  Paris
-                </p>
-              </div>
-            </div>
-          </aside>
         </section>
 
         {/* ─── BANDEAU PROJETS ───────────────────────────────── */}
@@ -108,8 +105,10 @@ export default function HomePage() {
         {/* ─── GRILLE 6 PROJETS ──────────────────────────────── */}
         <section className="pb-24 md:pb-32">
           <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+            {projects.map((project, idx) => (
+              <ScrollReveal key={project.slug} delay={idx * 0.05}>
+                <ProjectCard project={project} />
+              </ScrollReveal>
             ))}
           </div>
         </section>
