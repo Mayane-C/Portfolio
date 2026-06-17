@@ -119,7 +119,7 @@ export default function MethodePage() {
 
       {/* ─── LES 6 ÉTAPES ──────────────────────────────────── */}
       <section className="px-6 md:px-12 py-12 md:py-16">
-        <div className="border-t border-rose-ancien/30 pt-10">
+        <div className="border-t border-rose-ancien/50 pt-10">
           <div className="mb-4 flex items-center gap-3">
             <span className="block h-px w-8 bg-rose-ancien" />
             <span className="label-mono text-rose-ancien">

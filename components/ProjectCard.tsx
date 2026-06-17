@@ -33,7 +33,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Link
       href={`/projets/${project.slug}`}
       aria-label={`Voir le projet ${project.title}`}
-      className="group relative block cursor-pointer border-t border-rose-ancien/30 px-5 pt-8 pb-8 transition-all duration-300 hover:-translate-y-1 hover:border-rose-ancien/70 hover:bg-cream-deep/40 md:px-6 md:pb-10"
+      className="group relative block cursor-pointer border-t border-rose-ancien/50 px-5 pt-8 pb-8 transition-all duration-300 hover:-translate-y-1 hover:border-rose-ancien/70 hover:bg-cream-deep/40 md:px-6 md:pb-10"
     >
       {/* Numéro XXL outline en arrière-plan (signature livre blanc) */}
       <div
@@ -50,7 +50,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Preview image statique (si disponible), avec un léger overlay au hover */}
       {project.previewImage && (
-        <div className="relative mb-6 overflow-hidden rounded-md border border-rose-ancien/20 md:rounded-lg">
+        <div className="relative mb-6 overflow-hidden rounded-md border border-rose-ancien/40 md:rounded-lg">
           <div className="relative aspect-[16/10] w-full bg-cream-deep">
             <Image
               src={project.previewImage}

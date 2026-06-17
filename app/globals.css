@@ -20,10 +20,9 @@
   --color-sand: #e8cfc5;           /* séparateurs faibles, rose poudré pale */
 
   /* TEXTES */
-  --color-ink: #1a1a1a;            /* texte principal — noir profond */
-  --color-taupe: #6b6258;          /* texte secondaire — taupe chaud */
-  --color-platinum: #7a7268;       /* labels mono, métadonnées (foncé pour
-                                      contraste WCAG AA sur fond crème) */
+  --color-ink: #141414;            /* texte principal — noir profond (assombri pour contraste max) */
+  --color-taupe: #4d4439;          /* texte secondaire — taupe chaud (assombri, contraste AAA ~8:1) */
+  --color-platinum: #5e554a;       /* labels mono, métadonnées (assombri, contraste AA+ ~6:1) */
 
   /* SIGNATURE BORDEAUX */
   --color-prune: #4a1f2f;          /* bordeaux profond — pages chapitre, pull-quotes */
@@ -36,7 +35,7 @@
 
   /* ORS */
   --color-gold: #b8985e;           /* or vieilli — accent principal */
-  --color-gold-ink: #9f7437;       /* or dense — italiques in-body */
+  --color-gold-ink: #855d24;       /* or dense — italiques in-body (assombri, contraste AA+ ~6:1) */
   --color-gold-soft: #c4a573;      /* or doux — chiffres XXL background */
 
   /* COMPAT — rétrocompatibilité noms historiques */
@@ -121,7 +120,7 @@
 /* Gradient texte or vieilli — pour mots-italiques signature dans les titres
    (ex: "Designer Digital" — "Digital" en gradient gold) */
 .gradient-gold-text {
-  background: linear-gradient(135deg, #b8985e 0%, #9f7437 100%);
+  background: linear-gradient(135deg, #a07e3e 0%, #7a5520 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -160,7 +160,7 @@ export function Carousel({ items, ratio = "16/10" }: CarouselProps) {
               </div>
             ) : (
               <div
-                className={`relative ${aspectClass} w-full overflow-hidden rounded-sm border border-rose-ancien/20 bg-cream-deep`}
+                className={`relative ${aspectClass} w-full overflow-hidden rounded-sm border border-rose-ancien/40 bg-cream-deep`}
               >
                 <Image
                   src={item.src}

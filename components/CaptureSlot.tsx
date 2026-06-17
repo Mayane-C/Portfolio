@@ -41,7 +41,7 @@ export function CaptureSlot({
   return (
     <figure className="my-10 md:my-14 mx-auto max-w-3xl">
       <div
-        className={`relative ${aspectClass} w-full overflow-hidden rounded-sm border border-rose-ancien/20 bg-cream-deep`}
+        className={`relative ${aspectClass} w-full overflow-hidden rounded-sm border border-rose-ancien/40 bg-cream-deep`}
       >
         {src ? (
           <Image

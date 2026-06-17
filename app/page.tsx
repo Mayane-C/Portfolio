@@ -100,7 +100,7 @@ export default function HomePage() {
         {/* ─── BANDEAU PROJETS ───────────────────────────────── */}
         <section
           id="projets"
-          className="scroll-mt-24 border-t border-rose-ancien/30 py-12 md:py-16 md:scroll-mt-32"
+          className="scroll-mt-24 border-t border-rose-ancien/50 py-12 md:py-16 md:scroll-mt-32"
         >
           <p className="label-mono mb-3 text-rose-ancien">
            Les projets · 06 / 06
@@ -124,7 +124,7 @@ export default function HomePage() {
         </section>
 
         {/* ─── À PROPOS, TEASER ─────────────────────────────── */}
-        <section className="border-t border-rose-ancien/30 py-16 md:py-24">
+        <section className="border-t border-rose-ancien/50 py-16 md:py-24">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
             <div className="md:col-span-6">
               <p className="label-mono mb-3 text-rose-ancien">

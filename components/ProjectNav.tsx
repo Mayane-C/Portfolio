@@ -19,7 +19,7 @@ export function ProjectNav({ currentSlug }: ProjectNavProps) {
 
   return (
     <section className="px-6 md:px-12 pt-12 pb-10 md:pt-16">
-      <div className="border-t border-rose-ancien/30 pt-10">
+      <div className="border-t border-rose-ancien/50 pt-10">
         {/* Boutons précédent / suivant centrés et compacts */}
         <div className="mx-auto flex max-w-3xl flex-wrap items-stretch justify-center gap-4 md:gap-6">
           {prev && (

@@ -26,7 +26,7 @@ export function Section({
         compact ? "py-8 md:py-10" : "py-12 md:py-16"
       }`}
     >
-      <div className="border-t border-rose-ancien/30 pt-8 md:pt-10">
+      <div className="border-t border-rose-ancien/50 pt-8 md:pt-10">
         <div className="flex items-center gap-3 mb-4">
           <span className="block h-px w-8 bg-rose-ancien" />
           <span className="label-mono text-rose-ancien">{label}</span>

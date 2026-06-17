@@ -50,7 +50,7 @@ export function ProjectHero({ project, contextLabel }: ProjectHeroProps) {
 
         {/* Méta éditoriale à droite : contexte + compétences */}
         <aside className="md:col-span-3 md:pt-4">
-          <div className="space-y-6 border-l border-rose-ancien/30 pl-4">
+          <div className="space-y-6 border-l border-rose-ancien/50 pl-4">
             <div>
               <p className="label-mono text-platinum">Contexte</p>
               <p className="font-sans text-sm text-ink mt-2 leading-relaxed">

@@ -71,7 +71,7 @@ export default function ChamylinexPage() {
 
       {/* ─── Contexte + Approche en 2 colonnes compactes ───── */}
       <section className="px-6 md:px-12 py-10 md:py-14">
-        <div className="border-t border-rose-ancien/30 pt-8 md:pt-10">
+        <div className="border-t border-rose-ancien/50 pt-8 md:pt-10">
           <div className="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2 md:gap-x-12">
             {/* COL 1, contexte */}
             <div>
