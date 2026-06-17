@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import { LayoutGroup, motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 
 export type ShowcaseItem =
@@ -26,8 +27,6 @@ function inferMime(src: string): string {
 
 /**
  * Mapping nombre de thumbs → classes Tailwind statiques (JIT-safe).
- * Tailwind purge les classes calculées dynamiquement, donc on ne peut pas
- * faire `grid-cols-${n}` directement.
  */
 const COLS_BY_COUNT: Record<number, string> = {
   1: "md:grid-cols-1",
@@ -38,14 +37,14 @@ const COLS_BY_COUNT: Record<number, string> = {
 };
 
 /**
- * Showcase à écran-vedette interchangeable.
+ * Showcase à écran-vedette interchangeable AVEC animation de swap.
  *
- * Affiche un grand mockup MacBook avec l'item "featured" (vidéo ou image),
- * et en dessous une grille de thumbnails cliquables. Quand on clique sur
- * une thumbnail, elle prend la place du featured et inversement.
+ * Chaque item porte un `layoutId` Framer Motion. Quand on clique sur une
+ * thumbnail, l'élément cliqué change de slot (thumbnail → featured) et
+ * l'ancien featured rejoint le slot libre. Framer interpole la position
+ * et la taille des deux éléments simultanément → vrai effet "échange".
  *
- * Supporte vidéos (autoplay loop muted, IntersectionObserver pour pause
- * hors-écran) et images (next/image). Permet aussi le mélange.
+ * Respecte prefers-reduced-motion (fallback en swap instantané).
  */
 export function SwappableShowcase({
   items,
@@ -54,91 +53,167 @@ export function SwappableShowcase({
   initialIndex = 0,
 }: SwappableShowcaseProps) {
   const [featuredIndex, setFeaturedIndex] = useState(initialIndex);
-  const featured = items[featuredIndex];
+  const reduceMotion = useReducedMotion();
+  // useId garantit un layoutGroupId stable et unique par instance, même
+  // si plusieurs SwappableShowcase cohabitent sur la même page.
+  const layoutGroupId = useId();
 
   const maxWidthClass = size === "xlarge" ? "max-w-6xl" : "max-w-5xl";
-  const aspectClass = ratio === "4/3" ? "aspect-[4/3]" : "aspect-[16/10]";
 
   const thumbCount = items.length - 1;
   const colsClass = COLS_BY_COUNT[thumbCount] ?? "md:grid-cols-4";
 
+  // Transition spring "chic" : douce mais avec un poil de rebond
+  const transition = reduceMotion
+    ? { duration: 0 }
+    : { type: "spring" as const, stiffness: 220, damping: 28, mass: 0.9 };
+
   return (
-    <div className="my-10 md:my-14">
-      {/* ─── FEATURED MacBook ─────────────────────────────── */}
-      <figure className={`mx-auto ${maxWidthClass}`}>
-        {/* Coque + écran */}
-        <div className="relative overflow-hidden rounded-t-xl bg-prune-deep p-2 shadow-2xl md:rounded-t-2xl md:p-3">
-          <div className="mb-2 flex items-center justify-center md:mb-3">
-            <span className="block h-1 w-1 rounded-full bg-rose-ancien/60" />
-          </div>
-          <div
-            className={`relative ${aspectClass} w-full overflow-hidden rounded-sm bg-ink`}
+    <LayoutGroup id={layoutGroupId}>
+      <div className="my-10 md:my-14">
+        {/* ─── FEATURED SLOT ────────────────────────────────── */}
+        <div className={`mx-auto ${maxWidthClass}`}>
+          <motion.div
+            key={`featured-${items[featuredIndex].src}`}
+            layoutId={`item-${items[featuredIndex].src}`}
+            transition={transition}
+            className="will-change-transform"
           >
-            {featured.type === "video" ? (
-              <FeaturedVideo key={featured.src} src={featured.src} />
-            ) : (
-              <Image
-                key={featured.src}
-                src={featured.src}
-                alt={featured.alt}
-                fill
-                sizes={
-                  size === "xlarge"
-                    ? "(min-width: 1280px) 1152px, 100vw"
-                    : "(min-width: 1024px) 1024px, 100vw"
-                }
-                priority
-                className="object-cover"
-              />
-            )}
-          </div>
+            <MacBookCard
+              item={items[featuredIndex]}
+              ratio={ratio}
+              variant="featured"
+            />
+          </motion.div>
         </div>
-        {/* Pied stylisé */}
-        <div
-          className={`mx-auto h-3 ${maxWidthClass} rounded-b-2xl bg-prune-deep/95 md:h-4`}
+
+        {/* ─── THUMBNAILS GRID ──────────────────────────────── */}
+        <ul
+          className={`mx-auto mt-8 grid ${maxWidthClass} grid-cols-2 gap-4 sm:gap-5 ${colsClass} md:mt-10 md:gap-6`}
         >
-          <div className="mx-auto h-full w-3/4 rounded-b-full bg-gradient-to-b from-transparent to-prune-deep/60" />
-        </div>
-        <div className="mx-auto h-1 w-1/4 rounded-b-full bg-prune-deep/40" />
-
-        <figcaption className="label-mono mt-5 text-center text-platinum">
-          {featured.caption}
-        </figcaption>
-      </figure>
-
-      {/* ─── THUMBNAILS CLIQUABLES ────────────────────────── */}
-      <ul
-        className={`mx-auto mt-8 grid ${maxWidthClass} grid-cols-2 gap-4 sm:gap-5 ${colsClass} md:mt-10 md:gap-6`}
-      >
-        {items.map((item, i) => {
-          if (i === featuredIndex) return null;
-          return (
-            <li key={`${item.src}-${i}`}>
-              <button
-                type="button"
-                onClick={() => setFeaturedIndex(i)}
-                className="group block w-full text-left transition-transform duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-ancien focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
-                aria-label={`Afficher en grand : ${item.caption}`}
-              >
-                <ThumbnailFrame item={item} ratio={ratio} />
-                <p className="label-mono mt-3 text-center text-taupe transition-colors group-hover:text-rose-ancien">
-                  {item.caption}
-                </p>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+          {items.map((item, i) => {
+            if (i === featuredIndex) return null;
+            return (
+              <li key={item.src}>
+                <motion.button
+                  type="button"
+                  layoutId={`item-${item.src}`}
+                  transition={transition}
+                  onClick={() => setFeaturedIndex(i)}
+                  className="group block w-full cursor-pointer text-left will-change-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-ancien focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+                  aria-label={`Afficher en grand : ${item.caption}`}
+                  whileHover={reduceMotion ? undefined : { y: -4 }}
+                  whileTap={reduceMotion ? undefined : { scale: 0.97 }}
+                >
+                  <MacBookCard item={item} ratio={ratio} variant="thumbnail" />
+                </motion.button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </LayoutGroup>
   );
 }
 
 /**
- * Vidéo featured : IntersectionObserver pour pause hors-écran.
- * Le key sur la balise <video> remonte l'élément au swap, ce qui relance
- * la lecture du début (effet "ouvrir une nouvelle démo").
+ * Carte MacBook unifiée — accepte une variante "featured" ou "thumbnail".
+ * Structure DOM identique dans les deux cas (juste classes diff), pour que
+ * Framer Motion puisse interpoler en douceur entre les deux états.
  */
-function FeaturedVideo({ src }: { src: string }) {
+function MacBookCard({
+  item,
+  ratio,
+  variant,
+}: {
+  item: ShowcaseItem;
+  ratio: "16/10" | "4/3";
+  variant: "featured" | "thumbnail";
+}) {
+  const aspectClass = ratio === "4/3" ? "aspect-[4/3]" : "aspect-[16/10]";
+  const isFeatured = variant === "featured";
+
+  return (
+    <figure className="w-full">
+      {/* Coque MacBook */}
+      <div
+        className={`relative overflow-hidden bg-prune-deep shadow-2xl ${
+          isFeatured
+            ? "rounded-t-xl p-2 md:rounded-t-2xl md:p-3"
+            : "rounded-t-lg p-1.5 md:p-2"
+        }`}
+      >
+        {/* Liseré caméra */}
+        <div
+          className={`flex items-center justify-center ${
+            isFeatured ? "mb-2 md:mb-3" : "mb-1"
+          }`}
+        >
+          <span
+            className={`block rounded-full bg-rose-ancien/60 ${
+              isFeatured ? "h-1 w-1" : "h-0.5 w-0.5"
+            }`}
+          />
+        </div>
+
+        {/* Écran */}
+        <div
+          className={`relative ${aspectClass} w-full overflow-hidden rounded-sm bg-ink`}
+        >
+          {item.type === "video" ? (
+            <PlayingVideo src={item.src} />
+          ) : (
+            <Image
+              src={item.src}
+              alt={item.alt}
+              fill
+              sizes={
+                isFeatured
+                  ? "(min-width: 1280px) 1152px, 100vw"
+                  : "(min-width: 768px) 25vw, 50vw"
+              }
+              priority={isFeatured}
+              className="object-cover"
+            />
+          )}
+        </div>
+      </div>
+
+      {/* Pied stylisé */}
+      <div
+        className={`mx-auto w-full bg-prune-deep/95 ${
+          isFeatured ? "h-3 rounded-b-2xl md:h-4" : "h-1.5 rounded-b-lg md:h-2"
+        }`}
+      >
+        <div className="mx-auto h-full w-3/4 rounded-b-full bg-gradient-to-b from-transparent to-prune-deep/60" />
+      </div>
+      <div
+        className={`mx-auto rounded-b-full bg-prune-deep/40 ${
+          isFeatured ? "h-1 w-1/4" : "h-0.5 w-1/3"
+        }`}
+      />
+
+      {/* Caption */}
+      <figcaption
+        className={`label-mono text-center ${
+          isFeatured
+            ? "mt-5 text-platinum"
+            : "mt-3 text-taupe transition-colors group-hover:text-rose-ancien"
+        }`}
+      >
+        {item.caption}
+      </figcaption>
+    </figure>
+  );
+}
+
+/**
+ * Vidéo qui joue en autoplay loop muted, avec pause hors-écran via
+ * IntersectionObserver. Le composant est remonté quand `src` change
+ * (via key dans le parent), ce qui garantit que la lecture repart bien
+ * du début quand la vidéo devient featured.
+ */
+function PlayingVideo({ src }: { src: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -152,7 +227,7 @@ function FeaturedVideo({ src }: { src: string }) {
           video.pause();
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
     observer.observe(video);
     return () => observer.disconnect();
@@ -171,56 +246,5 @@ function FeaturedVideo({ src }: { src: string }) {
     >
       <source src={src} type={inferMime(src)} />
     </video>
-  );
-}
-
-/**
- * Mini MacBook pour les thumbnails (mêmes codes visuels que le featured,
- * en plus petit). Les vidéos jouent en autoplay loop muted, pour donner
- * un aperçu vivant de ce qu'on va voir en grand.
- */
-function ThumbnailFrame({
-  item,
-  ratio,
-}: {
-  item: ShowcaseItem;
-  ratio: "16/10" | "4/3";
-}) {
-  const aspectClass = ratio === "4/3" ? "aspect-[4/3]" : "aspect-[16/10]";
-  return (
-    <>
-      <div className="overflow-hidden rounded-t-lg bg-prune-deep p-1.5 transition-shadow group-hover:shadow-lg md:p-2">
-        <div className="mb-1 flex items-center justify-center">
-          <span className="block h-0.5 w-0.5 rounded-full bg-rose-ancien/60" />
-        </div>
-        <div
-          className={`relative ${aspectClass} w-full overflow-hidden rounded-sm bg-ink`}
-        >
-          {item.type === "video" ? (
-            <video
-              src={item.src}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="h-full w-full object-cover"
-            >
-              <source src={item.src} type={inferMime(item.src)} />
-            </video>
-          ) : (
-            <Image
-              src={item.src}
-              alt={item.alt}
-              fill
-              sizes="(min-width: 768px) 25vw, 50vw"
-              className="object-cover"
-            />
-          )}
-        </div>
-      </div>
-      <div className="mx-auto h-1.5 w-full rounded-b-lg bg-prune-deep/95 md:h-2" />
-      <div className="mx-auto h-0.5 w-1/3 rounded-b-full bg-prune-deep/50" />
-    </>
   );
 }
