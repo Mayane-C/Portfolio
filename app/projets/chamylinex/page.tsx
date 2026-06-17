@@ -3,7 +3,7 @@ import { MonoBanner } from "@/components/MonoBanner";
 import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { PullQuote } from "@/components/PullQuote";
-import { VideoShowcase } from "@/components/VideoShowcase";
+import { SwappableShowcase, type ShowcaseItem } from "@/components/SwappableShowcase";
 import { ExternalProjectCTA } from "@/components/ExternalProjectCTA";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
@@ -15,24 +15,29 @@ export const metadata: Metadata = {
   description: project.subtitle,
 };
 
-const videos = [
+const videos: ShowcaseItem[] = [
   {
+    type: "video",
     src: "/projects/chamylinex/01-home.mp4",
     caption: "Page d'accueil",
   },
   {
+    type: "video",
     src: "/projects/chamylinex/02-catalogue.mp4",
     caption: "Catalogue grossiste",
   },
   {
+    type: "video",
     src: "/projects/chamylinex/03-panier.mp4",
     caption: "Panier",
   },
   {
+    type: "video",
     src: "/projects/chamylinex/04-mon-compte.mp4",
     caption: "Espace acheteur pro",
   },
   {
+    type: "video",
     src: "/projects/chamylinex/05-contact.mp4",
     caption: "Demande de devis",
   },
@@ -51,9 +56,9 @@ export default function ChamylinexPage() {
         contextLabel="Mission client indépendante"
       />
 
-      {/* ─── Mosaïque des 5 écrans : 1 grande + 4 plus petites ─ */}
+      {/* ─── 5 écrans, vidéo en vedette interchangeable ─────── */}
       <div className="px-4 md:px-12">
-        <VideoShowcase items={videos} layout="feature" />
+        <SwappableShowcase items={videos} size="xlarge" />
       </div>
 
       {/* ─── CTA externe APRÈS les écrans ────────────────────── */}

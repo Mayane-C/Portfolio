@@ -4,7 +4,7 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { MacBookImageFrame } from "@/components/MacBookImageFrame";
+import { SwappableShowcase, type ShowcaseItem } from "@/components/SwappableShowcase";
 import { NumberedStep } from "@/components/NumberedStep";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
@@ -16,6 +16,27 @@ export const metadata: Metadata = {
   description: project.subtitle,
 };
 
+const planches: ShowcaseItem[] = [
+  {
+    type: "image",
+    src: "/projects/brothers-negoce/01-cover.png",
+    alt: "Cover du design system Brothers Négoce, Système visuel génératif B2B",
+    caption: "Cover · système visuel génératif B2B",
+  },
+  {
+    type: "image",
+    src: "/projects/brothers-negoce/02-variables.png",
+    alt: "Variables & composants, palette de couleurs, typographies et composants typés du design system",
+    caption: "Variables & composants · tokens du système",
+  },
+  {
+    type: "image",
+    src: "/projects/brothers-negoce/03-templates.png",
+    alt: "Exemples de posts générés depuis les 3 familles de templates",
+    caption: "Exemples · 9 posts générés depuis les 3 familles",
+  },
+];
+
 export default function BrothersNegocePage() {
   return (
     <>
@@ -26,36 +47,9 @@ export default function BrothersNegocePage() {
 
       <ProjectHero project={project} contextLabel="Expérience en alternance" />
 
-      {/* ─── Les 3 planches du design system en MacBook ─────── */}
+      {/* ─── Les 3 planches, image en vedette interchangeable ─ */}
       <div className="px-4 md:px-12">
-        {/* Cover, grand format hero */}
-        <MacBookImageFrame
-          src="/projects/brothers-negoce/01-cover.png"
-          alt="Cover du design system Brothers Négoce, Système visuel génératif B2B"
-          caption="Cover · système visuel génératif B2B"
-          ratio="4/3"
-          priority
-        />
-
-        {/* Variables & templates côte à côte */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
-          <MacBookImageFrame
-            src="/projects/brothers-negoce/02-variables.png"
-            alt="Variables & composants, palette de couleurs, typographies et composants typés du design system"
-            caption="Variables & composants · tokens du système"
-            ratio="4/3"
-            size="default"
-            sizes="(min-width: 768px) 50vw, 100vw"
-          />
-          <MacBookImageFrame
-            src="/projects/brothers-negoce/03-templates.png"
-            alt="Exemples de posts générés depuis les 3 familles de templates"
-            caption="Exemples · 9 posts générés depuis les 3 familles"
-            ratio="4/3"
-            size="default"
-            sizes="(min-width: 768px) 50vw, 100vw"
-          />
-        </div>
+        <SwappableShowcase items={planches} size="xlarge" ratio="4/3" />
       </div>
 
       {/* ─── Contexte + Approche en 2 colonnes côte à côte ──── */}

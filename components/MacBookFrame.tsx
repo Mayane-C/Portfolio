@@ -11,8 +11,8 @@ interface MacBookFrameProps {
   autoPlay?: boolean;
   /** Affiche les controls (par défaut false pour effet GIF) */
   controls?: boolean;
-  /** Taille de la frame : "default" (max-w-3xl, 768px) ou "large" (max-w-5xl, 1024px) */
-  size?: "default" | "large";
+  /** Taille de la frame : "default" (max-w-3xl), "large" (max-w-5xl) ou "xlarge" (max-w-6xl) */
+  size?: "default" | "large" | "xlarge";
 }
 
 /**
@@ -60,7 +60,12 @@ export function MacBookFrame({
     return () => observer.disconnect();
   }, [autoPlay]);
 
-  const maxWidthClass = size === "large" ? "max-w-5xl" : "max-w-3xl";
+  const maxWidthClass =
+    size === "xlarge"
+      ? "max-w-6xl"
+      : size === "large"
+        ? "max-w-5xl"
+        : "max-w-3xl";
 
   return (
     <figure className={`mx-auto my-12 ${maxWidthClass} md:my-16`}>

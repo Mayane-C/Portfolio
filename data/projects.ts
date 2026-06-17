@@ -108,7 +108,7 @@ export const projects: Project[] = [
       "Communication B2B",
     ],
     previewImage: "/projects/brothers-negoce/01-cover.png",
-    previewImagePosition: "right",
+    previewImagePosition: "left",
     pullQuote:
       "Un système génératif n'efface pas le designer, il libère son temps pour les arbitrages qui comptent.",
     accent: "teal",

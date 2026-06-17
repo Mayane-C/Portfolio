@@ -32,6 +32,7 @@ export default function MyTrackPage() {
         <MacBookFrame
           src="/projects/mytrack/00-demo.mp4"
           caption="Démo · parcours utilisateur complet"
+          size="xlarge"
         />
       </div>
 

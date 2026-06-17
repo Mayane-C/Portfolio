@@ -31,6 +31,7 @@ export default function ChartierDalixPage() {
         <MacBookFrame
           src="/projects/chartier-dalix/demo.mp4"
           caption="Démo Protopie · navigation interactive du prototype"
+          size="xlarge"
         />
       </div>
 
