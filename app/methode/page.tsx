@@ -58,10 +58,7 @@ const etapes = [
 export default function MethodePage() {
   return (
     <>
-      <MonoBanner
-        centerLabel="MA MÉTHODE · SIX ÉTAPES"
-        cartouche="Nº 00 · MAI 2026"
-      />
+      <MonoBanner centerLabel="MA MÉTHODE · SIX ÉTAPES" />
 
       {/* ─── HERO ──────────────────────────────────────────── */}
       <section className="px-6 pt-8 pb-12 md:px-12 md:pt-16 md:pb-20">

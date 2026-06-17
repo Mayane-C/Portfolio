@@ -74,10 +74,7 @@ const timeline: TimelineEntry[] = [
 export default function AProposPage() {
   return (
     <>
-      <MonoBanner
-        centerLabel="À PROPOS · QUI JE SUIS"
-        cartouche="Nº 00, MAI 2026"
-      />
+      <MonoBanner centerLabel="À PROPOS · QUI JE SUIS" />
 
       {/* ─── HERO ──────────────────────────────────────────── */}
       <section className="px-6 pt-8 pb-12 md:px-12 md:pt-16 md:pb-24">
@@ -88,9 +85,9 @@ export default function AProposPage() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12 md:gap-x-8">
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-12 md:gap-x-10">
           {/* Titre + pitch */}
-          <div className="md:col-span-8">
+          <div className="md:col-span-7">
             <h1 className="font-serif text-5xl leading-[0.95] text-ink sm:text-6xl md:text-[6.5rem]">
               Mayane
               <br />
@@ -106,21 +103,30 @@ export default function AProposPage() {
             </p>
           </div>
 
-          {/* Portrait timbre-poste */}
-          <aside className="md:col-span-3 md:col-start-10 md:pt-4">
-            <div className="relative aspect-[3/4] w-40 overflow-hidden border border-rose-ancien/30 sm:w-48 md:w-full md:max-w-[200px]">
-              <Image
-                src="/portrait.jpg"
-                alt="Portrait de Mayane Cohen"
-                fill
-                sizes="(min-width: 768px) 200px, (min-width: 640px) 192px, 160px"
-                className="object-cover grayscale-[0.15] sepia-[0.08]"
-                priority
-              />
+          {/* Portrait, format polaroid éditorial */}
+          <aside className="md:col-span-5 md:pt-2">
+            <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[360px] md:mr-0 md:ml-auto md:max-w-[380px]">
+              {/* Cadre polaroid avec rotation et ombre douce */}
+              <div className="rotate-[-2deg] bg-cream p-3 shadow-[0_18px_40px_-20px_rgba(74,31,47,0.35)] ring-1 ring-rose-ancien/15 transition-transform duration-500 hover:rotate-0 md:p-4">
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <Image
+                    src="/portrait.jpg"
+                    alt="Portrait de Mayane Cohen"
+                    fill
+                    sizes="(min-width: 768px) 380px, (min-width: 640px) 360px, 320px"
+                    className="object-cover grayscale-[0.12] sepia-[0.06]"
+                    priority
+                  />
+                </div>
+                {/* Légende polaroid manuscrite */}
+                <div className="mt-3 flex items-baseline justify-between gap-3 px-1 pb-1">
+                  <span className="font-serif italic text-base text-prune-deep md:text-lg">
+                    Mayane, Paris
+                  </span>
+                  <span className="label-mono text-rose-ancien">2026</span>
+                </div>
+              </div>
             </div>
-            <p className="label-mono mt-3 text-platinum">
-              Paris · 2026
-            </p>
           </aside>
         </div>
       </section>
