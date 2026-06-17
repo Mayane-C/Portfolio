@@ -3,7 +3,7 @@ import { MonoBanner } from "@/components/MonoBanner";
 import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { SplitText } from "@/components/gsap/SplitText";
+import { HeroTitle } from "@/components/HeroTitle";
 import { ParallaxImage } from "@/components/gsap/ParallaxImage";
 import { projects } from "@/data/projects";
 
@@ -56,20 +56,9 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* TITRE animé caractère par caractère au load */}
-            <h1 className="font-serif text-5xl leading-[0.92] text-ink sm:text-6xl md:text-[6.5rem] lg:text-[8rem]">
-              <SplitText delay={0.3} stagger={0.04} as="span" className="block">
-                Designer
-              </SplitText>
-              <SplitText
-                delay={0.7}
-                stagger={0.05}
-                as="span"
-                className="block font-serif italic gradient-gold-text"
-              >
-                du sensible.
-              </SplitText>
-            </h1>
+            {/* TITRE — fade-up Framer Motion, fiable, mot "sensible" en italique gold */}
+            <HeroTitle />
+
 
             <p className="label-mono mt-5 text-rose-ancien md:mt-8">
               Digital · Événementiel · Sur-mesure
