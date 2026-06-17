@@ -81,8 +81,38 @@ export default function MethodePage() {
             <p className="mt-6 max-w-2xl font-serif text-xl italic text-taupe leading-snug md:mt-8 md:text-3xl">
               Six étapes pour designer un projet, du digital au sensible.
               La même grammaire, qu&apos;il s&apos;agisse d&apos;un design
-              system B2B ou d&apos;un mariage privé.
+              system B2B ou d&apos;une expérience sur-mesure.
             </p>
+
+            {/* ─── CTA téléchargement livre blanc ─────────────── */}
+            <div className="mt-10 md:mt-12">
+              <a
+                href="/livre-blanc-mayane-cohen.pdf"
+                download="livre-blanc-mayane-cohen.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-4 border-2 border-rose-ancien bg-cream-deep/40 px-6 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-prune hover:shadow-lg"
+                aria-label="Télécharger le livre blanc de Mayane Cohen au format PDF"
+              >
+                <span
+                  aria-hidden
+                  className="font-serif text-2xl text-rose-ancien transition-all duration-300 group-hover:translate-y-0.5 group-hover:text-gold-soft md:text-3xl"
+                >
+                  ↓
+                </span>
+                <span className="flex flex-col items-start gap-0.5 text-left">
+                  <span className="label-mono text-rose-ancien transition-colors group-hover:text-gold-soft">
+                    Livre blanc · PDF
+                  </span>
+                  <span className="font-serif italic text-base text-ink transition-colors group-hover:text-cream md:text-lg">
+                    Designer son événement
+                  </span>
+                </span>
+              </a>
+              <p className="label-mono mt-3 text-platinum">
+                Mémoire M2 · La méthode in extenso
+              </p>
+            </div>
           </div>
         </div>
       </section>
