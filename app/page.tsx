@@ -12,7 +12,6 @@ export default function HomePage() {
     <>
       <MonoBanner
         centerLabel="PORTFOLIO · SIX PROJETS"
-        cartouche="Nº 01 · MAI 2026"
       />
 
       <article className="px-6 md:px-12">

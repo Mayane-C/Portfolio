@@ -22,7 +22,6 @@ export default function MyTrackPage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · MYTRACK`}
-        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
       <ProjectHero project={project} contextLabel="Cas d'étude UX · Aide à la décision" />

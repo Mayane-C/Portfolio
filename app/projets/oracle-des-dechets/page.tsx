@@ -22,7 +22,6 @@ export default function OraclePage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · ORACLE DES DÉCHETS`}
-        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
       <ProjectHero

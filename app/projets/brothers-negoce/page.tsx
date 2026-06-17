@@ -42,7 +42,6 @@ export default function BrothersNegocePage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · BROTHERS NÉGOCE`}
-        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
       <ProjectHero project={project} contextLabel="Expérience en alternance" />

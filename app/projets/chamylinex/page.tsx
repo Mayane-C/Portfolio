@@ -48,7 +48,6 @@ export default function ChamylinexPage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · CHAMYLINEX`}
-        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
       <ProjectHero

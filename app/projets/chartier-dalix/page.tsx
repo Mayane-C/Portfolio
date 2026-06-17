@@ -21,7 +21,6 @@ export default function ChartierDalixPage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · CHARTIER DALIX`}
-        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
       <ProjectHero project={project} contextLabel="Cas d'étude UI · Site éditorial" />

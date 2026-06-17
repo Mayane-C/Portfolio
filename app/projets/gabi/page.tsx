@@ -21,7 +21,6 @@ export default function GabiPage() {
     <>
       <MonoBanner
         centerLabel={`PROJET Nº ${project.nr} / 06 · GABI`}
-        cartouche={`Nº ${project.nr} · MAI 2026`}
       />
 
       <ProjectHero project={project} contextLabel="Cas d'étude UI · Interface métier" />
