@@ -80,7 +80,7 @@ export function MonoBanner({ cartouche, centerLabel }: MonoBannerProps) {
             <span className="hidden md:inline">
               Mayane Cohen{" "}
               <span className="mx-2 text-rose-ancien">·</span>{" "}
-              Designer Digital
+              Designer du sensible
             </span>
           </Link>
 
