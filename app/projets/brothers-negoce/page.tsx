@@ -4,7 +4,7 @@ import { MonoFooter } from "@/components/MonoFooter";
 import { ProjectHero } from "@/components/ProjectHero";
 import { Section } from "@/components/Section";
 import { PullQuote } from "@/components/PullQuote";
-import { Carousel, type CarouselItem } from "@/components/Carousel";
+import { MacBookImageFrame } from "@/components/MacBookImageFrame";
 import { NumberedStep } from "@/components/NumberedStep";
 import { ProjectNav } from "@/components/ProjectNav";
 import { getProjectBySlug } from "@/data/projects";
@@ -16,27 +16,6 @@ export const metadata: Metadata = {
   description: project.subtitle,
 };
 
-const captures: CarouselItem[] = [
-  {
-    type: "image",
-    src: "/projects/brothers-negoce/01-cover.png",
-    alt: "Cover du design system Brothers Négoce, Système visuel génératif B2B",
-    caption: "Cover · système visuel génératif B2B",
-  },
-  {
-    type: "image",
-    src: "/projects/brothers-negoce/02-variables.png",
-    alt: "Variables & composants, palette de couleurs, typographies et composants typés du design system",
-    caption: "Variables & composants · tokens du système",
-  },
-  {
-    type: "image",
-    src: "/projects/brothers-negoce/03-templates.png",
-    alt: "Exemples de posts générés depuis les 3 familles de templates",
-    caption: "Exemples · 9 posts générés depuis les 3 familles",
-  },
-];
-
 export default function BrothersNegocePage() {
   return (
     <>
@@ -47,50 +26,94 @@ export default function BrothersNegocePage() {
 
       <ProjectHero project={project} contextLabel="Expérience en alternance" />
 
-      {/* ─── Carousel des 3 planches, EN PREMIER ───────────── */}
-      <div className="px-6 md:px-12">
-        <Carousel items={captures} ratio="4/3" />
+      {/* ─── Les 3 planches du design system en MacBook ─────── */}
+      <div className="px-4 md:px-12">
+        {/* Cover, grand format hero */}
+        <MacBookImageFrame
+          src="/projects/brothers-negoce/01-cover.png"
+          alt="Cover du design system Brothers Négoce, Système visuel génératif B2B"
+          caption="Cover · système visuel génératif B2B"
+          ratio="4/3"
+          priority
+        />
+
+        {/* Variables & templates côte à côte */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
+          <MacBookImageFrame
+            src="/projects/brothers-negoce/02-variables.png"
+            alt="Variables & composants, palette de couleurs, typographies et composants typés du design system"
+            caption="Variables & composants · tokens du système"
+            ratio="4/3"
+            size="default"
+            sizes="(min-width: 768px) 50vw, 100vw"
+          />
+          <MacBookImageFrame
+            src="/projects/brothers-negoce/03-templates.png"
+            alt="Exemples de posts générés depuis les 3 familles de templates"
+            caption="Exemples · 9 posts générés depuis les 3 familles"
+            ratio="4/3"
+            size="default"
+            sizes="(min-width: 768px) 50vw, 100vw"
+          />
+        </div>
       </div>
 
-      <Section label="Le contexte">
-        <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
-          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            <strong className="font-semibold">Brothers Négoce</strong>{" "}
-            distribue du matériel énergétique{" "}
-            <em className="italic text-gold-ink">
-              (pompes à chaleur, VMC, éclairage LED)
-            </em>{" "}
-            à des revendeurs et installateurs B2B en France. À mon arrivée
-            en alternance, la communication reposait sur un logo seul + du
-            bricolage au cas par cas.
-          </p>
-          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            Incohérence entre les supports, aucun langage partagé entre les
-            pôles. Chaque post Meta repartait de zéro, chaque flyer
-            réinventait sa palette. Coût caché : du temps, et de la
-            cohérence perdue.
-          </p>
-        </div>
-      </Section>
+      {/* ─── Contexte + Approche en 2 colonnes côte à côte ──── */}
+      <section className="px-6 md:px-12 py-10 md:py-14">
+        <div className="border-t border-rose-ancien/30 pt-8 md:pt-10">
+          <div className="grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
+            {/* COL 1, Le contexte */}
+            <div>
+              <div className="mb-4 flex items-center gap-3">
+                <span className="block h-px w-6 bg-rose-ancien" />
+                <span className="label-mono text-rose-ancien">
+                  Le contexte
+                </span>
+              </div>
+              <p className="font-sans text-base text-ink leading-relaxed">
+                <strong className="font-semibold">Brothers Négoce</strong>{" "}
+                distribue du matériel énergétique{" "}
+                <em className="italic text-gold-ink">
+                  (pompes à chaleur, VMC, éclairage LED)
+                </em>{" "}
+                à des revendeurs et installateurs B2B en France. À mon
+                arrivée en alternance, la communication reposait sur un
+                logo seul + du bricolage au cas par cas.
+              </p>
+              <p className="font-sans text-base text-ink leading-relaxed mt-4">
+                Incohérence entre les supports, aucun langage partagé entre
+                les pôles. Chaque post Meta repartait de zéro, chaque flyer
+                réinventait sa palette. Coût caché : du temps, et de la
+                cohérence perdue.
+              </p>
+            </div>
 
-      <Section label="L'approche" compact>
-        <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
-          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            Conception d&apos;un{" "}
-            <em className="italic text-gold-ink">système génératif</em>,
-            pas une charte figée, un kit modulaire qui produit des visuels
-            4:5 cohérents en quelques minutes. Format imposé : Meta /
-            Instagram.
-          </p>
-          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            Trois briques structurent le système : des{" "}
-            <em className="italic text-gold-ink">tokens couleur</em>{" "}
-            (3 principales + 4 secondaires + neutres), des composants typés
-            (badges, cartes, headers), et trois familles de templates
-            réutilisables.
-          </p>
+            {/* COL 2, L'approche */}
+            <div>
+              <div className="mb-4 flex items-center gap-3">
+                <span className="block h-px w-6 bg-rose-ancien" />
+                <span className="label-mono text-rose-ancien">
+                  L&apos;approche
+                </span>
+              </div>
+              <p className="font-sans text-base text-ink leading-relaxed">
+                Conception d&apos;un{" "}
+                <em className="italic text-gold-ink">système génératif</em>
+                , pas une charte figée, un kit modulaire qui produit des
+                visuels 4:5 cohérents en quelques minutes. Format imposé :
+                Meta / Instagram.
+              </p>
+              <p className="font-sans text-base text-ink leading-relaxed mt-4">
+                Trois briques structurent le système : des{" "}
+                <em className="italic text-gold-ink">tokens couleur</em>{" "}
+                (3 principales + 4 secondaires + neutres), des composants
+                typés (badges, cartes, headers), et trois familles de
+                templates réutilisables.
+              </p>
+            </div>
+          </div>
         </div>
-      </Section>
+      </section>
 
       <Section label="Trois familles de templates" compact>
         <p className="font-sans text-base md:text-lg text-ink leading-relaxed max-w-3xl">
