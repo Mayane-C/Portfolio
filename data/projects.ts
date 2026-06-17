@@ -35,6 +35,9 @@ export interface Project {
   skills: string[];
   /** Image preview (thumbnail statique) affichée sur la card projet de la home */
   previewImage?: string;
+  /** Positionnement object-fit de l'image preview (par défaut "left").
+   *  Utile pour Brothers Négoce qui préfère couper le côté droit. */
+  previewImagePosition?: "left" | "center" | "right";
   /** Pull-quote signature, utilisé en bas de fiche projet */
   pullQuote: string;
   /** Lien externe à montrer en CTA de fin de fiche */
@@ -105,6 +108,7 @@ export const projects: Project[] = [
       "Communication B2B",
     ],
     previewImage: "/projects/brothers-negoce/01-cover.png",
+    previewImagePosition: "right",
     pullQuote:
       "Un système génératif n'efface pas le designer, il libère son temps pour les arbitrages qui comptent.",
     accent: "teal",

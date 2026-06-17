@@ -51,18 +51,18 @@ export default function ChamylinexPage() {
         contextLabel="Mission client indépendante"
       />
 
-      {/* ─── CTA externe en haut, accès immédiat à l'interactif ─ */}
+      {/* ─── Mosaïque des 5 écrans : 1 grande + 4 plus petites ─ */}
+      <div className="px-4 md:px-12">
+        <VideoShowcase items={videos} layout="feature" />
+      </div>
+
+      {/* ─── CTA externe APRÈS les écrans ────────────────────── */}
       {project.externalLink && (
         <ExternalProjectCTA
           label="Voir le projet en interaction"
           externalLink={project.externalLink}
         />
       )}
-
-      {/* ─── Grille des 5 écrans, autoplay loop simultané ───── */}
-      <div className="px-6 md:px-12">
-        <VideoShowcase items={videos} cols={3} />
-      </div>
 
       {/* ─── Contexte + Approche en 2 colonnes compactes ───── */}
       <section className="px-6 md:px-12 py-10 md:py-14">

@@ -27,21 +27,21 @@ export default function MyTrackPage() {
 
       <ProjectHero project={project} contextLabel="Cas d'étude UX · Aide à la décision" />
 
-      {/* ─── CTA externe en haut ─────────────────────────────── */}
-      {project.externalLink && (
-        <ExternalProjectCTA
-          label="Tester le prototype"
-          externalLink={project.externalLink}
-        />
-      )}
-
-      {/* ─── Vidéo, gros format ──────────────────────────────── */}
+      {/* ─── Vidéo, gros format, EN PREMIER ─────────────────── */}
       <div className="px-4 md:px-12">
         <MacBookFrame
           src="/projects/mytrack/00-demo.mp4"
           caption="Démo · parcours utilisateur complet"
         />
       </div>
+
+      {/* ─── CTA externe APRÈS l'écran ──────────────────────── */}
+      {project.externalLink && (
+        <ExternalProjectCTA
+          label="Tester le prototype"
+          externalLink={project.externalLink}
+        />
+      )}
 
       <Section label="La problématique UX">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">

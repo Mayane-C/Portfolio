@@ -57,7 +57,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
               alt={`Aperçu du projet ${project.title}`}
               fill
               sizes="(min-width: 768px) 45vw, 100vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              className={`object-cover transition-transform duration-500 group-hover:scale-[1.02] ${
+                project.previewImagePosition === "right"
+                  ? "object-right"
+                  : project.previewImagePosition === "center"
+                    ? "object-center"
+                    : "object-left"
+              }`}
             />
             {/* Overlay au hover : indique qu'on peut cliquer pour voir l'interaction */}
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-prune/0 opacity-0 transition-all duration-300 group-hover:bg-prune/40 group-hover:opacity-100">

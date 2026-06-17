@@ -11,6 +11,8 @@ interface MacBookFrameProps {
   autoPlay?: boolean;
   /** Affiche les controls (par défaut false pour effet GIF) */
   controls?: boolean;
+  /** Taille de la frame : "default" (max-w-3xl, 768px) ou "large" (max-w-5xl, 1024px) */
+  size?: "default" | "large";
 }
 
 /**
@@ -32,6 +34,7 @@ export function MacBookFrame({
   caption,
   autoPlay = true,
   controls = false,
+  size = "large",
 }: MacBookFrameProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -57,8 +60,10 @@ export function MacBookFrame({
     return () => observer.disconnect();
   }, [autoPlay]);
 
+  const maxWidthClass = size === "large" ? "max-w-5xl" : "max-w-3xl";
+
   return (
-    <figure className="mx-auto my-12 max-w-3xl md:my-16">
+    <figure className={`mx-auto my-12 ${maxWidthClass} md:my-16`}>
       {/* Coque MacBook : top bar + écran */}
       <div className="relative overflow-hidden rounded-t-xl bg-prune-deep p-2 shadow-2xl md:rounded-t-2xl md:p-3">
         {/* Liseré caméra frontale (point clair) */}
@@ -83,7 +88,7 @@ export function MacBookFrame({
       </div>
 
       {/* Pied MacBook : trapèze stylisé */}
-      <div className="mx-auto h-3 max-w-3xl rounded-b-2xl bg-prune-deep/95 md:h-4">
+      <div className={`mx-auto h-3 ${maxWidthClass} rounded-b-2xl bg-prune-deep/95 md:h-4`}>
         <div className="mx-auto h-full w-3/4 rounded-b-full bg-gradient-to-b from-transparent to-prune-deep/60" />
       </div>
       <div className="mx-auto h-1 w-1/4 rounded-b-full bg-prune-deep/40" />

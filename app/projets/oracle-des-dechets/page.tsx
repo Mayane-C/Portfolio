@@ -30,7 +30,15 @@ export default function OraclePage() {
         contextLabel="Cas d'étude · IA + Automation · ChangeNOW"
       />
 
-      {/* ─── CTA externe en haut + disclaimer disponibilité IA ─ */}
+      {/* ─── Vidéo, gros format, EN PREMIER ─────────────────── */}
+      <div className="px-4 md:px-12">
+        <MacBookFrame
+          src="/projects/oracle-des-dechets/demo.mp4"
+          caption="Démo · saisie d'un objet et génération de la prophétie"
+        />
+      </div>
+
+      {/* ─── CTA externe APRÈS l'écran + disclaimer ─────────── */}
       {project.externalLink && (
         <ExternalProjectCTA
           label="Tester l'IA en direct"
@@ -39,81 +47,89 @@ export default function OraclePage() {
         />
       )}
 
-      {/* ─── Vidéo, gros format ──────────────────────────────── */}
-      <div className="px-4 md:px-12">
-        <MacBookFrame
-          src="/projects/oracle-des-dechets/demo.mp4"
-          caption="Démo · saisie d'un objet et génération de la prophétie"
-        />
-      </div>
+      {/* ─── Concept + Architecture en 2 colonnes côte à côte ── */}
+      <section className="px-6 md:px-12 py-10 md:py-14">
+        <div className="border-t border-rose-ancien/30 pt-8 md:pt-10">
+          <div className="grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
+            {/* COL 1, Le concept */}
+            <div>
+              <div className="mb-4 flex items-center gap-3">
+                <span className="block h-px w-6 bg-rose-ancien" />
+                <span className="label-mono text-rose-ancien">
+                  Le concept
+                </span>
+              </div>
+              <p className="font-sans text-base text-ink leading-relaxed">
+                Un Oracle dystopique de l&apos;an 2500 répond aux objets que
+                l&apos;on jette. L&apos;utilisateur saisit «{" "}
+                <em className="italic text-gold-ink">puff</em> », «{" "}
+                <em className="italic text-gold-ink">gobelet</em> », «{" "}
+                <em className="italic text-gold-ink">bouteille</em> »…
+              </p>
+              <p className="font-sans text-base text-ink leading-relaxed mt-4">
+                L&apos;IA renvoie une prophétie en trois temps,{" "}
+                <em className="italic text-gold-ink">
+                  tension, prophétie, vision
+                </em>
+                , avec image générée et voix synthétique. Tout en
+                collaboration avec mon binôme.
+              </p>
+              <div className="mt-6">
+                <p className="font-serif italic text-xl text-prune leading-snug border-l-2 border-rose-ancien pl-5">
+                  « Pas une solution. Pas une prédiction. Un miroir. »
+                </p>
+              </div>
+            </div>
 
-      <Section label="Le concept">
-        <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
-          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            Un Oracle dystopique de l&apos;an 2500 répond aux objets que
-            l&apos;on jette. L&apos;utilisateur saisit «{" "}
-            <em className="italic text-gold-ink">puff</em> », «{" "}
-            <em className="italic text-gold-ink">gobelet</em> », «{" "}
-            <em className="italic text-gold-ink">bouteille</em> »…
-          </p>
-          <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
-            L&apos;IA renvoie une prophétie en trois temps,{" "}
-            <em className="italic text-gold-ink">
-              tension, prophétie, vision
-            </em>{" "}
-           , avec image générée et voix synthétique. Tout en collaboration
-            avec mon binôme.
-          </p>
-        </div>
-        <div className="mt-10 max-w-3xl">
-          <p className="font-serif italic text-2xl text-prune leading-snug border-l-2 border-rose-ancien pl-5">
-            « Pas une solution. Pas une prédiction. Un miroir. »
-          </p>
-        </div>
-      </Section>
+            {/* COL 2, L'architecture */}
+            <div>
+              <div className="mb-4 flex items-center gap-3">
+                <span className="block h-px w-6 bg-rose-ancien" />
+                <span className="label-mono text-rose-ancien">
+                  L&apos;architecture
+                </span>
+              </div>
 
-      <Section label="L'architecture" compact>
-        <div className="grid grid-cols-1 gap-x-12 gap-y-8 md:grid-cols-2">
-          <div>
-            <p className="label-mono mb-3 text-rose-ancien">Stack</p>
-            <p className="font-serif italic text-xl text-ink leading-snug">
-              n8n · Groq · Pollinations · Vercel · React
-            </p>
-            <p className="font-sans text-sm text-taupe mt-3 leading-relaxed">
-              Brief CREATECH : concevoir une expérience mobilisant une ou
-              plusieurs API en réponse à un enjeu d&apos;impact, dans le
-              cadre du sommet ChangeNOW (solutions climatiques).
-            </p>
+              <div className="space-y-5">
+                <div>
+                  <p className="label-mono mb-1.5 text-taupe">Stack</p>
+                  <p className="font-serif italic text-lg text-ink leading-snug">
+                    n8n · Groq · Pollinations · Vercel · React
+                  </p>
+                </div>
+
+                <div>
+                  <p className="label-mono mb-1.5 text-taupe">
+                    Performance end-to-end
+                  </p>
+                  <p className="font-serif italic text-lg text-ink leading-snug">
+                    3 à 6 secondes
+                  </p>
+                  <p className="font-sans text-sm text-taupe mt-1.5 leading-relaxed">
+                    De la saisie utilisateur à la prophétie renvoyée avec
+                    image générée et voix synthétisée.
+                  </p>
+                </div>
+
+                <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 pt-2">
+                  <NumberedStep
+                    nr="V1"
+                    label="Version"
+                    title="Demo day · 14 avril 2026"
+                    description="Workflow n8n privé · saisie manuelle dans le prompt · génération image via nœud HTTP."
+                  />
+                  <NumberedStep
+                    nr="V2"
+                    label="Version"
+                    title="Production · 19 avril 2026"
+                    description="Webhook public · formulaire utilisateur · Pollinations côté client · retour multi-canal."
+                  />
+                </ul>
+              </div>
+            </div>
           </div>
-          <div>
-            <p className="label-mono mb-3 text-rose-ancien">
-              Performance end-to-end
-            </p>
-            <p className="font-serif italic text-xl text-ink leading-snug">
-              3 à 6 secondes
-            </p>
-            <p className="font-sans text-sm text-taupe mt-3 leading-relaxed">
-              De la saisie utilisateur à la prophétie renvoyée avec image
-              générée et voix synthétisée.
-            </p>
-          </div>
         </div>
-
-        <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-          <NumberedStep
-            nr="V1"
-            label="Version"
-            title="Demo day · 14 avril 2026"
-            description="Workflow n8n privé · saisie manuelle dans le prompt · génération image via nœud HTTP."
-          />
-          <NumberedStep
-            nr="V2"
-            label="Version"
-            title="Production · 19 avril 2026"
-            description="Webhook public · formulaire utilisateur · Pollinations côté client · retour multi-canal."
-          />
-        </ul>
-      </Section>
+      </section>
 
       <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>

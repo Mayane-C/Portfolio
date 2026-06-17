@@ -47,6 +47,11 @@ export default function BrothersNegocePage() {
 
       <ProjectHero project={project} contextLabel="Expérience en alternance" />
 
+      {/* ─── Carousel des 3 planches, EN PREMIER ───────────── */}
+      <div className="px-6 md:px-12">
+        <Carousel items={captures} ratio="4/3" />
+      </div>
+
       <Section label="Le contexte">
         <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
           <p className="font-sans text-base md:text-lg text-ink leading-relaxed">
@@ -115,11 +120,6 @@ export default function BrothersNegocePage() {
           />
         </ul>
       </Section>
-
-      {/* ─── Carousel des 3 planches ────────────────────────── */}
-      <div className="px-6 md:px-12">
-        <Carousel items={captures} ratio="4/3" />
-      </div>
 
       <div className="px-6 md:px-12">
         <PullQuote>{project.pullQuote}</PullQuote>
